@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="database" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">C:\village\a-haapa\village</Value>
+      <Value Profile="(Default)">C:\village\a-haapa\village\villageDB</Value>
     </Setting>
     <Setting Name="table1" Type="System.String" Scope="Application">
       <Value Profile="(Default)">asiakas</Value>

@@ -25,7 +25,7 @@ namespace village.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\village\\a-haapa\\village")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\village\\a-haapa\\village\\villageDB")]
         public string database {
             get {
                 return ((string)(this["database"]));
