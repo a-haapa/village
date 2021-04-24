@@ -1,0 +1,241 @@
+﻿
+namespace village
+{
+    partial class paaikkuna
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnMokkienHaku = new System.Windows.Forms.Button();
+            this.btnVaraustenHallinta = new System.Windows.Forms.Button();
+            this.btnYllapito = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cbToimintaAlue = new System.Windows.Forms.ComboBox();
+            this.cbHenkilomaara = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnHaeMokit = new System.Windows.Forms.Button();
+            this.btnTeeVaraus = new System.Windows.Forms.Button();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1568, 963);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.btnYllapito);
+            this.tabPage1.Controls.Add(this.btnVaraustenHallinta);
+            this.tabPage1.Controls.Add(this.btnMokkienHaku);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 33);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1560, 926);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Etusivu";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.btnTeeVaraus);
+            this.tabPage2.Controls.Add(this.btnHaeMokit);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.cbHenkilomaara);
+            this.tabPage2.Controls.Add(this.cbToimintaAlue);
+            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 33);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1560, 926);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Mökkien haku";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 33);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1560, 926);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Lucida Calligraphy", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(387, 259);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(769, 108);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Village Newbies";
+            // 
+            // btnMokkienHaku
+            // 
+            this.btnMokkienHaku.Location = new System.Drawing.Point(560, 426);
+            this.btnMokkienHaku.Name = "btnMokkienHaku";
+            this.btnMokkienHaku.Size = new System.Drawing.Size(379, 69);
+            this.btnMokkienHaku.TabIndex = 1;
+            this.btnMokkienHaku.Text = "Mökkien haku";
+            this.btnMokkienHaku.UseVisualStyleBackColor = true;
+            // 
+            // btnVaraustenHallinta
+            // 
+            this.btnVaraustenHallinta.Location = new System.Drawing.Point(560, 527);
+            this.btnVaraustenHallinta.Name = "btnVaraustenHallinta";
+            this.btnVaraustenHallinta.Size = new System.Drawing.Size(379, 69);
+            this.btnVaraustenHallinta.TabIndex = 2;
+            this.btnVaraustenHallinta.Text = "Varausten hallinta";
+            this.btnVaraustenHallinta.UseVisualStyleBackColor = true;
+            // 
+            // btnYllapito
+            // 
+            this.btnYllapito.Location = new System.Drawing.Point(560, 630);
+            this.btnYllapito.Name = "btnYllapito";
+            this.btnYllapito.Size = new System.Drawing.Size(379, 69);
+            this.btnYllapito.TabIndex = 3;
+            this.btnYllapito.Text = "Ylläpito";
+            this.btnYllapito.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(662, 137);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 72;
+            this.dataGridView1.RowTemplate.Height = 31;
+            this.dataGridView1.Size = new System.Drawing.Size(819, 559);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // cbToimintaAlue
+            // 
+            this.cbToimintaAlue.FormattingEnabled = true;
+            this.cbToimintaAlue.Location = new System.Drawing.Point(91, 212);
+            this.cbToimintaAlue.Name = "cbToimintaAlue";
+            this.cbToimintaAlue.Size = new System.Drawing.Size(367, 32);
+            this.cbToimintaAlue.TabIndex = 1;
+            // 
+            // cbHenkilomaara
+            // 
+            this.cbHenkilomaara.FormattingEnabled = true;
+            this.cbHenkilomaara.Location = new System.Drawing.Point(91, 317);
+            this.cbHenkilomaara.Name = "cbHenkilomaara";
+            this.cbHenkilomaara.Size = new System.Drawing.Size(367, 32);
+            this.cbHenkilomaara.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(86, 184);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(131, 25);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Toiminta-alue";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(86, 289);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(132, 25);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Henkilömäärä";
+            // 
+            // btnHaeMokit
+            // 
+            this.btnHaeMokit.Location = new System.Drawing.Point(91, 404);
+            this.btnHaeMokit.Name = "btnHaeMokit";
+            this.btnHaeMokit.Size = new System.Drawing.Size(200, 48);
+            this.btnHaeMokit.TabIndex = 5;
+            this.btnHaeMokit.Text = "Hae mökit";
+            this.btnHaeMokit.UseVisualStyleBackColor = true;
+            // 
+            // btnTeeVaraus
+            // 
+            this.btnTeeVaraus.Location = new System.Drawing.Point(1281, 786);
+            this.btnTeeVaraus.Name = "btnTeeVaraus";
+            this.btnTeeVaraus.Size = new System.Drawing.Size(200, 48);
+            this.btnTeeVaraus.TabIndex = 6;
+            this.btnTeeVaraus.Text = "Tee varaus";
+            this.btnTeeVaraus.UseVisualStyleBackColor = true;
+            // 
+            // paaikkuna
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1592, 987);
+            this.Controls.Add(this.tabControl1);
+            this.Name = "paaikkuna";
+            this.Text = "paaikkuna";
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button btnYllapito;
+        private System.Windows.Forms.Button btnVaraustenHallinta;
+        private System.Windows.Forms.Button btnMokkienHaku;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnTeeVaraus;
+        private System.Windows.Forms.Button btnHaeMokit;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbHenkilomaara;
+        private System.Windows.Forms.ComboBox cbToimintaAlue;
+    }
+}
