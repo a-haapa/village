@@ -203,6 +203,7 @@ namespace village
             this.btnHaeAsiakas.TabIndex = 15;
             this.btnHaeAsiakas.Text = "Hae asiakas";
             this.btnHaeAsiakas.UseVisualStyleBackColor = true;
+            this.btnHaeAsiakas.Click += new System.EventHandler(this.btnHaeAsiakas_Click);
             // 
             // cbTallenna
             // 
@@ -332,6 +333,7 @@ namespace village
             this.btnVahvista.TabIndex = 29;
             this.btnVahvista.Text = "Vahvista";
             this.btnVahvista.UseVisualStyleBackColor = true;
+            this.btnVahvista.Click += new System.EventHandler(this.btnVahvista_Click);
             // 
             // varaus
             // 

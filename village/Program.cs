@@ -16,7 +16,7 @@ namespace village
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new paaikkuna());
+            Application.Run(new varaus());
         }
     }
 }

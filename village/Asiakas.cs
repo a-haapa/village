@@ -13,7 +13,7 @@ namespace village
         public string Etunimi { get; set; }
         public string Sukunimi { get; set; }
         public string Lahiosoite { get; set; }
-        public int Postinro { get; set; }
+        public string Postinro { get; set; }
         public string Puhelinnro { get; set; }
         public string Email { get; set; }
        

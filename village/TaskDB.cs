@@ -104,16 +104,16 @@ namespace village
                 throw;
             }
         }
-        public static bool AddToSql(string etunimi, string sukunimi, string lahiosoite, string email, string puhelinnro)
-        {   // Lisää käyttäjän kirjaamat tiedot kantaan
+        public static bool LisaaAsiakas(Asiakas a)
+        {   // Lisää käyttäjän kirjaamat asiakastiedot kantaan
             try
             {
                 if (File.Exists(filename))
                 {
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
                     connection.Open();
-                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename} (etunimi,sukunimi,lahiosoite,postinro,toimipaikka,email,puhelinnro)" +
-                        $"VALUES ('{etunimi}','{sukunimi}','{lahiosoite}','{email}','{puhelinnro}')", connection);
+                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename} (etunimi,sukunimi,postinro,lahiosoite,email,puhelinnro)" +
+                        $"VALUES ('{a.Etunimi}','{a.Sukunimi}','{a.Postinro}','{a.Lahiosoite}','{a.Email}','{a.Puhelinnro}')", connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
                     return true;
@@ -126,6 +126,29 @@ namespace village
             catch
             {
                 throw;
+            }
+        }
+        public static DataTable HaeAsiakas(Asiakas a)
+        {
+            //Tietojen haku "asiakas" taulusta
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT * FROM {tablename} WHERE email='{a.Email}'", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
 
