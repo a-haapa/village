@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace village
 {
-    public partial class paaikkuna : Form
+    public partial class varaus : Form
     {
-        public paaikkuna()
+        public varaus()
         {
             InitializeComponent();
-        }
-
-        private void btnTeeVaraus_Click(object sender, EventArgs e)
-        {
-            varaus vr = new varaus();
-            vr.Show();
         }
     }
 }

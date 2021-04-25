@@ -104,7 +104,7 @@ namespace village
                 throw;
             }
         }
-        public static bool AddToSql(string etunimi, string sukunimi, string kutsumanimi, string lahiosoite, string email, string puhelinnro)
+        public static bool AddToSql(string etunimi, string sukunimi, string lahiosoite, string email, string puhelinnro)
         {   // Lisää käyttäjän kirjaamat tiedot kantaan
             try
             {
@@ -113,7 +113,7 @@ namespace village
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
                     connection.Open();
                     SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename} (etunimi,sukunimi,lahiosoite,postinro,toimipaikka,email,puhelinnro)" +
-                        $"VALUES ('{etunimi}','{sukunimi}','{kutsumanimi}','{lahiosoite}','{email}','{puhelinnro}')", connection);
+                        $"VALUES ('{etunimi}','{sukunimi}','{lahiosoite}','{email}','{puhelinnro}')", connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
                     return true;
