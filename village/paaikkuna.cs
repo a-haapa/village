@@ -30,7 +30,8 @@ namespace village
 
         private void btnMokkienHaku_Click(object sender, EventArgs e)
         {
-
+            tabControl1.SelectedTab = tabPage2;
+           
         }
 
         private void btnHaeMokit_Click(object sender, EventArgs e)
