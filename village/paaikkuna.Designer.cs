@@ -86,6 +86,7 @@ namespace village
             this.btnYllapito.TabIndex = 3;
             this.btnYllapito.Text = "Ylläpito";
             this.btnYllapito.UseVisualStyleBackColor = true;
+            this.btnYllapito.Click += new System.EventHandler(this.btnYllapito_Click);
             // 
             // btnVaraustenHallinta
             // 

@@ -40,5 +40,11 @@ namespace village
             int henkilomaara = int.Parse(cbHenkilomaara.Text);
             dgvMokit.DataSource = TaskDB.HaeMokki(henkilomaara);
         }
+
+        private void btnYllapito_Click(object sender, EventArgs e)
+        {
+            yllapito formi = new yllapito();
+            formi.Show();
+        }
     }
 }

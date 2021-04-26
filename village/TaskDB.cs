@@ -54,6 +54,52 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
+        public static DataTable HaeToimintaalue()
+        {
+            //Tietojen haku "Toiminta-alueet" taulusta
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT * FROM {tablename6}", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
+        public static bool LisaaToimintaalue(Toimintaalue t)
+        {   // Lisää käyttäjän kirjaamat asiakastiedot kantaan
+            try
+            {
+                if (File.Exists(filename))
+                {
+                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
+                    connection.Open();
+                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename6} (nimi)" +
+                        $"VALUES ('{t.Nimi}')", connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                else
+                {
+                    throw new FileNotFoundException("Tiedostoa ei löytynyt");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
         public static DataTable HaeMokki(int henkilomaara)
         {
             //Tietojen haku "Mökki" taulusta
@@ -62,6 +108,28 @@ namespace village
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand($"SELECT mokki_id,mokkinimi,henkilomaara,mokinhinta,mokinalv,katuosoite,postinro FROM {tablename5}, {tablename6} WHERE mokki.toimintaalue_id=toimintaalue.toimintaalue_id and mokki.henkilomaara='{henkilomaara}'", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
+        public static DataTable HaeMokit()
+        {
+            //Tietojen haku "Mökki" taulusta
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT mokki_id,mokkinimi,henkilomaara,mokinhinta,mokinalv,katuosoite,postinro FROM {tablename5}", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();

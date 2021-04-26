@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace village
 {
-    class Toimintaalue
+    public class Toimintaalue
     {
         public int Toimintaalue_id { get; set; }
         public string Nimi { get; set; }
