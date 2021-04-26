@@ -54,14 +54,14 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
-        public static DataTable ReadFromMokki()
+        public static DataTable HaeMokki(int henkilomaara)
         {
             //Tietojen haku "Mökki" taulusta
             if (File.Exists(filename))
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT * FROM {tablename5}", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT mokkinimi,henkilomaara,mokinhinta,mokinalv,katuosoite,postinro FROM {tablename5}, {tablename6} WHERE mokki.toimintaalue_id=toimintaalue.toimintaalue_id and mokki.henkilomaara='{henkilomaara}'", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();

@@ -22,5 +22,17 @@ namespace village
             varaus vr = new varaus();
             vr.Show();
         }
+
+        private void btnMokkienHaku_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHaeMokit_Click(object sender, EventArgs e)
+        {
+            string toimintaalue = cbToimintaAlue.Text;
+            int henkilomaara = int.Parse(cbHenkilomaara.Text);
+            dgvMokit.DataSource = TaskDB.HaeMokki(henkilomaara);
+        }
     }
 }
