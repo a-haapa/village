@@ -13,9 +13,16 @@ namespace village
 {
     public partial class varaus : Form
     {
-        public varaus()
+        public varaus(DataTable t)
         {
             InitializeComponent();
+            double hinta = t.Rows[0].Field<double>(9) + t.Rows[0].Field<double>(10) / 100;
+            lblMokkinimi.Text = t.Rows[0].Field<string>(4);
+            lblHenkilomaara.Text = t.Rows[0].Field<int>(7).ToString();
+            lblKatuosoite.Text = t.Rows[0].Field<string>(5);
+            lblPostinro.Text = t.Rows[0].Field<string>(3);
+            lblKuvaus.Text = t.Rows[0].Field<string>(6);
+            lblVarustelu.Text = t.Rows[0].Field<string>(8);
         }
 
         private void btnVahvista_Click(object sender, EventArgs e)

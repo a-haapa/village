@@ -19,7 +19,12 @@ namespace village
 
         private void btnTeeVaraus_Click(object sender, EventArgs e)
         {
-            varaus vr = new varaus();
+            Mokki m = new Mokki();
+            int row = dgvMokit.SelectedCells[0].RowIndex;
+            int id = int.Parse(dgvMokit.Rows[row].Cells[0].Value.ToString());
+            
+            DataTable t = TaskDB.Hae(id);
+            varaus vr = new varaus(t);
             vr.Show();
         }
 

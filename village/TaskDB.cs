@@ -61,7 +61,29 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT mokkinimi,henkilomaara,mokinhinta,mokinalv,katuosoite,postinro FROM {tablename5}, {tablename6} WHERE mokki.toimintaalue_id=toimintaalue.toimintaalue_id and mokki.henkilomaara='{henkilomaara}'", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT mokki_id,mokkinimi,henkilomaara,mokinhinta,mokinalv,katuosoite,postinro FROM {tablename5}, {tablename6} WHERE mokki.toimintaalue_id=toimintaalue.toimintaalue_id and mokki.henkilomaara='{henkilomaara}'", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
+        public static DataTable Hae(int id)
+        {
+            //Tietojen haku "Mökki" taulusta
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT * FROM {tablename5} WHERE mokki.mokki_id='{id}'", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();
