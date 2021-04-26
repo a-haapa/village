@@ -66,7 +66,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asiakas.cs" />
+    <Compile Include="Palvelu.cs" />
     <Compile Include="Mokki.cs" />
+    <Compile Include="Toimintaalue.cs" />
     <Compile Include="varaus.cs">
       <SubType>Form</SubType>
     </Compile>
