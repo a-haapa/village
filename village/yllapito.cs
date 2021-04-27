@@ -45,6 +45,15 @@ namespace village
             formi.Show();
         }
 
+        private void btnPoistaToimintaAlue_Click(object sender, EventArgs e)
+        {
+            int row = dgvToimintaalueet.SelectedCells[0].RowIndex;
+            int id = int.Parse(dgvToimintaalueet.Rows[row].Cells[0].Value.ToString());
+            TaskDB.PoistaToimintaAlue(id);
+
+            dgvToimintaalueet.DataSource = TaskDB.HaeToimintaalue();
+        }
+
         private void btnLisaaPalvelu_Click(object sender, EventArgs e)
         {
             Palvelu p = new Palvelu();

@@ -19,6 +19,7 @@ namespace village
 
         private void btnTeeVaraus_Click(object sender, EventArgs e)
         {
+            //Etsii dgv:stä valitun rivin rivi-indexin ja hakee sen id-numeron muuttujaan ja hakee tietokannasta tiedot mökistä, jolla ko id-numro
             Mokki m = new Mokki();
             int row = dgvMokit.SelectedCells[0].RowIndex;
             int id = int.Parse(dgvMokit.Rows[row].Cells[0].Value.ToString());
