@@ -43,6 +43,9 @@ namespace village
         {
             paaikkuna formi = new paaikkuna();
             formi.Show();
+            
+
+
         }
 
         private void btnPoistaToimintaAlue_Click(object sender, EventArgs e)
@@ -52,6 +55,20 @@ namespace village
             TaskDB.PoistaToimintaAlue(id);
 
             dgvToimintaalueet.DataSource = TaskDB.HaeToimintaalue();
+        }
+
+        private void btnLisaaPalvelu_Click(object sender, EventArgs e)
+        {
+            Palvelu p = new Palvelu();
+            p.Nimi = tbPalveluNimi.Text;
+            p.Palvelu_id = cbPalveluId.SelectedIndex;
+            p.ToimintaAlue = cbPalvelunToimintaAlue.SelectedIndex.ToString();
+            p.Tyyppi = tbPalveluTyyppi.Text;
+            p.Kuvaus = tbPalveluKuvaus.Text;
+            p.Hinta = double.Parse(tbPalveluHinta.Text);
+            p.Alv = double.Parse(tbPalveluAlv.Text);
+        }
+
         }
 
         private void btnLisaaPalvelu_Click(object sender, EventArgs e)

@@ -60,6 +60,26 @@
             this.dgvToimintaalueet = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cbPalvelunToimintaAlue = new System.Windows.Forms.ComboBox();
+            this.btnPoistaPalvelu = new System.Windows.Forms.Button();
+            this.btnMuokkaaPalvelua = new System.Windows.Forms.Button();
+            this.btnLisaaPalvelu = new System.Windows.Forms.Button();
+            this.tbPalveluAlv = new System.Windows.Forms.TextBox();
+            this.tbPalveluHinta = new System.Windows.Forms.TextBox();
+            this.tbPalveluKuvaus = new System.Windows.Forms.TextBox();
+            this.tbPalveluTyyppi = new System.Windows.Forms.TextBox();
+            this.cbPalveluId = new System.Windows.Forms.ComboBox();
+            this.tbPalveluNimi = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dgvPalvelut = new System.Windows.Forms.DataGridView();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -91,6 +111,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(28, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(254, 29);
             this.label1.Location = new System.Drawing.Point(20, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -101,6 +125,10 @@
             // tbToimintaAlue
             // 
             this.tbToimintaAlue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbToimintaAlue.Location = new System.Drawing.Point(33, 76);
+            this.tbToimintaAlue.Margin = new System.Windows.Forms.Padding(6);
+            this.tbToimintaAlue.Name = "tbToimintaAlue";
+            this.tbToimintaAlue.Size = new System.Drawing.Size(180, 31);
             this.tbToimintaAlue.Location = new System.Drawing.Point(24, 51);
             this.tbToimintaAlue.Margin = new System.Windows.Forms.Padding(4);
             this.tbToimintaAlue.Name = "tbToimintaAlue";
@@ -109,6 +137,10 @@
             // 
             // btnLisaaToimintaAlue
             // 
+            this.btnLisaaToimintaAlue.Location = new System.Drawing.Point(531, 214);
+            this.btnLisaaToimintaAlue.Margin = new System.Windows.Forms.Padding(6);
+            this.btnLisaaToimintaAlue.Name = "btnLisaaToimintaAlue";
+            this.btnLisaaToimintaAlue.Size = new System.Drawing.Size(138, 42);
             this.btnLisaaToimintaAlue.Location = new System.Drawing.Point(386, 143);
             this.btnLisaaToimintaAlue.Margin = new System.Windows.Forms.Padding(4);
             this.btnLisaaToimintaAlue.Name = "btnLisaaToimintaAlue";
@@ -120,6 +152,10 @@
             // 
             // btnPoistaToimintaAlue
             // 
+            this.btnPoistaToimintaAlue.Location = new System.Drawing.Point(825, 214);
+            this.btnPoistaToimintaAlue.Margin = new System.Windows.Forms.Padding(6);
+            this.btnPoistaToimintaAlue.Name = "btnPoistaToimintaAlue";
+            this.btnPoistaToimintaAlue.Size = new System.Drawing.Size(138, 42);
             this.btnPoistaToimintaAlue.Location = new System.Drawing.Point(600, 143);
             this.btnPoistaToimintaAlue.Margin = new System.Windows.Forms.Padding(4);
             this.btnPoistaToimintaAlue.Name = "btnPoistaToimintaAlue";
@@ -133,6 +169,12 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(16, 18);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1402, 946);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -170,6 +212,11 @@
             this.tabPage1.Controls.Add(this.btnPoistaToimintaAlue);
             this.tabPage1.Controls.Add(this.tbToimintaAlue);
             this.tabPage1.Controls.Add(this.btnLisaaToimintaAlue);
+            this.tabPage1.Location = new System.Drawing.Point(4, 33);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(1394, 909);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -177,6 +224,212 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Toiminta-alueiden ja mökkien ylläpito";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnSulje
+            // 
+            this.btnSulje.Location = new System.Drawing.Point(1151, 686);
+            this.btnSulje.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSulje.Name = "btnSulje";
+            this.btnSulje.Size = new System.Drawing.Size(197, 62);
+            this.btnSulje.TabIndex = 28;
+            this.btnSulje.Text = "Sulje";
+            this.btnSulje.UseVisualStyleBackColor = true;
+            this.btnSulje.Click += new System.EventHandler(this.btnSulje_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(210, 267);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(131, 25);
+            this.label11.TabIndex = 27;
+            this.label11.Text = "Toiminta-alue";
+            // 
+            // cbAlue
+            // 
+            this.cbAlue.FormattingEnabled = true;
+            this.cbAlue.Location = new System.Drawing.Point(213, 297);
+            this.cbAlue.Margin = new System.Windows.Forms.Padding(4);
+            this.cbAlue.Name = "cbAlue";
+            this.cbAlue.Size = new System.Drawing.Size(165, 32);
+            this.cbAlue.TabIndex = 26;
+            // 
+            // btnPoistamokki
+            // 
+            this.btnPoistamokki.Location = new System.Drawing.Point(808, 576);
+            this.btnPoistamokki.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPoistamokki.Name = "btnPoistamokki";
+            this.btnPoistamokki.Size = new System.Drawing.Size(122, 44);
+            this.btnPoistamokki.TabIndex = 25;
+            this.btnPoistamokki.Text = "Poista";
+            this.btnPoistamokki.UseVisualStyleBackColor = true;
+            // 
+            // btnMuokkaamokki
+            // 
+            this.btnMuokkaamokki.Location = new System.Drawing.Point(678, 576);
+            this.btnMuokkaamokki.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMuokkaamokki.Name = "btnMuokkaamokki";
+            this.btnMuokkaamokki.Size = new System.Drawing.Size(122, 44);
+            this.btnMuokkaamokki.TabIndex = 24;
+            this.btnMuokkaamokki.Text = "Muokkaa";
+            this.btnMuokkaamokki.UseVisualStyleBackColor = true;
+            // 
+            // btnLisaamokki
+            // 
+            this.btnLisaamokki.Location = new System.Drawing.Point(531, 576);
+            this.btnLisaamokki.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLisaamokki.Name = "btnLisaamokki";
+            this.btnLisaamokki.Size = new System.Drawing.Size(138, 44);
+            this.btnLisaamokki.TabIndex = 23;
+            this.btnLisaamokki.Text = "Lisää";
+            this.btnLisaamokki.UseVisualStyleBackColor = true;
+            this.btnLisaamokki.Click += new System.EventHandler(this.btnLisaamokki_Click);
+            // 
+            // dgvMokkilista
+            // 
+            this.dgvMokkilista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMokkilista.Location = new System.Drawing.Point(531, 285);
+            this.dgvMokkilista.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvMokkilista.Name = "dgvMokkilista";
+            this.dgvMokkilista.RowHeadersWidth = 51;
+            this.dgvMokkilista.RowTemplate.Height = 24;
+            this.dgvMokkilista.Size = new System.Drawing.Size(817, 282);
+            this.dgvMokkilista.TabIndex = 22;
+            // 
+            // tbKuvaus
+            // 
+            this.tbKuvaus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbKuvaus.Location = new System.Drawing.Point(33, 590);
+            this.tbKuvaus.Margin = new System.Windows.Forms.Padding(4);
+            this.tbKuvaus.Name = "tbKuvaus";
+            this.tbKuvaus.Size = new System.Drawing.Size(451, 31);
+            this.tbKuvaus.TabIndex = 21;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(210, 450);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(153, 25);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Hinta ilman alvia";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(210, 354);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(121, 25);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Postinumero";
+            // 
+            // tbPostinro
+            // 
+            this.tbPostinro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPostinro.Location = new System.Drawing.Point(214, 384);
+            this.tbPostinro.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPostinro.Name = "tbPostinro";
+            this.tbPostinro.Size = new System.Drawing.Size(136, 31);
+            this.tbPostinro.TabIndex = 18;
+            // 
+            // tbVarustelu
+            // 
+            this.tbVarustelu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbVarustelu.Location = new System.Drawing.Point(33, 686);
+            this.tbVarustelu.Margin = new System.Windows.Forms.Padding(4);
+            this.tbVarustelu.Name = "tbVarustelu";
+            this.tbVarustelu.Size = new System.Drawing.Size(451, 31);
+            this.tbVarustelu.TabIndex = 17;
+            this.tbVarustelu.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            // 
+            // tbHinta
+            // 
+            this.tbHinta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbHinta.Location = new System.Drawing.Point(214, 480);
+            this.tbHinta.Margin = new System.Windows.Forms.Padding(4);
+            this.tbHinta.Name = "tbHinta";
+            this.tbHinta.Size = new System.Drawing.Size(133, 31);
+            this.tbHinta.TabIndex = 16;
+            // 
+            // tbHenkilomaara
+            // 
+            this.tbHenkilomaara.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbHenkilomaara.Location = new System.Drawing.Point(33, 480);
+            this.tbHenkilomaara.Margin = new System.Windows.Forms.Padding(4);
+            this.tbHenkilomaara.Name = "tbHenkilomaara";
+            this.tbHenkilomaara.Size = new System.Drawing.Size(133, 31);
+            this.tbHenkilomaara.TabIndex = 15;
+            // 
+            // tbOsoite
+            // 
+            this.tbOsoite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbOsoite.Location = new System.Drawing.Point(33, 384);
+            this.tbOsoite.Margin = new System.Windows.Forms.Padding(4);
+            this.tbOsoite.Name = "tbOsoite";
+            this.tbOsoite.Size = new System.Drawing.Size(136, 31);
+            this.tbOsoite.TabIndex = 14;
+            // 
+            // tbNimi
+            // 
+            this.tbNimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNimi.Location = new System.Drawing.Point(34, 297);
+            this.tbNimi.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNimi.Name = "tbNimi";
+            this.tbNimi.Size = new System.Drawing.Size(136, 31);
+            this.tbNimi.TabIndex = 13;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(29, 656);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(95, 25);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Varustelu";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(30, 560);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 25);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Kuvaus";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(29, 450);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(132, 25);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Henkilömäärä";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(29, 354);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 25);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Osoite";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(30, 267);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 25);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Nimi";
             // 
             // btnMuokkaa
             // 
@@ -235,6 +488,7 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Nimi";
             // 
+            // label11
             // label5
             // 
             this.label5.AutoSize = true;
@@ -244,6 +498,7 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Osoite";
             // 
+            // cbAlue
             // label6
             // 
             this.label6.AutoSize = true;
@@ -253,6 +508,7 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Henkilömäärä";
             // 
+            // btnPoistamokki
             // label7
             // 
             this.label7.AutoSize = true;
@@ -417,6 +673,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 643);
             this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "yllapito";
             this.Text = "Testi2";
@@ -425,6 +682,9 @@
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMokkilista)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvToimintaalueet)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPalvelut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMokkilista)).EndInit();
             this.ResumeLayout(false);
 
