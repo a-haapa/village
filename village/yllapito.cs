@@ -19,6 +19,13 @@ namespace village
             dgvToimintaalueet.DataSource = TaskDB.HaeToimintaalue();
             dgvMokkilista.DataSource = TaskDB.HaeMokit();
             dgvPalvelut.DataSource = TaskDB.HaePalvelut();
+            cbAlue.DataSource = TaskDB.HaeToimintaalue();
+            cbAlue.ValueMember = "toimintaalue_id";
+            cbAlue.DisplayMember = "nimi";
+            cbPalvToimintaAlue.DataSource = TaskDB.HaeToimintaalue();
+            cbPalvToimintaAlue.ValueMember = "toimintaalue_id";
+            cbPalvToimintaAlue.DisplayMember = "nimi";
+
         }
 
         private void btnLisaaToimintaAlue_Click(object sender, EventArgs e)
@@ -68,6 +75,11 @@ namespace village
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

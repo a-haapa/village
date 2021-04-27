@@ -3,6 +3,7 @@ using System.IO;
 using System.Data.SQLite;
 using System.Data.SQLite.Linq;
 using System;
+using System.Collections.Generic;
 
 namespace village
 {
@@ -77,7 +78,6 @@ namespace village
             }
         }
 
-
         public static bool LisaaToimintaalue(Toimintaalue t)
         {   // Lisää käyttäjän kirjaamat toiminta-aluetiedot kantaan
             try
@@ -102,6 +102,7 @@ namespace village
                 throw;
             }
         }
+
         public static DataTable HaeMokki(int henkilomaara)
         {
             //Tietojen haku "Mökki" taulusta toiminta-alueen ja henkilömäärän mukaan

@@ -60,6 +60,10 @@
             this.dgvToimintaalueet = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cbPalvToimintaAlue = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.tbPalvAlv = new System.Windows.Forms.TextBox();
             this.tbPalvHinta = new System.Windows.Forms.TextBox();
             this.tbPalvKuvaus = new System.Windows.Forms.TextBox();
@@ -72,10 +76,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dgvPalvelut = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.cbPalvToimintaAlue = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMokkilista)).BeginInit();
@@ -424,6 +424,42 @@
             this.tabPage2.Text = "Palveluiden hallinta";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // cbPalvToimintaAlue
+            // 
+            this.cbPalvToimintaAlue.FormattingEnabled = true;
+            this.cbPalvToimintaAlue.Location = new System.Drawing.Point(29, 152);
+            this.cbPalvToimintaAlue.Name = "cbPalvToimintaAlue";
+            this.cbPalvToimintaAlue.Size = new System.Drawing.Size(121, 24);
+            this.cbPalvToimintaAlue.TabIndex = 17;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(28, 132);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(94, 17);
+            this.label17.TabIndex = 16;
+            this.label17.Text = "Toiminta-alue";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(29, 66);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(54, 17);
+            this.label16.TabIndex = 15;
+            this.label16.Text = "Palvelu";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(28, 23);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(131, 18);
+            this.label15.TabIndex = 14;
+            this.label15.Text = "Palveluiden hallinta";
+            // 
             // tbPalvAlv
             // 
             this.tbPalvAlv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -530,42 +566,6 @@
             this.tabPage4.TabIndex = 2;
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(28, 23);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(131, 18);
-            this.label15.TabIndex = 14;
-            this.label15.Text = "Palveluiden hallinta";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(29, 66);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(54, 17);
-            this.label16.TabIndex = 15;
-            this.label16.Text = "Palvelu";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(28, 132);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(94, 17);
-            this.label17.TabIndex = 16;
-            this.label17.Text = "Toiminta-alue";
-            // 
-            // cbPalvToimintaAlue
-            // 
-            this.cbPalvToimintaAlue.FormattingEnabled = true;
-            this.cbPalvToimintaAlue.Location = new System.Drawing.Point(29, 152);
-            this.cbPalvToimintaAlue.Name = "cbPalvToimintaAlue";
-            this.cbPalvToimintaAlue.Size = new System.Drawing.Size(121, 24);
-            this.cbPalvToimintaAlue.TabIndex = 17;
             // 
             // yllapito
             // 

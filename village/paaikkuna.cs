@@ -15,6 +15,9 @@ namespace village
         public paaikkuna()
         {
             InitializeComponent();
+            cbToimintaAlue.DataSource = TaskDB.HaeToimintaalue();
+            cbToimintaAlue.ValueMember = "toimintaalue_id";
+            cbToimintaAlue.DisplayMember = "nimi";
         }
 
         private void btnTeeVaraus_Click(object sender, EventArgs e)
