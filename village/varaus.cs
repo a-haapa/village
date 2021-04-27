@@ -15,6 +15,7 @@ namespace village
     {
         public varaus(DataTable t)
         {
+            //varausformin latauksessa hakee mökkitiedot tietokannasta ja avaa labeleihin
             InitializeComponent();
             double hinta = t.Rows[0].Field<double>(9) + t.Rows[0].Field<double>(10) / 100;
             lblMokkinimi.Text = t.Rows[0].Field<string>(4);
@@ -27,6 +28,7 @@ namespace village
 
         private void btnVahvista_Click(object sender, EventArgs e)
         {
+            //Jos on valittuna checkbox, niin lisää asiakkaan tietokantaan.
             Asiakas a = new Asiakas();
             a.Etunimi = tbEtunimi.Text;
             a.Sukunimi = tbSukunimi.Text;
@@ -44,6 +46,7 @@ namespace village
         {
             try
             {
+                //Hakee asiakkaan sähköpostiosoitteen perusteella ja syöttää tiedot textboxeihin valmiiksi
                 Asiakas a = new Asiakas();
                 a.Email = tbEmail.Text;
                 DataTable t = TaskDB.HaeAsiakas(a);
