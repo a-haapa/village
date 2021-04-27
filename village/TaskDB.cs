@@ -77,7 +77,7 @@ namespace village
             }
         }
         public static bool LisaaToimintaalue(Toimintaalue t)
-        {   // Lisää käyttäjän kirjaamat asiakastiedot kantaan
+        {   // Lisää käyttäjän kirjaamat toiminta-aluetiedot kantaan
             try
             {
                 if (File.Exists(filename))
@@ -102,7 +102,7 @@ namespace village
         }
         public static DataTable HaeMokki(int henkilomaara)
         {
-            //Tietojen haku "Mökki" taulusta
+            //Tietojen haku "Mökki" taulusta toiminta-alueen ja henkilömäärän mukaan
             if (File.Exists(filename))
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
@@ -146,7 +146,7 @@ namespace village
         }
         public static DataTable Hae(int id)
         {
-            //Tietojen haku "Mökki" taulusta
+            //Hakee yksittäisen mökin id-numeron perusteella
             if (File.Exists(filename))
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
@@ -195,7 +195,7 @@ namespace village
             }
         }
         public static bool LisaaAsiakas(Asiakas a)
-        {   // Lisää käyttäjän kirjaamat asiakastiedot kantaan
+        {   // Lisää käyttäjän kirjaamat asiakastiedot tietokantaan
             try
             {
                 if (File.Exists(filename))
@@ -220,7 +220,7 @@ namespace village
         }
         public static DataTable HaeAsiakas(Asiakas a)
         {
-            //Tietojen haku "asiakas" taulusta
+            //Tietojen haku "asiakas" -taulusta sähköpostiosoitteen perusteella
             if (File.Exists(filename))
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
