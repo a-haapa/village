@@ -43,9 +43,6 @@ namespace village
         {
             paaikkuna formi = new paaikkuna();
             formi.Show();
-            
-
-
         }
 
         private void btnPoistaToimintaAlue_Click(object sender, EventArgs e)
@@ -60,27 +57,17 @@ namespace village
         private void btnLisaaPalvelu_Click(object sender, EventArgs e)
         {
             Palvelu p = new Palvelu();
-            p.Nimi = tbPalveluNimi.Text;
-            p.Palvelu_id = cbPalveluId.SelectedIndex;
-            p.ToimintaAlue = cbPalvelunToimintaAlue.SelectedIndex.ToString();
+            p.Nimi = tbPalvNimi.Text;
+            p.ToimintaAlue = cbPalvToimintaAlue.SelectedIndex.ToString();
             p.Tyyppi = tbPalveluTyyppi.Text;
-            p.Kuvaus = tbPalveluKuvaus.Text;
-            p.Hinta = double.Parse(tbPalveluHinta.Text);
-            p.Alv = double.Parse(tbPalveluAlv.Text);
+            p.Kuvaus = tbPalvKuvaus.Text;
+            p.Hinta = double.Parse(tbPalvHinta.Text);
+            p.Alv = double.Parse(tbPalvAlv.Text);
         }
 
-        }
-
-        private void btnLisaaPalvelu_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            Palvelu p = new Palvelu();
-            p.Nimi = tbPalveluNimi.Text;
-            p.Palvelu_id = cbPalveluId.SelectedIndex;
-            p.ToimintaAlue = cbPalvelunToimintaAlue.SelectedIndex.ToString();
-            p.Tyyppi = tbPalveluTyyppi.Text;
-            p.Kuvaus = tbPalveluKuvaus.Text;
-            p.Hinta = double.Parse(tbPalveluHinta.Text);
-            p.Alv = double.Parse(tbPalveluAlv.Text);
+
         }
     }
 }
