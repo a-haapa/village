@@ -295,5 +295,29 @@ namespace village
                 throw;
             }
         }
+
+        public static bool MuokkaaToimintaAlue(int id)
+        {   //Päivittää tiedot toiminta-alue taulussa 
+            try
+            {
+                if (System.IO.File.Exists(filename))
+                {
+                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
+                    connection.Open();
+                    SQLiteCommand cmd = new SQLiteCommand($"UPDATE {tablename6} WHERE toimintaalue_id='{id}'", connection); 
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                else
+                {
+                    throw new System.IO.FileNotFoundException("Tiedostoa ei löytynyt");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

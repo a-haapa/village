@@ -376,6 +376,7 @@
             this.btnMuokkaa.TabIndex = 6;
             this.btnMuokkaa.Text = "Muokkaa";
             this.btnMuokkaa.UseVisualStyleBackColor = true;
+            this.btnMuokkaa.Click += new System.EventHandler(this.btnMuokkaa_Click);
             // 
             // dgvToimintaalueet
             // 

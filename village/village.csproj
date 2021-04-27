@@ -68,6 +68,12 @@
     <Compile Include="Asiakas.cs" />
     <Compile Include="Palvelu.cs" />
     <Compile Include="Mokki.cs" />
+    <Compile Include="Toiminta-Alueen_muokkaus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Toiminta-Alueen_muokkaus.Designer.cs">
+      <DependentUpon>Toiminta-Alueen_muokkaus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Toimintaalue.cs" />
     <Compile Include="varaus.cs">
       <SubType>Form</SubType>
@@ -111,6 +117,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Toiminta-Alueen_muokkaus.resx">
+      <DependentUpon>Toiminta-Alueen_muokkaus.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="yllapito.resx">
       <DependentUpon>yllapito.cs</DependentUpon>
     </EmbeddedResource>

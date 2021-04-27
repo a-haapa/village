@@ -51,5 +51,10 @@ namespace village
 
             dgvToimintaalueet.DataSource = TaskDB.HaeToimintaalue();
         }
+
+        private void btnMuokkaa_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
