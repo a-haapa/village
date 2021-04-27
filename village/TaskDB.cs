@@ -194,6 +194,36 @@ namespace village
                 throw;
             }
         }
+
+        public static DataTable PoistaToimintaAlue(int id)
+        {   //Tietojen poistaminen tietokannassa "Toiminta-Alue" -kohdasta
+            try
+            {
+                if (File.Exists(filename))
+                {
+                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                    connection.Open();
+                    SQLiteCommand cmd = new SQLiteCommand($"DELETE FROM {tablename6} WHERE toimintaalue_id = '{id}'", connection);
+                        
+
+                    SQLiteDataReader rdr = cmd.ExecuteReader();
+                    DataTable tt = new DataTable();
+                    tt.Load(rdr);
+                    rdr.Close();
+                    connection.Close();
+                    HaeToimintaalue();
+                    return tt;
+                }
+                else
+                {
+                    throw new FileNotFoundException("Tiedostoa ei löytynyt");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
         public static bool LisaaAsiakas(Asiakas a)
         {   // Lisää käyttäjän kirjaamat asiakastiedot kantaan
             try

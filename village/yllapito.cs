@@ -42,5 +42,14 @@ namespace village
             paaikkuna formi = new paaikkuna();
             formi.Show();
         }
+
+        private void btnPoistaToimintaAlue_Click(object sender, EventArgs e)
+        {
+            int row = dgvToimintaalueet.SelectedCells[0].RowIndex;
+            int id = int.Parse(dgvToimintaalueet.Rows[row].Cells[0].Value.ToString());
+            TaskDB.PoistaToimintaAlue(id);
+
+            dgvToimintaalueet.DataSource = TaskDB.HaeToimintaalue();
+        }
     }
 }
