@@ -76,6 +76,8 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
+
+
         public static bool LisaaToimintaalue(Toimintaalue t)
         {   // Lisää käyttäjän kirjaamat toiminta-aluetiedot kantaan
             try
@@ -288,6 +290,54 @@ namespace village
                 else
                 {
                     throw new System.IO.FileNotFoundException("Tiedostoa ei löytynyt");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public static DataTable HaePalvelut()
+        {
+            //Tietojen haku "Palvelu" taulusta
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT * FROM {tablename7}", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
+
+        public static bool LisaaPalvelu(Palvelu p)
+        {   // Lisää käyttäjän kirjaamat palvelut kantaan
+            try
+            {
+                if (File.Exists(filename))
+                {
+                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
+                    connection.Open();
+                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename7} (palvelu_id,toimintaalue_id,nimi,tyyppi,kuvaus,hinta,alv)" +
+                        $"VALUES ('{p.Palvelu_id}','{p.ToimintaAlue}','{p.Nimi}','{p.Tyyppi}','{p.Kuvaus}','{p.Hinta}','{p.Alv}')", connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                else
+                {
+                    throw new FileNotFoundException("Tiedostoa ei löytynyt");
                 }
             }
             catch
