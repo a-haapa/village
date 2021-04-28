@@ -178,7 +178,7 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT * FROM {tablename5} WHERE mokki.mokki_id='{id}'", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT * FROM {tablename5}, {tablename6} WHERE mokki.mokki_id='{id}'", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -193,6 +193,7 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
+        
         public static DataTable DeleteFromSQLite()
         {   //Tietojen poistaminen tietokannassa "Asiakas" -kohdasta
             try

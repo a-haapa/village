@@ -15,6 +15,7 @@ namespace village
         public paaikkuna()
         {
             InitializeComponent();
+            //Alla oleva lisää comboboxiin vaihtoehdot 
             cbToimintaAlue.DataSource = TaskDB.HaeToimintaalue();
             cbToimintaAlue.ValueMember = "toimintaalue_id";
             cbToimintaAlue.DisplayMember = "nimi";
@@ -29,7 +30,9 @@ namespace village
             int id = int.Parse(dgvMokit.Rows[row].Cells[0].Value.ToString());
             
             DataTable t = TaskDB.Hae(id);
-            varaus vr = new varaus(t);
+            string ta = cbToimintaAlue.Text;
+            //t siirtää valitun mökin tiedot, ta siirtää toiminta-alueen nimen.
+            varaus vr = new varaus(t, ta);
             vr.Show();
         }
 

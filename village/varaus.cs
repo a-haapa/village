@@ -13,17 +13,22 @@ namespace village
 {
     public partial class varaus : Form
     {
-        public varaus(DataTable t)
+        public varaus(DataTable t, string ta)
         {
             //varausformin latauksessa hakee mökkitiedot tietokannasta ja avaa labeleihin
             InitializeComponent();
-            double hinta = t.Rows[0].Field<double>(9) + t.Rows[0].Field<double>(10) / 100;
-            lblMokkinimi.Text = t.Rows[0].Field<string>(4);
-            lblHenkilomaara.Text = t.Rows[0].Field<int>(7).ToString();
-            lblKatuosoite.Text = t.Rows[0].Field<string>(5);
-            lblPostinro.Text = t.Rows[0].Field<string>(3);
-            lblKuvaus.Text = t.Rows[0].Field<string>(6);
-            lblVarustelu.Text = t.Rows[0].Field<string>(8);
+            //Laskee alvillisen hinnan
+            double alvKerroin = t.Rows[0].Field<double>(9) / 100;
+            double alviton = t.Rows[0].Field<double>(8);
+            double hinta = alviton + (alviton * alvKerroin);
+            lblHinta.Text = hinta.ToString();
+            lblToimintaalue.Text = ta;
+            lblMokkinimi.Text = t.Rows[0].Field<string>(3);
+            lblHenkilomaara.Text = t.Rows[0].Field<int>(6).ToString();
+            lblKatuosoite.Text = t.Rows[0].Field<string>(4);
+            lblPostinro.Text = t.Rows[0].Field<string>(2);
+            lblKuvaus.Text = t.Rows[0].Field<string>(5);
+            lblVarustelu.Text = t.Rows[0].Field<string>(7);
         }
 
         private void btnVahvista_Click(object sender, EventArgs e)
