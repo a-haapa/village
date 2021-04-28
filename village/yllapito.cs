@@ -22,9 +22,11 @@ namespace village
             cbAlue.DataSource = TaskDB.HaeToimintaalue();
             cbAlue.ValueMember = "toimintaalue_id";
             cbAlue.DisplayMember = "nimi";
+            cbAlue.SelectedItem = null;
             cbPalvToimintaAlue.DataSource = TaskDB.HaeToimintaalue();
             cbPalvToimintaAlue.ValueMember = "toimintaalue_id";
             cbPalvToimintaAlue.DisplayMember = "nimi";
+            cbPalvToimintaAlue.SelectedItem = null;
 
         }
 
@@ -43,7 +45,19 @@ namespace village
 
         private void btnLisaamokki_Click(object sender, EventArgs e)
         {
-
+            int i;
+            Mokki m = new Mokki();
+            m.Mokkinimi = tbNimi.Text;
+            m.MokinToimintaalue.Nimi = cbAlue.SelectedItem.ToString();
+            m.Katuosoite = tbOsoite.Text;
+            m.Postinro = tbPostinro.Text;
+            m.Henkilomaara = int.Parse(tbHenkilomaara.Text);
+            m.Kuvaus = tbKuvaus.Text;
+            m.Varustelu = tbVarustelu.Text;
+            m.Mokinhinta = double.Parse(tbHinta.Text);
+            m.Mokinalv = 10;
+            TaskDB.LisaaMokki(m);
+            dgvMokkilista.DataSource = TaskDB.HaeMokit();
         }
 
         private void btnSulje_Click(object sender, EventArgs e)

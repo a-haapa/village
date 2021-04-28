@@ -102,6 +102,30 @@ namespace village
                 throw;
             }
         }
+        public static bool LisaaMokki(Mokki m)
+        {   // Lisää käyttäjän kirjaamat mökkitiedot tietokantaan
+            try
+            {
+                if (File.Exists(filename))
+                {
+                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
+                    connection.Open();
+                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename5} (mokkinimi,toimintaalue_id,katuosoite,postinro,henkilomaara,kuvaus,varustelu,mokinhinta,mokinalv)" +
+                        $"VALUES ('{m.Mokkinimi}','{m.MokinToimintaalue.Toimintaalue_id}','{m.Katuosoite}','{m.Postinro}','{m.Henkilomaara}','{m.Kuvaus}','{m.Varustelu}','{m.Mokinhinta}','{m.Mokinalv}')", connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                else
+                {
+                    throw new FileNotFoundException("Tiedostoa ei löytynyt");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
 
         public static DataTable HaeMokki(int henkilomaara)
         {
