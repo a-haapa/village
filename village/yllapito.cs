@@ -20,6 +20,7 @@ namespace village
             dgvMokkilista.DataSource = TaskDB.HaeMokit();
             dgvPalvelut.DataSource = TaskDB.HaePalvelut();
             cbAlue.DataSource = TaskDB.HaeToimintaalue();
+            //Alla olevat lisää comboboxeihin vaihtoehdot 
             cbAlue.ValueMember = "toimintaalue_id";
             cbAlue.DisplayMember = "nimi";
             cbAlue.SelectedItem = null;
@@ -45,10 +46,12 @@ namespace village
 
         private void btnLisaamokki_Click(object sender, EventArgs e)
         {
+            //Syötetään mökin tiedot olioon.
             int i;
             Mokki m = new Mokki();
             m.Mokkinimi = tbNimi.Text;
-            m.MokinToimintaalue.Nimi = cbAlue.SelectedItem.ToString();
+            m.MokinToimintaalue.Nimi = cbAlue.Text;
+            m.MokinToimintaalue.Toimintaalue_id = int.Parse(cbAlue.SelectedValue.ToString());
             m.Katuosoite = tbOsoite.Text;
             m.Postinro = tbPostinro.Text;
             m.Henkilomaara = int.Parse(tbHenkilomaara.Text);
@@ -56,7 +59,18 @@ namespace village
             m.Varustelu = tbVarustelu.Text;
             m.Mokinhinta = double.Parse(tbHinta.Text);
             m.Mokinalv = 10;
+            //Lisätään tietokantaan
             TaskDB.LisaaMokki(m);
+            //Tyhjennetään tekstiboxit
+            tbNimi.Clear();
+            cbAlue.SelectedItem = null;
+            tbHenkilomaara.Clear();
+            tbKuvaus.Clear();
+            tbOsoite.Clear();
+            tbPostinro.Clear();
+            tbVarustelu.Clear();
+            tbHinta.Clear();
+            //Haetaan mökit eli päivitetään muutokset DataGridView-taulukkoon
             dgvMokkilista.DataSource = TaskDB.HaeMokit();
         }
 
