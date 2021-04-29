@@ -348,7 +348,7 @@ namespace village
         }
 
 
-        public static bool MuokkaaToimintaAlue(int id)
+        public static bool MuokkaaToimintaAlue( Toimintaalue t)
         {   //Päivittää tiedot toiminta-alue taulussa 
             try
             {
@@ -356,7 +356,7 @@ namespace village
                 {
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
                     connection.Open();
-                    SQLiteCommand cmd = new SQLiteCommand($"UPDATE {tablename6} WHERE toimintaalue_id='{id}'", connection);
+                    SQLiteCommand cmd = new SQLiteCommand($"UPDATE {tablename6} SET nimi='{t.Nimi}', toimintaalue_id='{t.Toimintaalue_id}' WHERE toimintaalue_id='{t.Toimintaalue_id}'", connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
                     return true;
