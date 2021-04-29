@@ -283,7 +283,7 @@ namespace village
             this.groupBox1.Controls.Add(this.lblKuvaus);
             this.groupBox1.Location = new System.Drawing.Point(46, 259);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(298, 143);
+            this.groupBox1.Size = new System.Drawing.Size(298, 142);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kuvaus";
@@ -291,9 +291,9 @@ namespace village
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lblVarustelu);
-            this.groupBox2.Location = new System.Drawing.Point(46, 408);
+            this.groupBox2.Location = new System.Drawing.Point(46, 407);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(298, 106);
+            this.groupBox2.Size = new System.Drawing.Size(298, 107);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Varustelu";
@@ -315,6 +315,7 @@ namespace village
             this.btnLisapalvelut.TabIndex = 27;
             this.btnLisapalvelut.Text = "Lisäpalvelut";
             this.btnLisapalvelut.UseVisualStyleBackColor = true;
+            this.btnLisapalvelut.Click += new System.EventHandler(this.btnLisapalvelut_Click);
             // 
             // btnPoistu
             // 
