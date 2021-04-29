@@ -75,5 +75,10 @@ namespace village
                 
             }
         }
+
+        private void btnLisapalvelut_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
