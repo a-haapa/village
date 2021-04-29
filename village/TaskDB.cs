@@ -78,6 +78,29 @@ namespace village
             }
         }
 
+        public static DataTable HaeToimintaalueMuok(int id) //Luotu oma toiminta-alueen haku muokkausta varten 
+        {
+            //Tietojen haku "Toiminta-alueet" taulusta
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT * FROM {tablename6}", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
+
         public static bool LisaaToimintaalue(Toimintaalue t)
         {   // Lisää käyttäjän kirjaamat toiminta-aluetiedot kantaan
             try
@@ -309,6 +332,31 @@ namespace village
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
                     connection.Open();
                     SQLiteCommand cmd = new SQLiteCommand();
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                else
+                {
+                    throw new System.IO.FileNotFoundException("Tiedostoa ei löytynyt");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+
+        public static bool MuokkaaToimintaAlue(int id)
+        {   //Päivittää tiedot toiminta-alue taulussa 
+            try
+            {
+                if (System.IO.File.Exists(filename))
+                {
+                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
+                    connection.Open();
+                    SQLiteCommand cmd = new SQLiteCommand($"UPDATE {tablename6} WHERE toimintaalue_id='{id}'", connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
                     return true;

@@ -8,6 +8,8 @@ namespace village
 {
     public class Toimintaalue
     {
+        
+
         public int Toimintaalue_id { get; set; }
         public string Nimi { get; set; }
 

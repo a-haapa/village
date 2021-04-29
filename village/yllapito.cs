@@ -109,5 +109,20 @@ namespace village
         {
             
         }
+
+        private void btnMuokkaa_Click(object sender, EventArgs e)
+        {
+            // avaa uuden ikkunan toiminta-alueen muokkausta varten
+            
+            Muokkaa_ToimintaAlue formi = new Muokkaa_ToimintaAlue();
+            
+            int row = dgvToimintaalueet.SelectedCells[0].RowIndex;
+            string nimi = (string)dgvToimintaalueet.Rows[row].Cells[1].Value;
+            
+            //Toimintaalue to = new Toimintaalue(nimi); <---- TÄMÄ EI TOIMINUT
+
+
+            formi.Show();
+        }
     }
 }
