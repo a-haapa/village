@@ -90,16 +90,6 @@ namespace village
             dgvToimintaalueet.DataSource = TaskDB.HaeToimintaalue();
         }
 
-        private void btnLisaaPalvelu_Click(object sender, EventArgs e)
-        {
-            Palvelu p = new Palvelu();
-            p.Nimi = tbPalvNimi.Text;
-            p.ToimintaAlue = cbPalvToimintaAlue.SelectedIndex.ToString();
-            p.Tyyppi = tbPalveluTyyppi.Text;
-            p.Kuvaus = tbPalvKuvaus.Text;
-            p.Hinta = double.Parse(tbPalvHinta.Text);
-            p.Alv = double.Parse(tbPalvAlv.Text);
-        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -122,6 +112,34 @@ namespace village
             Muokkaa_ToimintaAlue formi = new Muokkaa_ToimintaAlue(to);
             this.Close();
             formi.Show();
+        }
+
+        private void btnPoistaPalvelu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLisaaPalvelu_Click_1(object sender, EventArgs e)
+        {
+            //Syötetään palvelun tiedot olioon
+            Palvelu p = new Palvelu();
+            p.Nimi = tbPalvNimi.Text;
+            p.ToimintaAlue = cbPalvToimintaAlue.Text;
+            p.Tyyppi = tbPalvTyyppi.Text;
+            p.Kuvaus = tbPalvKuvaus.Text;
+            p.Hinta = double.Parse(tbPalvHinta.Text);
+            p.Alv = double.Parse(tbPalvAlv.Text);
+            //lisätään tietokantaan
+            TaskDB.LisaaPalvelu(p);
+            //tyhjennetään tekstikentät
+            tbPalvNimi.Clear();
+            cbPalvToimintaAlue.SelectedItem = null;
+            tbPalvTyyppi.Clear();
+            tbPalvKuvaus.Clear();
+            tbPalvHinta.Clear();
+            tbPalvAlv.Clear();
+            //päivitetään muutokset datagridviewiin
+            dgvPalvelut.DataSource = TaskDB.HaePalvelut();
         }
     }
 }

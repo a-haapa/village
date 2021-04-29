@@ -403,11 +403,41 @@ namespace village
                 {
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
                     connection.Open();
-                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename7} (palvelu_id,toimintaalue_id,nimi,tyyppi,kuvaus,hinta,alv)" +
-                        $"VALUES ('{p.Palvelu_id}','{p.ToimintaAlue}','{p.Nimi}','{p.Tyyppi}','{p.Kuvaus}','{p.Hinta}','{p.Alv}')", connection);
+                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename7} (toimintaalue_id,nimi,tyyppi,kuvaus,hinta,alv)" +
+                        $"VALUES ('{p.ToimintaAlue}','{p.Nimi}','{p.Tyyppi}','{p.Kuvaus}','{p.Hinta}','{p.Alv}')", connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
                     return true;
+                }
+                else
+                {
+                    throw new FileNotFoundException("Tiedostoa ei löytynyt");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public static DataTable PoistaPalvelu(int id)
+        {   //Tietojen poistaminen tietokannassa "Palvelu" -kohdasta
+            try
+            {
+                if (File.Exists(filename))
+                {
+                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                    connection.Open();
+                    SQLiteCommand cmd = new SQLiteCommand($"DELETE FROM {tablename7} WHERE palvelu_id = '{id}'", connection);
+
+
+                    SQLiteDataReader rdr = cmd.ExecuteReader();
+                    DataTable tt = new DataTable();
+                    tt.Load(rdr);
+                    rdr.Close();
+                    connection.Close();
+                    HaePalvelut();
+                    return tt;
                 }
                 else
                 {
