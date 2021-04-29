@@ -76,6 +76,7 @@ namespace village
 
         private void btnSulje_Click(object sender, EventArgs e)
         {
+            this.Close();
             paaikkuna formi = new paaikkuna();
             formi.Show();
         }
@@ -119,6 +120,7 @@ namespace village
             to.Nimi = (string)dgvToimintaalueet.Rows[row].Cells[1].Value;
             //avaa uuden formin ja siirtää olion sinne
             Muokkaa_ToimintaAlue formi = new Muokkaa_ToimintaAlue(to);
+            this.Close();
             formi.Show();
         }
     }

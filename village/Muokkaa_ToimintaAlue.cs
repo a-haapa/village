@@ -33,6 +33,8 @@ namespace village
             t.Toimintaalue_id = int.Parse(tbID.Text);
             t.Nimi = tbToimintaAlueenMuok.Text;
             TaskDB.MuokkaaToimintaAlue(t);
+            yllapito formi = new yllapito();
+            formi.Show();
             this.Close();
         }
     }
