@@ -83,11 +83,14 @@ namespace village
 
         private void btnPoistaToimintaAlue_Click(object sender, EventArgs e)
         {
-            int row = dgvToimintaalueet.SelectedCells[0].RowIndex;
-            int id = int.Parse(dgvToimintaalueet.Rows[row].Cells[0].Value.ToString());
-            TaskDB.PoistaToimintaAlue(id);
+            if (MessageBox.Show("Haluatko varmasti poistaa toiminta-alueen?", "  ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                int row = dgvToimintaalueet.SelectedCells[0].RowIndex;
+                int id = int.Parse(dgvToimintaalueet.Rows[row].Cells[0].Value.ToString());
+                TaskDB.PoistaToimintaAlue(id);
 
-            dgvToimintaalueet.DataSource = TaskDB.HaeToimintaalue();
+                dgvToimintaalueet.DataSource = TaskDB.HaeToimintaalue();
+            }
         }
 
 
@@ -116,11 +119,13 @@ namespace village
 
         private void btnPoistaPalvelu_Click(object sender, EventArgs e)
         {
-            int row = dgvPalvelut.SelectedCells[0].RowIndex;
-            int id = int.Parse(dgvPalvelut.Rows[row].Cells[0].Value.ToString());
-            TaskDB.PoistaPalvelu(id);
+            if (MessageBox.Show("Haluatko varmasti poistaa palvelun?", "  ", MessageBoxButtons.YesNo) == DialogResult.Yes) {
+                int row = dgvPalvelut.SelectedCells[0].RowIndex;
+                int id = int.Parse(dgvPalvelut.Rows[row].Cells[0].Value.ToString());
+                TaskDB.PoistaPalvelu(id);
 
-            dgvPalvelut.DataSource = TaskDB.HaePalvelut();
+                dgvPalvelut.DataSource = TaskDB.HaePalvelut();
+            }
         }
 
         private void btnLisaaPalvelu_Click_1(object sender, EventArgs e)
@@ -144,6 +149,18 @@ namespace village
             tbPalvAlv.Clear();
             //päivitetään muutokset datagridviewiin
             dgvPalvelut.DataSource = TaskDB.HaePalvelut();
+        }
+
+        private void btnPoistamokki_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Haluatko varmasti poistaa mökin?", "  ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                int row = dgvMokkilista.SelectedCells[0].RowIndex;
+                int id = int.Parse(dgvMokkilista.Rows[row].Cells[0].Value.ToString());
+                TaskDB.PoistaMokki(id);
+
+                dgvMokkilista.DataSource = TaskDB.HaeMokit();
+            }
         }
     }
 }
