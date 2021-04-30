@@ -179,7 +179,7 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT mokki_id,mokkinimi,henkilomaara,mokinhinta,mokinalv,katuosoite,postinro FROM {tablename5}, {tablename6} WHERE mokki.toimintaalue_id=toimintaalue.toimintaalue_id and mokki.henkilomaara='{henkilomaara}'", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT mokki_id,mokkinimi,henkilomaara,mokinhinta,mokinalv,katuosoite,postinro,varattu_alkupvm,varattu_loppupvm FROM {tablename5}, {tablename6},{tablename3} WHERE mokki.toimintaalue_id=toimintaalue.toimintaalue_id and mokki.henkilomaara='{henkilomaara}'", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -524,7 +524,7 @@ namespace village
             }
         }
         public static bool LisaaVaraus(varausL v)
-        {   // Lisää käyttäjän kirjaamat palvelut kantaan
+        {   // Lisää varauksentietokantaan !!! EI VALMIS !!!
             try
             {
                 if (File.Exists(filename))
@@ -545,6 +545,28 @@ namespace village
             catch
             {
                 throw;
+            }
+        }
+        public static DataTable HaeVarausPVM()
+        {
+            //THakee varausten alku ja loppupäivämäärän !!! KESKEN !!!
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT varattu_alkupvm,varattu_loppupvm FROM {tablename3}", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
     }
