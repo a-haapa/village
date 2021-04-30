@@ -47,9 +47,17 @@ namespace village
 
         private void btnHaeMokit_Click(object sender, EventArgs e)
         {
+            //Ottaa talteen toiminta-alueen ja henkilömäärän
             string toimintaalue = cbToimintaAlue.Text;
             int henkilomaara = int.Parse(cbHenkilomaara.Text);
+            //Ottaa talteen päivämäärät
+            DateTime date1 = DateTime.Parse(dtpAlku.Text);
+            DateTime date2 = DateTime.Parse(dtpLoppu.Text);
             dgvMokit.DataSource = TaskDB.HaeMokki(henkilomaara);
+            //Käy läpi DataGridViewn !! KESKEN !! Tähän ajatuksena, että poistaa rivit jos mökki varattuna
+            foreach (DataGridViewRow row in dgvMokit.Rows)
+            {
+            }
         }
 
         private void btnYllapito_Click(object sender, EventArgs e)

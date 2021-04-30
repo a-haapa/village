@@ -32,7 +32,7 @@ namespace village
             lblPostinro.Text = t.Rows[0].Field<string>(2);
             lblKuvaus.Text = t.Rows[0].Field<string>(5);
             lblVarustelu.Text = t.Rows[0].Field<string>(7);
-
+            //Hakee listboxeihin kyseisen toiminta-alueen palvelut
             listBox1.DataSource = TaskDB.HaePalvelunNimi(ta);
             listBox1.ValueMember = "palvelu_id";
             listBox1.DisplayMember = "nimi";
@@ -42,7 +42,6 @@ namespace village
         private void btnVahvista_Click(object sender, EventArgs e)
         {
             //Jos on valittuna checkbox, niin lisää asiakkaan tietokantaan.
-            
             Asiakas a = new Asiakas();
             a.Etunimi = tbEtunimi.Text;
             a.Sukunimi = tbSukunimi.Text;
@@ -54,14 +53,14 @@ namespace village
             {
                 TaskDB.LisaaAsiakas(a);
             }
-
+            //Poimii varauksen tallettamista varten tietoja !! KESKEN
             varausL v = new varausL();
             v.mokki.Mokki_id = int.Parse(lblID.Text);
             v.asiakas.Asiakas_id = a.Asiakas_id;
             v.varattu_alkupvm = DateTime.Parse(lblAlku.Text);
             v.varattu_loppupvm = DateTime.Parse(lblLoppu.Text);
             
-
+            //Tallettaa valitut palvelut taulukkoon.   !! Täytyy vielä miettiä toteutus, onnistuuko !!
             foreach (Palvelu p in listBox2.Items)
             {
                 v.palvelut.Add(p);
@@ -105,6 +104,7 @@ namespace village
 
         private void btnValitsePalvelu_Click(object sender, EventArgs e)
         {
+            //Siirtää valitut palvelut listalta toiselle
             listBox2.Items.Add(listBox1.SelectedItem);
             listBox2.ValueMember = "palvelu_id";
             listBox2.DisplayMember = "nimi";
@@ -112,6 +112,7 @@ namespace village
 
         private void btnPoistaValittuPalvelu_Click(object sender, EventArgs e)
         {
+            //poistaa palvelun listalta
             listBox2.Items.Remove(listBox2.SelectedItem);
         }
     }
