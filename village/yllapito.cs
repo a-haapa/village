@@ -116,7 +116,11 @@ namespace village
 
         private void btnPoistaPalvelu_Click(object sender, EventArgs e)
         {
+            int row = dgvPalvelut.SelectedCells[0].RowIndex;
+            int id = int.Parse(dgvPalvelut.Rows[row].Cells[0].Value.ToString());
+            TaskDB.PoistaPalvelu(id);
 
+            dgvPalvelut.DataSource = TaskDB.HaePalvelut();
         }
 
         private void btnLisaaPalvelu_Click_1(object sender, EventArgs e)
