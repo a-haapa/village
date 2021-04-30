@@ -56,9 +56,16 @@ namespace village
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblHinta = new System.Windows.Forms.Label();
-            this.btnLisapalvelut = new System.Windows.Forms.Button();
             this.btnPoistu = new System.Windows.Forms.Button();
             this.btnVahvista = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.btnValitsePalvelu = new System.Windows.Forms.Button();
+            this.btnPoistaValittuPalvelu = new System.Windows.Forms.Button();
+            this.lblID = new System.Windows.Forms.Label();
+            this.lblAlku = new System.Windows.Forms.Label();
+            this.lblLoppu = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -218,7 +225,7 @@ namespace village
             // lblToimintaalue
             // 
             this.lblToimintaalue.AutoSize = true;
-            this.lblToimintaalue.Location = new System.Drawing.Point(49, 134);
+            this.lblToimintaalue.Location = new System.Drawing.Point(49, 130);
             this.lblToimintaalue.Name = "lblToimintaalue";
             this.lblToimintaalue.Size = new System.Drawing.Size(54, 17);
             this.lblToimintaalue.TabIndex = 17;
@@ -227,7 +234,7 @@ namespace village
             // lblMokkinimi
             // 
             this.lblMokkinimi.AutoSize = true;
-            this.lblMokkinimi.Location = new System.Drawing.Point(205, 134);
+            this.lblMokkinimi.Location = new System.Drawing.Point(195, 130);
             this.lblMokkinimi.Name = "lblMokkinimi";
             this.lblMokkinimi.Size = new System.Drawing.Size(54, 17);
             this.lblMokkinimi.TabIndex = 18;
@@ -236,7 +243,7 @@ namespace village
             // lblKatuosoite
             // 
             this.lblKatuosoite.AutoSize = true;
-            this.lblKatuosoite.Location = new System.Drawing.Point(49, 176);
+            this.lblKatuosoite.Location = new System.Drawing.Point(49, 173);
             this.lblKatuosoite.Name = "lblKatuosoite";
             this.lblKatuosoite.Size = new System.Drawing.Size(54, 17);
             this.lblKatuosoite.TabIndex = 19;
@@ -245,7 +252,7 @@ namespace village
             // lblPostinro
             // 
             this.lblPostinro.AutoSize = true;
-            this.lblPostinro.Location = new System.Drawing.Point(205, 176);
+            this.lblPostinro.Location = new System.Drawing.Point(195, 173);
             this.lblPostinro.Name = "lblPostinro";
             this.lblPostinro.Size = new System.Drawing.Size(54, 17);
             this.lblPostinro.TabIndex = 20;
@@ -254,7 +261,7 @@ namespace village
             // lblHenkilomaara
             // 
             this.lblHenkilomaara.AutoSize = true;
-            this.lblHenkilomaara.Location = new System.Drawing.Point(49, 221);
+            this.lblHenkilomaara.Location = new System.Drawing.Point(49, 213);
             this.lblHenkilomaara.Name = "lblHenkilomaara";
             this.lblHenkilomaara.Size = new System.Drawing.Size(54, 17);
             this.lblHenkilomaara.TabIndex = 21;
@@ -281,9 +288,9 @@ namespace village
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblKuvaus);
-            this.groupBox1.Location = new System.Drawing.Point(46, 259);
+            this.groupBox1.Location = new System.Drawing.Point(12, 286);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(298, 142);
+            this.groupBox1.Size = new System.Drawing.Size(360, 92);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kuvaus";
@@ -291,9 +298,9 @@ namespace village
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lblVarustelu);
-            this.groupBox2.Location = new System.Drawing.Point(46, 407);
+            this.groupBox2.Location = new System.Drawing.Point(12, 384);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(298, 107);
+            this.groupBox2.Size = new System.Drawing.Size(360, 84);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Varustelu";
@@ -301,27 +308,17 @@ namespace village
             // lblHinta
             // 
             this.lblHinta.AutoSize = true;
-            this.lblHinta.Location = new System.Drawing.Point(205, 221);
+            this.lblHinta.Location = new System.Drawing.Point(195, 213);
             this.lblHinta.Name = "lblHinta";
             this.lblHinta.Size = new System.Drawing.Size(54, 17);
             this.lblHinta.TabIndex = 26;
             this.lblHinta.Text = "label17";
             // 
-            // btnLisapalvelut
-            // 
-            this.btnLisapalvelut.Location = new System.Drawing.Point(46, 533);
-            this.btnLisapalvelut.Name = "btnLisapalvelut";
-            this.btnLisapalvelut.Size = new System.Drawing.Size(141, 45);
-            this.btnLisapalvelut.TabIndex = 27;
-            this.btnLisapalvelut.Text = "Lisäpalvelut";
-            this.btnLisapalvelut.UseVisualStyleBackColor = true;
-            this.btnLisapalvelut.Click += new System.EventHandler(this.btnLisapalvelut_Click);
-            // 
             // btnPoistu
             // 
-            this.btnPoistu.Location = new System.Drawing.Point(208, 533);
+            this.btnPoistu.Location = new System.Drawing.Point(670, 534);
             this.btnPoistu.Name = "btnPoistu";
-            this.btnPoistu.Size = new System.Drawing.Size(136, 46);
+            this.btnPoistu.Size = new System.Drawing.Size(148, 46);
             this.btnPoistu.TabIndex = 28;
             this.btnPoistu.Text = "Poistu";
             this.btnPoistu.UseVisualStyleBackColor = true;
@@ -336,14 +333,95 @@ namespace village
             this.btnVahvista.UseVisualStyleBackColor = true;
             this.btnVahvista.Click += new System.EventHandler(this.btnVahvista_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(12, 489);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(188, 116);
+            this.listBox1.TabIndex = 30;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 16;
+            this.listBox2.Location = new System.Drawing.Point(296, 489);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(168, 116);
+            this.listBox2.TabIndex = 31;
+            // 
+            // btnValitsePalvelu
+            // 
+            this.btnValitsePalvelu.Location = new System.Drawing.Point(219, 493);
+            this.btnValitsePalvelu.Name = "btnValitsePalvelu";
+            this.btnValitsePalvelu.Size = new System.Drawing.Size(60, 45);
+            this.btnValitsePalvelu.TabIndex = 32;
+            this.btnValitsePalvelu.Text = "Lisää";
+            this.btnValitsePalvelu.UseVisualStyleBackColor = true;
+            this.btnValitsePalvelu.Click += new System.EventHandler(this.btnValitsePalvelu_Click);
+            // 
+            // btnPoistaValittuPalvelu
+            // 
+            this.btnPoistaValittuPalvelu.Location = new System.Drawing.Point(219, 548);
+            this.btnPoistaValittuPalvelu.Name = "btnPoistaValittuPalvelu";
+            this.btnPoistaValittuPalvelu.Size = new System.Drawing.Size(59, 44);
+            this.btnPoistaValittuPalvelu.TabIndex = 33;
+            this.btnPoistaValittuPalvelu.Text = "Poista";
+            this.btnPoistaValittuPalvelu.UseVisualStyleBackColor = true;
+            this.btnPoistaValittuPalvelu.Click += new System.EventHandler(this.btnPoistaValittuPalvelu_Click);
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(98, 85);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(54, 17);
+            this.lblID.TabIndex = 34;
+            this.lblID.Text = "label10";
+            // 
+            // lblAlku
+            // 
+            this.lblAlku.AutoSize = true;
+            this.lblAlku.Location = new System.Drawing.Point(177, 85);
+            this.lblAlku.Name = "lblAlku";
+            this.lblAlku.Size = new System.Drawing.Size(54, 17);
+            this.lblAlku.TabIndex = 35;
+            this.lblAlku.Text = "label10";
+            // 
+            // lblLoppu
+            // 
+            this.lblLoppu.AutoSize = true;
+            this.lblLoppu.Location = new System.Drawing.Point(326, 85);
+            this.lblLoppu.Name = "lblLoppu";
+            this.lblLoppu.Size = new System.Drawing.Size(54, 17);
+            this.lblLoppu.TabIndex = 36;
+            this.lblLoppu.Text = "label11";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(307, 85);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(13, 17);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "-";
+            // 
             // varaus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1109, 633);
+            this.ClientSize = new System.Drawing.Size(1109, 667);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.lblLoppu);
+            this.Controls.Add(this.lblAlku);
+            this.Controls.Add(this.lblID);
+            this.Controls.Add(this.btnPoistaValittuPalvelu);
+            this.Controls.Add(this.btnValitsePalvelu);
+            this.Controls.Add(this.listBox2);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnVahvista);
             this.Controls.Add(this.btnPoistu);
-            this.Controls.Add(this.btnLisapalvelut);
             this.Controls.Add(this.lblHinta);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -409,8 +487,15 @@ namespace village
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblHinta;
-        private System.Windows.Forms.Button btnLisapalvelut;
         private System.Windows.Forms.Button btnPoistu;
         private System.Windows.Forms.Button btnVahvista;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Button btnValitsePalvelu;
+        private System.Windows.Forms.Button btnPoistaValittuPalvelu;
+        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblAlku;
+        private System.Windows.Forms.Label lblLoppu;
+        private System.Windows.Forms.Label label12;
     }
 }

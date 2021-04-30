@@ -77,6 +77,28 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
+        public static DataTable HaeTaID(string str)
+        {
+            //Tietojen haku "Toiminta-alueet" taulusta
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT toimintaalue_id FROM {tablename6} WHERE nimi='{str}'", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
 
         public static DataTable HaeToimintaalueMuok(int id) //Luotu oma toiminta-alueen haku muokkausta varten 
         {
@@ -424,6 +446,28 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
+        public static DataTable HaePalvelunNimi(string ta)
+        {
+            //Tietojen haku "Palvelu" taulusta
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu.* FROM {tablename7},{tablename6} WHERE toimintaalue.nimi='{ta}'", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
 
         public static bool LisaaPalvelu(Palvelu p)
         {   // Lisää käyttäjän kirjaamat palvelut kantaan
@@ -434,7 +478,7 @@ namespace village
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
                     connection.Open();
                     SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename7} (toimintaalue_id,nimi,tyyppi,kuvaus,hinta,alv)" +
-                        $"VALUES ('{p.ToimintaAlue}','{p.Nimi}','{p.Tyyppi}','{p.Kuvaus}','{p.Hinta}','{p.Alv}')", connection);
+                        $"VALUES ('{p.toimintaalue.Toimintaalue_id}','{p.Nimi}','{p.Tyyppi}','{p.Kuvaus}','{p.Hinta}','{p.Alv}')", connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
                     return true;
@@ -468,6 +512,30 @@ namespace village
                     connection.Close();
                     HaePalvelut();
                     return tt;
+                }
+                else
+                {
+                    throw new FileNotFoundException("Tiedostoa ei löytynyt");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public static bool LisaaVaraus(varausL v)
+        {   // Lisää käyttäjän kirjaamat palvelut kantaan
+            try
+            {
+                if (File.Exists(filename))
+                {
+                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
+                    connection.Open();
+                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename3} (mokki_mokki_id,asiakas.asiakas_id,varattu_alkupvm,varattu_alkupvm)" +
+                        $"VALUES ('{v.mokki.Mokki_id}','{v.asiakas.Asiakas_id}','{v.varattu_alkupvm}','{v.varattu_loppupvm}')", connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
                 }
                 else
                 {

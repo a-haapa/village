@@ -28,11 +28,14 @@ namespace village
             Mokki m = new Mokki();
             int row = dgvMokit.SelectedCells[0].RowIndex;
             int id = int.Parse(dgvMokit.Rows[row].Cells[0].Value.ToString());
+
+            DateTime alku = dtpAlku.Value;
+            DateTime loppu = dtpLoppu.Value;
             
             DataTable t = TaskDB.Hae(id);
             string ta = cbToimintaAlue.Text;
             //t siirtää valitun mökin tiedot, ta siirtää toiminta-alueen nimen.
-            varaus vr = new varaus(t, ta);
+            varaus vr = new varaus(id, t, ta, alku, loppu);
             vr.Show();
         }
 

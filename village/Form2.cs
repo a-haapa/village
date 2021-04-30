@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace village
 {
-    public partial class varauksenpalvelut : Form
+    public partial class Form2 : Form
     {
-        public varauksenpalvelut()
+        public Form2()
         {
             InitializeComponent();
         }

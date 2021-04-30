@@ -44,6 +44,10 @@ namespace village
             this.cbToimintaAlue = new System.Windows.Forms.ComboBox();
             this.dgvMokit = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpAlku = new System.Windows.Forms.DateTimePicker();
+            this.dtpLoppu = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -123,6 +127,10 @@ namespace village
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.dtpLoppu);
+            this.tabPage2.Controls.Add(this.dtpAlku);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.btnTeeVaraus);
             this.tabPage2.Controls.Add(this.btnHaeMokit);
             this.tabPage2.Controls.Add(this.label3);
@@ -152,7 +160,7 @@ namespace village
             // 
             // btnHaeMokit
             // 
-            this.btnHaeMokit.Location = new System.Drawing.Point(66, 269);
+            this.btnHaeMokit.Location = new System.Drawing.Point(189, 432);
             this.btnHaeMokit.Margin = new System.Windows.Forms.Padding(2);
             this.btnHaeMokit.Name = "btnHaeMokit";
             this.btnHaeMokit.Size = new System.Drawing.Size(145, 32);
@@ -164,7 +172,7 @@ namespace village
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(63, 193);
+            this.label3.Location = new System.Drawing.Point(64, 365);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 17);
@@ -174,7 +182,7 @@ namespace village
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(63, 123);
+            this.label2.Location = new System.Drawing.Point(64, 274);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 17);
@@ -184,7 +192,7 @@ namespace village
             // cbHenkilomaara
             // 
             this.cbHenkilomaara.FormattingEnabled = true;
-            this.cbHenkilomaara.Location = new System.Drawing.Point(66, 211);
+            this.cbHenkilomaara.Location = new System.Drawing.Point(66, 384);
             this.cbHenkilomaara.Margin = new System.Windows.Forms.Padding(2);
             this.cbHenkilomaara.Name = "cbHenkilomaara";
             this.cbHenkilomaara.Size = new System.Drawing.Size(268, 24);
@@ -193,7 +201,7 @@ namespace village
             // cbToimintaAlue
             // 
             this.cbToimintaAlue.FormattingEnabled = true;
-            this.cbToimintaAlue.Location = new System.Drawing.Point(66, 141);
+            this.cbToimintaAlue.Location = new System.Drawing.Point(66, 293);
             this.cbToimintaAlue.Margin = new System.Windows.Forms.Padding(2);
             this.cbToimintaAlue.Name = "cbToimintaAlue";
             this.cbToimintaAlue.Size = new System.Drawing.Size(268, 24);
@@ -220,6 +228,42 @@ namespace village
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(64, 71);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(109, 17);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Alkupäivämäärä";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(64, 150);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(122, 17);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Loppupäivämäärä";
+            // 
+            // dtpAlku
+            // 
+            this.dtpAlku.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpAlku.Location = new System.Drawing.Point(67, 91);
+            this.dtpAlku.Name = "dtpAlku";
+            this.dtpAlku.Size = new System.Drawing.Size(200, 22);
+            this.dtpAlku.TabIndex = 9;
+            this.dtpAlku.Value = new System.DateTime(2021, 4, 30, 0, 0, 0, 0);
+            // 
+            // dtpLoppu
+            // 
+            this.dtpLoppu.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpLoppu.Location = new System.Drawing.Point(67, 170);
+            this.dtpLoppu.Name = "dtpLoppu";
+            this.dtpLoppu.Size = new System.Drawing.Size(200, 22);
+            this.dtpLoppu.TabIndex = 10;
+            this.dtpLoppu.Value = new System.DateTime(2021, 4, 30, 0, 0, 0, 0);
             // 
             // paaikkuna
             // 
@@ -257,5 +301,9 @@ namespace village
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbHenkilomaara;
         private System.Windows.Forms.ComboBox cbToimintaAlue;
+        private System.Windows.Forms.DateTimePicker dtpLoppu;
+        private System.Windows.Forms.DateTimePicker dtpAlku;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }

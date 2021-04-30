@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace village
 {
-    class varausL
+    public class varausL
     {
         public int varaus_id { get; set; }
         public int lukumaara { get; set; }
@@ -15,9 +15,9 @@ namespace village
         public DateTime varattu_alkupvm { get; set; }
         public DateTime varattu_loppupvm { get; set; }
 
-        Mokki mokki = new Mokki();
-        Palvelu palvelu = new Palvelu();
-        Asiakas asiakas = new Asiakas();
-        
+        public Mokki mokki = new Mokki();
+        public Asiakas asiakas = new Asiakas();
+        public List<Palvelu> palvelut = new List<Palvelu>();
+
     }
 }

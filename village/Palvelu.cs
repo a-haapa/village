@@ -14,7 +14,8 @@ namespace village
         public double Hinta { get; set; }
         public double Alv { get; set; }
         public string Tyyppi { get; set; }
-        public string ToimintaAlue { get; set; }
+
+        public Toimintaalue toimintaalue = new Toimintaalue();
         public override string ToString()
         {
             return Palvelu_id + Nimi + Kuvaus + Hinta + Alv;
