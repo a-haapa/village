@@ -1,7 +1,7 @@
 ﻿
 namespace village
 {
-    partial class varauksenpalvelut
+    partial class Form2
     {
         /// <summary>
         /// Required designer variable.

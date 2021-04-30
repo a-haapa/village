@@ -133,7 +133,10 @@ namespace village
             //Syötetään palvelun tiedot olioon
             Palvelu p = new Palvelu();
             p.Nimi = tbPalvNimi.Text;
-            p.ToimintaAlue = cbPalvToimintaAlue.Text;
+            p.toimintaalue.Nimi = cbPalvToimintaAlue.Text;
+            string str = p.toimintaalue.Nimi;
+            DataTable t = TaskDB.HaeTaID(str);
+            p.toimintaalue.Toimintaalue_id = int.Parse(t.Rows[0].ItemArray[0].ToString());
             p.Tyyppi = tbPalvTyyppi.Text;
             p.Kuvaus = tbPalvKuvaus.Text;
             p.Hinta = double.Parse(tbPalvHinta.Text);
