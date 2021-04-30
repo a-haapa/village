@@ -162,5 +162,10 @@ namespace village
                 dgvMokkilista.DataSource = TaskDB.HaeMokit();
             }
         }
+
+        private void btnMuokkaaPalvelua_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
