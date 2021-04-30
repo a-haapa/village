@@ -275,6 +275,36 @@ namespace village
                 throw;
             }
         }
+
+        public static DataTable PoistaMokki(int id)
+        {   //Tietojen poistaminen tietokannassa "mökki" -kohdasta
+            try
+            {
+                if (File.Exists(filename))
+                {
+                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                    connection.Open();
+                    SQLiteCommand cmd = new SQLiteCommand($"DELETE FROM {tablename5} WHERE mokki_id = '{id}'", connection);
+
+
+                    SQLiteDataReader rdr = cmd.ExecuteReader();
+                    DataTable tt = new DataTable();
+                    tt.Load(rdr);
+                    rdr.Close();
+                    connection.Close();
+                    HaeMokit();
+                    return tt;
+                }
+                else
+                {
+                    throw new FileNotFoundException("Tiedostoa ei löytynyt");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
         public static bool LisaaAsiakas(Asiakas a)
         {   // Lisää käyttäjän kirjaamat asiakastiedot tietokantaan
             try
