@@ -53,10 +53,12 @@ namespace village
             //Ottaa talteen päivämäärät
             DateTime date1 = DateTime.Parse(dtpAlku.Text);
             DateTime date2 = DateTime.Parse(dtpLoppu.Text);
+            TimeSpan haluttuAikavali = date2 - date1;
             dgvMokit.DataSource = TaskDB.HaeMokki(henkilomaara);
             //Käy läpi DataGridViewn !! KESKEN !! Tähän ajatuksena, että poistaa rivit jos mökki varattuna
             foreach (DataGridViewRow row in dgvMokit.Rows)
             {
+                
             }
         }
 

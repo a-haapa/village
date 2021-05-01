@@ -16,7 +16,7 @@ namespace village
         {
             InitializeComponent();
             tbPalveluNimi.Text = p.Nimi;
-            cbToimintaAlue.Text = p.ToimintaAlue;
+            cbToimintaAlue.Text = p.toimintaalue.Nimi;
             tbTyyppi.Text = p.Tyyppi;
             tbKuvaus.Text = p.Kuvaus;
             tbHinta.Text = p.Hinta.ToString();
@@ -32,7 +32,7 @@ namespace village
         {
             Palvelu pa = new Palvelu();
             pa.Nimi = tbPalveluNimi.Text;
-            pa.ToimintaAlue = cbToimintaAlue.Text;
+            pa.toimintaalue.Nimi = cbToimintaAlue.Text;
             pa.Tyyppi = tbTyyppi.Text;
             pa.Kuvaus = tbKuvaus.Text;
             pa.Hinta = double.Parse(tbHinta.Text);

@@ -523,6 +523,29 @@ namespace village
                 throw;
             }
         }
+        public static bool MuokkaaPalvelu(Palvelu pa)
+        {   //Päivittää tiedot toiminta-alue taulussa 
+            try
+            {
+                if (System.IO.File.Exists(filename))
+                {
+                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
+                    connection.Open();
+                    SQLiteCommand cmd = new SQLiteCommand($"UPDATE {tablename6} SET nimi='{pa.Nimi}',toimintaalue_id='{pa.toimintaalue.Toimintaalue_id}',tyyppi='{pa.Tyyppi}',kuvaus='{pa.Kuvaus}',hinta='{pa.Hinta}',nimi='{pa.Nimi}',alv='{pa.Alv}' WHERE palvelu_id_id='{pa.Palvelu_id}'", connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                else
+                {
+                    throw new System.IO.FileNotFoundException("Tiedostoa ei löytynyt");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
         public static bool LisaaVaraus(varausL v)
         {   // Lisää varauksentietokantaan !!! EI VALMIS !!!
             try
