@@ -78,11 +78,11 @@
     <Compile Include="Muokkaa_ToimintaAlue.Designer.cs">
       <DependentUpon>Muokkaa_ToimintaAlue.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="varausHallinta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="varausHallinta.Designer.cs">
+      <DependentUpon>varausHallinta.cs</DependentUpon>
     </Compile>
     <Compile Include="varausL.cs" />
     <Compile Include="yllapito.cs">
@@ -136,8 +136,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="varausHallinta.resx">
+      <DependentUpon>varausHallinta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="varaus.resx">
       <DependentUpon>varaus.cs</DependentUpon>

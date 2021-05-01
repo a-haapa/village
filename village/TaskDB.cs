@@ -172,14 +172,14 @@ namespace village
             }
         }
 
-        public static DataTable HaeMokki(int henkilomaara)
+        public static DataTable HaeMokki(int id, int henkilomaara, DateTime date1, DateTime date2)
         {
             //Tietojen haku "Mökki" taulusta toiminta-alueen ja henkilömäärän mukaan
             if (File.Exists(filename))
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT mokki_id,mokkinimi,henkilomaara,mokinhinta,mokinalv,katuosoite,postinro,varattu_alkupvm,varattu_loppupvm FROM {tablename5}, {tablename6},{tablename3} WHERE mokki.toimintaalue_id=toimintaalue.toimintaalue_id and mokki.henkilomaara='{henkilomaara}'", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT mokki_id,mokkinimi,henkilomaara,mokinhinta,mokinalv,katuosoite,postinro FROM {tablename5},{tablename6} WHERE mokki.toimintaalue_id='{id}' and mokki.henkilomaara='{henkilomaara}'", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -374,6 +374,29 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
+        public static DataTable HaeAsID(Asiakas a)
+        {
+            //ID haku "asiakas" -taulusta sähköpostiosoitteen perusteella
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT asiakas_id FROM {tablename} WHERE email='{a.Email}'", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
 
         public static bool UpdateSql()
         {   //Päivittää tiedot tietokantaan
@@ -524,7 +547,7 @@ namespace village
             }
         }
         public static bool MuokkaaPalvelu(Palvelu pa)
-        {   //Päivittää tiedot toiminta-alue taulussa 
+        {   //Päivittää tiedot palvelu taulussa 
             try
             {
                 if (System.IO.File.Exists(filename))
@@ -546,16 +569,17 @@ namespace village
                 throw;
             }
         }
-        public static bool LisaaVaraus(varausL v)
-        {   // Lisää varauksentietokantaan !!! EI VALMIS !!!
+      
+        public static bool LisaaVaraus(varausL v, Asiakas a)
+        {   // Lisää käyttäjän kirjaamat palvelut tietokantaan
             try
             {
                 if (File.Exists(filename))
                 {
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
                     connection.Open();
-                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename3} (mokki_mokki_id,asiakas.asiakas_id,varattu_alkupvm,varattu_alkupvm)" +
-                        $"VALUES ('{v.mokki.Mokki_id}','{v.asiakas.Asiakas_id}','{v.varattu_alkupvm}','{v.varattu_loppupvm}')", connection);
+                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename3} (asiakas_id,mokki_mokki_id,varattu_pvm,vahvistus_pvm,varattu_alkupvm,varattu_loppupvm)" +
+                        $"VALUES ('{a.Asiakas_id}','{v.Mokki_mokki_id}','{v.Varattu.ToString("yyyy-MM-dd")}','{v.Vahvistus_pvm.ToString("yyyy-MM-dd")}','{v.Varattu_alkupvm.ToString("yyyy-MM-dd")}','{v.Varattu_loppupvm.ToString("yyyy-MM-dd")}')", connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
                     return true;
@@ -572,12 +596,34 @@ namespace village
         }
         public static DataTable HaeVarausPVM()
         {
-            //THakee varausten alku ja loppupäivämäärän !!! KESKEN !!!
+            //THakee varausten alku ja loppupäivämäärän !!! KESKEN, en tiedä onko sittenkään tarvetta !!!
             if (File.Exists(filename))
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand($"SELECT varattu_alkupvm,varattu_loppupvm FROM {tablename3}", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
+        public static DataTable HaeVaraukset()
+        {
+            //Hakee varaukset
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT etunimi,sukunimi,varattu_alkupvm,varattu_loppupvm FROM {tablename},{tablename3} WHERE asiakas.asiakas_id=varaus.asiakas_id", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();

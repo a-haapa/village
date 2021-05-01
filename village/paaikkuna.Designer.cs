@@ -36,6 +36,10 @@ namespace village
             this.btnMokkienHaku = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dtpLoppu = new System.Windows.Forms.DateTimePicker();
+            this.dtpAlku = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnTeeVaraus = new System.Windows.Forms.Button();
             this.btnHaeMokit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,10 +48,6 @@ namespace village
             this.cbToimintaAlue = new System.Windows.Forms.ComboBox();
             this.dgvMokit = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dtpAlku = new System.Windows.Forms.DateTimePicker();
-            this.dtpLoppu = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -101,6 +101,7 @@ namespace village
             this.btnVaraustenHallinta.TabIndex = 2;
             this.btnVaraustenHallinta.Text = "Varausten hallinta";
             this.btnVaraustenHallinta.UseVisualStyleBackColor = true;
+            this.btnVaraustenHallinta.Click += new System.EventHandler(this.btnVaraustenHallinta_Click);
             // 
             // btnMokkienHaku
             // 
@@ -146,6 +147,44 @@ namespace village
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mökkien haku";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dtpLoppu
+            // 
+            this.dtpLoppu.CustomFormat = "yyy-MM-dd";
+            this.dtpLoppu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpLoppu.Location = new System.Drawing.Point(67, 170);
+            this.dtpLoppu.Name = "dtpLoppu";
+            this.dtpLoppu.Size = new System.Drawing.Size(200, 22);
+            this.dtpLoppu.TabIndex = 10;
+            this.dtpLoppu.Value = new System.DateTime(2021, 4, 30, 0, 0, 0, 0);
+            // 
+            // dtpAlku
+            // 
+            this.dtpAlku.CustomFormat = "yyyy-MM-dd";
+            this.dtpAlku.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpAlku.Location = new System.Drawing.Point(67, 91);
+            this.dtpAlku.Name = "dtpAlku";
+            this.dtpAlku.Size = new System.Drawing.Size(200, 22);
+            this.dtpAlku.TabIndex = 9;
+            this.dtpAlku.Value = new System.DateTime(2021, 4, 30, 0, 0, 0, 0);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(64, 150);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(122, 17);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Loppupäivämäärä";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(64, 71);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(109, 17);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Alkupäivämäärä";
             // 
             // btnTeeVaraus
             // 
@@ -228,42 +267,6 @@ namespace village
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(64, 71);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 17);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Alkupäivämäärä";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(64, 150);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(122, 17);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Loppupäivämäärä";
-            // 
-            // dtpAlku
-            // 
-            this.dtpAlku.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpAlku.Location = new System.Drawing.Point(67, 91);
-            this.dtpAlku.Name = "dtpAlku";
-            this.dtpAlku.Size = new System.Drawing.Size(200, 22);
-            this.dtpAlku.TabIndex = 9;
-            this.dtpAlku.Value = new System.DateTime(2021, 4, 30, 0, 0, 0, 0);
-            // 
-            // dtpLoppu
-            // 
-            this.dtpLoppu.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpLoppu.Location = new System.Drawing.Point(67, 170);
-            this.dtpLoppu.Name = "dtpLoppu";
-            this.dtpLoppu.Size = new System.Drawing.Size(200, 22);
-            this.dtpLoppu.TabIndex = 10;
-            this.dtpLoppu.Value = new System.DateTime(2021, 4, 30, 0, 0, 0, 0);
             // 
             // paaikkuna
             // 

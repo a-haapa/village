@@ -30,7 +30,7 @@ namespace village
             cbPalvToimintaAlue.SelectedItem = null;
 
         }
-
+       
         private void btnLisaaToimintaAlue_Click(object sender, EventArgs e)
         {
             Toimintaalue t = new Toimintaalue();

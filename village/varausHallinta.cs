@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace village
 {
-    public partial class Form2 : Form
+    public partial class varausHallinta : Form
     {
-        public Form2()
+        public varausHallinta()
         {
             InitializeComponent();
+            dgvNaytavaraukset.DataSource = TaskDB.HaeVaraukset();
         }
     }
 }

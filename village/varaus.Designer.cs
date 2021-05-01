@@ -66,6 +66,8 @@ namespace village
             this.lblAlku = new System.Windows.Forms.Label();
             this.lblLoppu = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.tbID = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -103,7 +105,7 @@ namespace village
             // tbEmail
             // 
             this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEmail.Location = new System.Drawing.Point(505, 150);
+            this.tbEmail.Location = new System.Drawing.Point(502, 148);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(176, 28);
             this.tbEmail.TabIndex = 3;
@@ -407,11 +409,30 @@ namespace village
             this.label12.TabIndex = 37;
             this.label12.Text = "-";
             // 
+            // tbID
+            // 
+            this.tbID.Location = new System.Drawing.Point(611, 94);
+            this.tbID.Name = "tbID";
+            this.tbID.ReadOnly = true;
+            this.tbID.Size = new System.Drawing.Size(70, 22);
+            this.tbID.TabIndex = 38;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(608, 74);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(21, 17);
+            this.label10.TabIndex = 39;
+            this.label10.Text = "ID";
+            // 
             // varaus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1109, 667);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.tbID);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.lblLoppu);
             this.Controls.Add(this.lblAlku);
@@ -497,5 +518,7 @@ namespace village
         private System.Windows.Forms.Label lblAlku;
         private System.Windows.Forms.Label lblLoppu;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tbID;
+        private System.Windows.Forms.Label label10;
     }
 }
