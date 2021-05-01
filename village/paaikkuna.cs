@@ -49,33 +49,26 @@ namespace village
         {
             //Ottaa talteen toiminta-alueen ja henkilömäärän
             string toimintaalue = cbToimintaAlue.Text;
+            int id = int.Parse(cbToimintaAlue.SelectedValue.ToString());
             int henkilomaara = int.Parse(cbHenkilomaara.Text);
             //Ottaa talteen päivämäärät
             DateTime date1 = DateTime.Parse(dtpAlku.Text);
             DateTime date2 = DateTime.Parse(dtpLoppu.Text);
             TimeSpan haluttuAikavali = date2 - date1;
-            dgvMokit.DataSource = TaskDB.HaeMokki(henkilomaara);
-            //Käy läpi DataGridViewn !! KESKEN EI TOIMI VIELÄ !! Tähän ajatuksena, että poistaa rivit jos mökki varattuna
-            foreach (DataGridViewRow row in dgvMokit.Rows)
-            {
-                object value = row.Cells[7].Value;
-                object value2 = row.Cells[8].Value;
-                if (value != DBNull.Value || value2 != DBNull.Value)
-                {
-                    TimeSpan aikavali = DateTime.Parse(value2.ToString()) - DateTime.Parse(value.ToString());
-                    if (haluttuAikavali > aikavali || haluttuAikavali < aikavali)
-                    {
-                        continue;
-                    }
-                    else dgvMokit.Rows.Remove(row);
-                }
-            }
+            dgvMokit.DataSource = TaskDB.HaeMokki(id,henkilomaara,date1,date2);
+            
         }
 
         private void btnYllapito_Click(object sender, EventArgs e)
         {
             yllapito formi = new yllapito();
             formi.Show();
+        }
+
+        private void btnVaraustenHallinta_Click(object sender, EventArgs e)
+        {
+            varausHallinta vh = new varausHallinta();
+            vh.Show();
         }
     }
 }

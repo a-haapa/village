@@ -43,6 +43,7 @@ namespace village
         {
             //Jos on valittuna checkbox, niin lisää asiakkaan tietokantaan.
             Asiakas a = new Asiakas();
+            
             a.Etunimi = tbEtunimi.Text;
             a.Sukunimi = tbSukunimi.Text;
             a.Lahiosoite = tbOsoite.Text;
@@ -53,19 +54,24 @@ namespace village
             {
                 TaskDB.LisaaAsiakas(a);
             }
-            //Poimii varauksen tallettamista varten tietoja !! KESKEN
+            //Poimii varauksen tallettamista varten tietoja 
             varausL v = new varausL();
-            v.mokki.Mokki_id = int.Parse(lblID.Text);
-            v.asiakas.Asiakas_id = a.Asiakas_id;
-            v.varattu_alkupvm = DateTime.Parse(lblAlku.Text);
-            v.varattu_loppupvm = DateTime.Parse(lblLoppu.Text);
-            
-            //Tallettaa valitut palvelut taulukkoon.   !! Täytyy vielä miettiä toteutus, onnistuuko !!
+            v.Mokki_mokki_id = int.Parse(lblID.Text);
+            v.Varattu_alkupvm = DateTime.Parse(lblAlku.Text);
+            v.Varattu_loppupvm = DateTime.Parse(lblLoppu.Text);
+            v.Varattu = DateTime.Today;
+            v.Vahvistus_pvm = DateTime.Parse(lblAlku.Text).AddDays(-2);
+
+            //Tallettaa valitut palvelut taulukkoon.   !! Täytyy vielä miettiä toteutus, onnistuuko näin vai mitä tehdään !!
+            //Varaus toimii siis muuten, mutta palveluita ei vielä pysty lisäämään
             foreach (Palvelu p in listBox2.Items)
             {
                 v.palvelut.Add(p);
             }
-            TaskDB.LisaaVaraus(v);
+            //Hakee vielä asiakas-ID:n. Ei ole testattu hekeeko jos tekee uuden asiakkaan samalla
+            DataTable t = TaskDB.HaeAsID(a);
+            a.Asiakas_id = int.Parse(t.Rows[0].ItemArray[0].ToString());
+            TaskDB.LisaaVaraus(v, a);
         }
 
         private void btnHaeAsiakas_Click(object sender, EventArgs e)

@@ -15,7 +15,6 @@ namespace village
         public Form1()
         {
             InitializeComponent();
-            dgvTaulukko.DataSource = TaskDB.ReadFromAsiakas();
         }
 
         private void Form1_Load(object sender, EventArgs e)
