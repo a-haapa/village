@@ -220,6 +220,31 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
+        public static DataTable HaeMokki3(int id, DateTime date1, DateTime date2)
+        {
+            //Tietojen haku "Mökki" taulusta toiminta-alueen ja henkilömäärän mukaan
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT mokki_id,mokkinimi,henkilomaara,mokinhinta,mokinalv,katuosoite,postinro " +
+                    $"FROM {tablename5},{tablename6} WHERE mokki.toimintaalue_id='{id}' and mokki_id NOT IN " +
+                    $"(SELECT mokki_id FROM {tablename3},{tablename5} " +
+                    $"WHERE mokki.mokki_id=varaus.mokki_mokki_id and varaus.varattu_alkupvm BETWEEN '{date1.ToString("yyyy-MM-dd")}' and '{date2.ToString("yyyy-MM-dd")}' and varaus.varattu_loppupvm BETWEEN '{date1.ToString("yyyy-MM-dd")}' and '{date2.ToString("yyyy-MM-dd")}')", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
         public static DataTable HaeMokit()
         {
             //Tietojen haku "Mökki" taulusta
@@ -692,7 +717,9 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT etunimi,sukunimi,varattu_alkupvm,varattu_loppupvm FROM {tablename},{tablename3} WHERE asiakas.asiakas_id=varaus.asiakas_id", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT varaus_id,nimi,mokkinimi,etunimi,sukunimi,varattu_alkupvm,varattu_loppupvm " +
+                    $"FROM {tablename},{tablename3},{tablename5},{tablename6} " +
+                    $"WHERE asiakas.asiakas_id=varaus.asiakas_id and varaus.mokki_mokki_id=mokki.mokki_id and mokki.toimintaalue_id=toimintaalue.toimintaalue_id ORDER BY varattu_alkupvm", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -707,6 +734,7 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
+        
         public static DataTable LastVarausID()
         {
             //THakee varausten alku ja loppupäivämäärän !!! KESKEN, en tiedä onko sittenkään tarvetta !!!
@@ -729,5 +757,34 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
+        public static DataTable PoistaVaraus(int id)
+        {   //Tietojen poistaminen tietokannassa "Palvelu" -kohdasta
+            try
+            {
+                if (File.Exists(filename))
+                {
+                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                    connection.Open();
+                    SQLiteCommand cmd = new SQLiteCommand($"DELETE FROM {tablename3} WHERE varaus_id = '{id}'", connection);
+
+                    SQLiteDataReader rdr = cmd.ExecuteReader();
+                    DataTable tt = new DataTable();
+                    tt.Load(rdr);
+                    rdr.Close();
+                    connection.Close();
+                    HaePalvelut();
+                    return tt;
+                }
+                else
+                {
+                    throw new FileNotFoundException("Tiedostoa ei löytynyt");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
     }
 }

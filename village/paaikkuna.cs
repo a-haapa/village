@@ -20,6 +20,8 @@ namespace village
             cbToimintaAlue.ValueMember = "toimintaalue_id";
             cbToimintaAlue.DisplayMember = "nimi";
             cbToimintaAlue.SelectedItem = null;
+            dtpAlku.CustomFormat = " ";
+            dtpLoppu.CustomFormat = " ";
         }
 
         private void btnTeeVaraus_Click(object sender, EventArgs e)
@@ -47,15 +49,22 @@ namespace village
 
         private void btnHaeMokit_Click(object sender, EventArgs e)
         {
-            //Ottaa talteen toiminta-alueen ja henkilömäärän
+            
             string toimintaalue = cbToimintaAlue.Text;
             int id = int.Parse(cbToimintaAlue.SelectedValue.ToString());
-            int henkilomaara = int.Parse(cbHenkilomaara.Text);
+
             //Ottaa talteen päivämäärät
             DateTime date1 = DateTime.Parse(dtpAlku.Text);
             DateTime date2 = DateTime.Parse(dtpLoppu.Text);
-            TimeSpan haluttuAikavali = date2 - date1;
-            dgvMokit.DataSource = TaskDB.HaeMokki2(id,henkilomaara,date1,date2);
+            if (cbHenkilomaara.SelectedItem == null)
+            {
+                dgvMokit.DataSource = TaskDB.HaeMokki3(id, date1, date2);
+            }
+            else
+            {
+                int henkilomaara = int.Parse(cbHenkilomaara.Text);
+                dgvMokit.DataSource = TaskDB.HaeMokki2(id, henkilomaara, date1, date2);
+            }
             
         }
 
@@ -69,6 +78,16 @@ namespace village
         {
             varausHallinta vh = new varausHallinta();
             vh.Show();
+        }
+
+        private void dtpAlku_ValueChanged(object sender, EventArgs e)
+        {
+            dtpAlku.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+        }
+
+        private void dtpLoppu_ValueChanged(object sender, EventArgs e)
+        {
+            dtpLoppu.CustomFormat = "dd/MM/yyyy hh:mm:ss";
         }
     }
 }

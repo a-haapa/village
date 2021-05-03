@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace village
 {
-    public partial class Form1 : Form
+    public partial class VarausMuokkaus : Form
     {
-        public Form1()
+        public VarausMuokkaus(DataTable dt)
         {
             InitializeComponent();
         }

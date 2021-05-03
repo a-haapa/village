@@ -76,8 +76,6 @@ namespace village
         private void btnSulje_Click(object sender, EventArgs e)
         {
             this.Close();
-            paaikkuna formi = new paaikkuna();
-            formi.Show();
         }
 
         private void btnPoistaToimintaAlue_Click(object sender, EventArgs e)
