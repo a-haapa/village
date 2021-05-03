@@ -55,7 +55,7 @@ namespace village
             DateTime date1 = DateTime.Parse(dtpAlku.Text);
             DateTime date2 = DateTime.Parse(dtpLoppu.Text);
             TimeSpan haluttuAikavali = date2 - date1;
-            dgvMokit.DataSource = TaskDB.HaeMokki(id,henkilomaara,date1,date2);
+            dgvMokit.DataSource = TaskDB.HaeMokki2(id,henkilomaara,date1,date2);
             
         }
 

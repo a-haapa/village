@@ -36,6 +36,7 @@ namespace village
             listBox1.DataSource = TaskDB.HaePalvelunNimi(ta);
             listBox1.ValueMember = "palvelu_id";
             listBox1.DisplayMember = "nimi";
+
             
         }
 
@@ -62,16 +63,14 @@ namespace village
             v.Varattu = DateTime.Today;
             v.Vahvistus_pvm = DateTime.Parse(lblAlku.Text).AddDays(-2);
 
-            //Tallettaa valitut palvelut taulukkoon.   !! Täytyy vielä miettiä toteutus, onnistuuko näin vai mitä tehdään !!
-            //Varaus toimii siis muuten, mutta palveluita ei vielä pysty lisäämään
-            foreach (Palvelu p in listBox2.Items)
-            {
-                v.palvelut.Add(p);
-            }
-            //Hakee vielä asiakas-ID:n. Ei ole testattu hekeeko jos tekee uuden asiakkaan samalla
+            //Hakee vielä asiakas-ID:n. Ei ole testattu hakeeko jos tekee uuden asiakkaan samalla
             DataTable t = TaskDB.HaeAsID(a);
             a.Asiakas_id = int.Parse(t.Rows[0].ItemArray[0].ToString());
             TaskDB.LisaaVaraus(v, a);
+            //tähän pitäisi saada koodia, joka keräisi valitut palvelut listboxista,
+            // ja veisi niistä yksitellen tietokantaan tauluun "varauksen_palvelut" valitun palvelun id:n sekä varaus_id:n
+            
+            
         }
 
         private void btnHaeAsiakas_Click(object sender, EventArgs e)
@@ -111,9 +110,11 @@ namespace village
         private void btnValitsePalvelu_Click(object sender, EventArgs e)
         {
             //Siirtää valitut palvelut listalta toiselle
+            
             listBox2.Items.Add(listBox1.SelectedItem);
             listBox2.ValueMember = "palvelu_id";
             listBox2.DisplayMember = "nimi";
+
         }
 
         private void btnPoistaValittuPalvelu_Click(object sender, EventArgs e)
