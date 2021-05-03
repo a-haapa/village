@@ -58,7 +58,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnMuokkaa = new System.Windows.Forms.Button();
             this.dgvToimintaalueet = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label18 = new System.Windows.Forms.Label();
             this.tbPalvTyyppi = new System.Windows.Forms.TextBox();
@@ -101,15 +100,15 @@
             // 
             this.tbToimintaAlue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbToimintaAlue.Location = new System.Drawing.Point(24, 51);
-            this.tbToimintaAlue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbToimintaAlue.Margin = new System.Windows.Forms.Padding(4);
             this.tbToimintaAlue.Name = "tbToimintaAlue";
             this.tbToimintaAlue.Size = new System.Drawing.Size(132, 24);
             this.tbToimintaAlue.TabIndex = 1;
             // 
             // btnLisaaToimintaAlue
             // 
-            this.btnLisaaToimintaAlue.Location = new System.Drawing.Point(387, 143);
-            this.btnLisaaToimintaAlue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLisaaToimintaAlue.Location = new System.Drawing.Point(387, 36);
+            this.btnLisaaToimintaAlue.Margin = new System.Windows.Forms.Padding(4);
             this.btnLisaaToimintaAlue.Name = "btnLisaaToimintaAlue";
             this.btnLisaaToimintaAlue.Size = new System.Drawing.Size(100, 28);
             this.btnLisaaToimintaAlue.TabIndex = 2;
@@ -119,8 +118,8 @@
             // 
             // btnPoistaToimintaAlue
             // 
-            this.btnPoistaToimintaAlue.Location = new System.Drawing.Point(600, 143);
-            this.btnPoistaToimintaAlue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPoistaToimintaAlue.Location = new System.Drawing.Point(387, 106);
+            this.btnPoistaToimintaAlue.Margin = new System.Windows.Forms.Padding(4);
             this.btnPoistaToimintaAlue.Name = "btnPoistaToimintaAlue";
             this.btnPoistaToimintaAlue.Size = new System.Drawing.Size(100, 28);
             this.btnPoistaToimintaAlue.TabIndex = 3;
@@ -165,14 +164,13 @@
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.btnMuokkaa);
             this.tabPage1.Controls.Add(this.dgvToimintaalueet);
-            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.btnPoistaToimintaAlue);
             this.tabPage1.Controls.Add(this.tbToimintaAlue);
             this.tabPage1.Controls.Add(this.btnLisaaToimintaAlue);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1012, 602);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Toiminta-alueiden ja mökkien ylläpito";
@@ -180,7 +178,7 @@
             // 
             // btnSulje
             // 
-            this.btnSulje.Location = new System.Drawing.Point(837, 457);
+            this.btnSulje.Location = new System.Drawing.Point(839, 514);
             this.btnSulje.Name = "btnSulje";
             this.btnSulje.Size = new System.Drawing.Size(143, 41);
             this.btnSulje.TabIndex = 28;
@@ -207,9 +205,9 @@
             // 
             // btnPoistamokki
             // 
-            this.btnPoistamokki.Location = new System.Drawing.Point(588, 384);
+            this.btnPoistamokki.Location = new System.Drawing.Point(387, 323);
             this.btnPoistamokki.Name = "btnPoistamokki";
-            this.btnPoistamokki.Size = new System.Drawing.Size(89, 29);
+            this.btnPoistamokki.Size = new System.Drawing.Size(100, 29);
             this.btnPoistamokki.TabIndex = 25;
             this.btnPoistamokki.Text = "Poista";
             this.btnPoistamokki.UseVisualStyleBackColor = true;
@@ -217,16 +215,17 @@
             // 
             // btnMuokkaamokki
             // 
-            this.btnMuokkaamokki.Location = new System.Drawing.Point(493, 384);
+            this.btnMuokkaamokki.Location = new System.Drawing.Point(387, 288);
             this.btnMuokkaamokki.Name = "btnMuokkaamokki";
-            this.btnMuokkaamokki.Size = new System.Drawing.Size(89, 29);
+            this.btnMuokkaamokki.Size = new System.Drawing.Size(100, 29);
             this.btnMuokkaamokki.TabIndex = 24;
             this.btnMuokkaamokki.Text = "Muokkaa";
             this.btnMuokkaamokki.UseVisualStyleBackColor = true;
+            this.btnMuokkaamokki.Click += new System.EventHandler(this.btnMuokkaamokki_Click);
             // 
             // btnLisaamokki
             // 
-            this.btnLisaamokki.Location = new System.Drawing.Point(387, 384);
+            this.btnLisaamokki.Location = new System.Drawing.Point(387, 251);
             this.btnLisaamokki.Name = "btnLisaamokki";
             this.btnLisaamokki.Size = new System.Drawing.Size(100, 29);
             this.btnLisaamokki.TabIndex = 23;
@@ -237,11 +236,11 @@
             // dgvMokkilista
             // 
             this.dgvMokkilista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMokkilista.Location = new System.Drawing.Point(387, 189);
+            this.dgvMokkilista.Location = new System.Drawing.Point(525, 211);
             this.dgvMokkilista.Name = "dgvMokkilista";
             this.dgvMokkilista.RowHeadersWidth = 51;
             this.dgvMokkilista.RowTemplate.Height = 24;
-            this.dgvMokkilista.Size = new System.Drawing.Size(595, 188);
+            this.dgvMokkilista.Size = new System.Drawing.Size(457, 276);
             this.dgvMokkilista.TabIndex = 22;
             // 
             // tbKuvaus
@@ -376,7 +375,7 @@
             // 
             // btnMuokkaa
             // 
-            this.btnMuokkaa.Location = new System.Drawing.Point(493, 143);
+            this.btnMuokkaa.Location = new System.Drawing.Point(387, 71);
             this.btnMuokkaa.Name = "btnMuokkaa";
             this.btnMuokkaa.Size = new System.Drawing.Size(100, 28);
             this.btnMuokkaa.TabIndex = 6;
@@ -387,21 +386,12 @@
             // dgvToimintaalueet
             // 
             this.dgvToimintaalueet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvToimintaalueet.Location = new System.Drawing.Point(387, 51);
+            this.dgvToimintaalueet.Location = new System.Drawing.Point(525, 23);
             this.dgvToimintaalueet.Name = "dgvToimintaalueet";
             this.dgvToimintaalueet.RowHeadersWidth = 51;
             this.dgvToimintaalueet.RowTemplate.Height = 24;
-            this.dgvToimintaalueet.Size = new System.Drawing.Size(595, 85);
+            this.dgvToimintaalueet.Size = new System.Drawing.Size(455, 153);
             this.dgvToimintaalueet.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(292, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 17);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Toiminta-alueet";
             // 
             // tabPage2
             // 
@@ -424,7 +414,7 @@
             this.tabPage2.Controls.Add(this.dgvPalvelut);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1012, 602);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Palveluiden hallinta";
@@ -443,7 +433,7 @@
             // tbPalvTyyppi
             // 
             this.tbPalvTyyppi.Location = new System.Drawing.Point(29, 217);
-            this.tbPalvTyyppi.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.tbPalvTyyppi.Margin = new System.Windows.Forms.Padding(1);
             this.tbPalvTyyppi.Name = "tbPalvTyyppi";
             this.tbPalvTyyppi.Size = new System.Drawing.Size(120, 22);
             this.tbPalvTyyppi.TabIndex = 18;
@@ -588,7 +578,7 @@
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(1012, 602);
             this.tabPage4.TabIndex = 2;
             this.tabPage4.Text = "tabPage4";
@@ -600,7 +590,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 643);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "yllapito";
             this.Text = "Testi2";
             this.tabControl1.ResumeLayout(false);
@@ -625,7 +615,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btnMuokkaa;
         private System.Windows.Forms.DataGridView dgvToimintaalueet;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox tbVarustelu;
         private System.Windows.Forms.TextBox tbHinta;

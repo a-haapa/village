@@ -46,31 +46,39 @@ namespace village
 
         private void btnLisaamokki_Click(object sender, EventArgs e)
         {
-            //Syötetään mökin tiedot olioon.
-            Mokki m = new Mokki();
-            m.Mokkinimi = tbNimi.Text;
-            m.MokinToimintaalue.Nimi = cbAlue.Text;
-            m.MokinToimintaalue.Toimintaalue_id = int.Parse(cbAlue.SelectedValue.ToString());
-            m.Katuosoite = tbOsoite.Text;
-            m.Postinro = tbPostinro.Text;
-            m.Henkilomaara = int.Parse(tbHenkilomaara.Text);
-            m.Kuvaus = tbKuvaus.Text;
-            m.Varustelu = tbVarustelu.Text;
-            m.Mokinhinta = double.Parse(tbHinta.Text);
-            m.Mokinalv = 10;
-            //Lisätään tietokantaan
-            TaskDB.LisaaMokki(m);
-            //Tyhjennetään tekstiboxit
-            tbNimi.Clear();
-            cbAlue.SelectedItem = null;
-            tbHenkilomaara.Clear();
-            tbKuvaus.Clear();
-            tbOsoite.Clear();
-            tbPostinro.Clear();
-            tbVarustelu.Clear();
-            tbHinta.Clear();
-            //Haetaan mökit eli päivitetään muutokset DataGridView-taulukkoon
-            dgvMokkilista.DataSource = TaskDB.HaeMokit();
+            try
+            {
+                //Syötetään mökin tiedot olioon.
+                Mokki m = new Mokki();
+                m.Mokkinimi = tbNimi.Text;
+                m.MokinToimintaalue.Nimi = cbAlue.Text;
+                m.MokinToimintaalue.Toimintaalue_id = int.Parse(cbAlue.SelectedValue.ToString());
+                m.Katuosoite = tbOsoite.Text;
+                m.Postinro = tbPostinro.Text;
+                m.Henkilomaara = int.Parse(tbHenkilomaara.Text);
+                m.Kuvaus = tbKuvaus.Text;
+                m.Varustelu = tbVarustelu.Text;
+                m.Mokinhinta = double.Parse(tbHinta.Text);
+                m.Mokinalv = 10;
+                //Lisätään tietokantaan
+                TaskDB.LisaaMokki(m);
+                //Tyhjennetään tekstiboxit
+                tbNimi.Clear();
+                cbAlue.SelectedItem = null;
+                tbHenkilomaara.Clear();
+                tbKuvaus.Clear();
+                tbOsoite.Clear();
+                tbPostinro.Clear();
+                tbVarustelu.Clear();
+                tbHinta.Clear();
+                //Haetaan mökit eli päivitetään muutokset DataGridView-taulukkoon
+                dgvMokkilista.DataSource = TaskDB.HaeMokit();
+            }
+            catch
+            {
+                throw;
+            }
+            
         }
 
         private void btnSulje_Click(object sender, EventArgs e)
@@ -103,15 +111,23 @@ namespace village
 
         public void btnMuokkaa_Click(object sender, EventArgs e)
         {
-            // ottaa tiedot dgv:stä olioon
-            Toimintaalue to = new Toimintaalue();
-            int row = dgvToimintaalueet.SelectedCells[0].RowIndex;
-            to.Toimintaalue_id = int.Parse(dgvToimintaalueet.Rows[row].Cells[0].Value.ToString());
-            to.Nimi = (string)dgvToimintaalueet.Rows[row].Cells[1].Value;
-            //avaa uuden formin ja siirtää olion sinne
-            Muokkaa_ToimintaAlue formi = new Muokkaa_ToimintaAlue(to);
-            this.Close();
-            formi.Show();
+            try
+            {
+                // ottaa tiedot dgv:stä olioon
+                Toimintaalue to = new Toimintaalue();
+                int row = dgvToimintaalueet.SelectedCells[0].RowIndex;
+                to.Toimintaalue_id = int.Parse(dgvToimintaalueet.Rows[row].Cells[0].Value.ToString());
+                to.Nimi = (string)dgvToimintaalueet.Rows[row].Cells[1].Value;
+                //avaa uuden formin ja siirtää olion sinne
+                Muokkaa_ToimintaAlue formi = new Muokkaa_ToimintaAlue(to);
+                this.Close();
+                formi.Show();
+            }
+            catch
+            {
+                throw;
+            }
+            
         }
 
         private void btnPoistaPalvelu_Click(object sender, EventArgs e)
@@ -127,28 +143,36 @@ namespace village
 
         private void btnLisaaPalvelu_Click_1(object sender, EventArgs e)
         {
-            //Syötetään palvelun tiedot olioon
-            Palvelu p = new Palvelu();
-            p.Nimi = tbPalvNimi.Text;
-            p.toimintaalue.Nimi = cbPalvToimintaAlue.Text;
-            string str = p.toimintaalue.Nimi;
-            DataTable t = TaskDB.HaeTaID(str);
-            p.toimintaalue.Toimintaalue_id = int.Parse(t.Rows[0].ItemArray[0].ToString());
-            p.Tyyppi = tbPalvTyyppi.Text;
-            p.Kuvaus = tbPalvKuvaus.Text;
-            p.Hinta = double.Parse(tbPalvHinta.Text);
-            p.Alv = double.Parse(tbPalvAlv.Text);
-            //lisätään tietokantaan
-            TaskDB.LisaaPalvelu(p);
-            //tyhjennetään tekstikentät
-            tbPalvNimi.Clear();
-            cbPalvToimintaAlue.SelectedItem = null;
-            tbPalvTyyppi.Clear();
-            tbPalvKuvaus.Clear();
-            tbPalvHinta.Clear();
-            tbPalvAlv.Clear();
-            //päivitetään muutokset datagridviewiin
-            dgvPalvelut.DataSource = TaskDB.HaePalvelut();
+            try
+            {
+                //Syötetään palvelun tiedot olioon
+                Palvelu p = new Palvelu();
+                p.Nimi = tbPalvNimi.Text;
+                p.toimintaalue.Nimi = cbPalvToimintaAlue.Text;
+                string str = p.toimintaalue.Nimi;
+                DataTable t = TaskDB.HaeTaID(str);
+                p.toimintaalue.Toimintaalue_id = int.Parse(t.Rows[0].ItemArray[0].ToString());
+                p.Tyyppi = tbPalvTyyppi.Text;
+                p.Kuvaus = tbPalvKuvaus.Text;
+                p.Hinta = double.Parse(tbPalvHinta.Text);
+                p.Alv = double.Parse(tbPalvAlv.Text);
+                //lisätään tietokantaan
+                TaskDB.LisaaPalvelu(p);
+                //tyhjennetään tekstikentät
+                tbPalvNimi.Clear();
+                cbPalvToimintaAlue.SelectedItem = null;
+                tbPalvTyyppi.Clear();
+                tbPalvKuvaus.Clear();
+                tbPalvHinta.Clear();
+                tbPalvAlv.Clear();
+                //päivitetään muutokset datagridviewiin
+                dgvPalvelut.DataSource = TaskDB.HaePalvelut();
+            }
+            catch
+            {
+                throw;
+            }
+            
         }
 
         private void btnPoistamokki_Click(object sender, EventArgs e)
@@ -164,6 +188,11 @@ namespace village
         }
 
         private void btnMuokkaaPalvelua_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMuokkaamokki_Click(object sender, EventArgs e)
         {
 
         }

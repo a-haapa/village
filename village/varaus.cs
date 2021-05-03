@@ -42,34 +42,40 @@ namespace village
 
         private void btnVahvista_Click(object sender, EventArgs e)
         {
-            //Jos on valittuna checkbox, niin lisää asiakkaan tietokantaan.
-            Asiakas a = new Asiakas();
-            
-            a.Etunimi = tbEtunimi.Text;
-            a.Sukunimi = tbSukunimi.Text;
-            a.Lahiosoite = tbOsoite.Text;
-            a.Postinro = tbPostinro.Text;
-            a.Puhelinnro = tbPuhnro.Text;
-            a.Email = tbEmail.Text;
-            if (cbTallenna.Checked)
+            try
             {
-                TaskDB.LisaaAsiakas(a);
-            }
-            //Poimii varauksen tallettamista varten tietoja 
-            varausL v = new varausL();
-            v.Mokki_mokki_id = int.Parse(lblID.Text);
-            v.Varattu_alkupvm = DateTime.Parse(lblAlku.Text);
-            v.Varattu_loppupvm = DateTime.Parse(lblLoppu.Text);
-            v.Varattu = DateTime.Today;
-            v.Vahvistus_pvm = DateTime.Parse(lblAlku.Text).AddDays(-2);
+                //Jos on valittuna checkbox, niin lisää asiakkaan tietokantaan.
+                Asiakas a = new Asiakas();
 
-            //Hakee vielä asiakas-ID:n. Ei ole testattu hakeeko jos tekee uuden asiakkaan samalla
-            DataTable t = TaskDB.HaeAsID(a);
-            a.Asiakas_id = int.Parse(t.Rows[0].ItemArray[0].ToString());
-            TaskDB.LisaaVaraus(v, a);
-            //tähän pitäisi saada koodia, joka keräisi valitut palvelut listboxista,
-            // ja veisi niistä yksitellen tietokantaan tauluun "varauksen_palvelut" valitun palvelun id:n sekä varaus_id:n
-            
+                a.Etunimi = tbEtunimi.Text;
+                a.Sukunimi = tbSukunimi.Text;
+                a.Lahiosoite = tbOsoite.Text;
+                a.Postinro = tbPostinro.Text;
+                a.Puhelinnro = tbPuhnro.Text;
+                a.Email = tbEmail.Text;
+                if (cbTallenna.Checked)
+                {
+                    TaskDB.LisaaAsiakas(a);
+                }
+                //Poimii varauksen tallettamista varten tietoja 
+                varausL v = new varausL();
+                v.Mokki_mokki_id = int.Parse(lblID.Text);
+                v.Varattu_alkupvm = DateTime.Parse(lblAlku.Text);
+                v.Varattu_loppupvm = DateTime.Parse(lblLoppu.Text);
+                v.Varattu = DateTime.Today;
+                v.Vahvistus_pvm = DateTime.Parse(lblAlku.Text).AddDays(-2);
+
+                //Hakee vielä asiakas-ID:n. Ei ole testattu hakeeko jos tekee uuden asiakkaan samalla
+                DataTable t = TaskDB.HaeAsID(a);
+                a.Asiakas_id = int.Parse(t.Rows[0].ItemArray[0].ToString());
+                TaskDB.LisaaVaraus(v, a);
+                //tähän pitäisi saada koodia, joka keräisi valitut palvelut listboxista,
+                // ja veisi niistä yksitellen tietokantaan tauluun "varauksen_palvelut" valitun palvelun id:n sekä varaus_id:n
+            }
+            catch
+            {
+                throw;
+            }
             
         }
 
@@ -97,7 +103,7 @@ namespace village
             {
                 
                 
-                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+                throw;
                 
             }
         }
