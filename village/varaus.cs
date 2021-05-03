@@ -33,11 +33,11 @@ namespace village
             lblKuvaus.Text = t.Rows[0].Field<string>(5);
             lblVarustelu.Text = t.Rows[0].Field<string>(7);
             //Hakee listboxeihin kyseisen toiminta-alueen palvelut
-            listBox1.DataSource = TaskDB.HaePalvelunNimi(ta);
+            
             listBox1.ValueMember = "palvelu_id";
             listBox1.DisplayMember = "nimi";
+            listBox1.DataSource = TaskDB.HaePalvelunNimi(ta);
 
-            
         }
 
         private void btnVahvista_Click(object sender, EventArgs e)
@@ -65,12 +65,9 @@ namespace village
                 v.Varattu = DateTime.Today;
                 v.Vahvistus_pvm = DateTime.Parse(lblAlku.Text).AddDays(-2);
 
-                //Hakee vielä asiakas-ID:n. Ei ole testattu hakeeko jos tekee uuden asiakkaan samalla
-                DataTable t = TaskDB.HaeAsID(a);
-                a.Asiakas_id = int.Parse(t.Rows[0].ItemArray[0].ToString());
+                
                 TaskDB.LisaaVaraus(v, a);
-                //tähän pitäisi saada koodia, joka keräisi valitut palvelut listboxista,
-                // ja veisi niistä yksitellen tietokantaan tauluun "varauksen_palvelut" valitun palvelun id:n sekä varaus_id:n
+                
             }
             catch
             {
@@ -117,10 +114,9 @@ namespace village
         {
             //Siirtää valitut palvelut listalta toiselle
             
-            listBox2.Items.Add(listBox1.SelectedItem);
             listBox2.ValueMember = "palvelu_id";
             listBox2.DisplayMember = "nimi";
-
+            listBox2.Items.Add(listBox1.SelectedItem);
         }
 
         private void btnPoistaValittuPalvelu_Click(object sender, EventArgs e)
