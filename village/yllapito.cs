@@ -47,7 +47,6 @@ namespace village
         private void btnLisaamokki_Click(object sender, EventArgs e)
         {
             //Syötetään mökin tiedot olioon.
-            int i;
             Mokki m = new Mokki();
             m.Mokkinimi = tbNimi.Text;
             m.MokinToimintaalue.Nimi = cbAlue.Text;
