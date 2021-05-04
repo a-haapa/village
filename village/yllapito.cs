@@ -214,7 +214,21 @@ namespace village
 
         private void btnMuokkaamokki_Click(object sender, EventArgs e)
         {
+            Mokki mokki = new Mokki();
+            int row = dgvMokkilista.SelectedCells[0].RowIndex;
+            mokki.Mokki_id = int.Parse(dgvMokkilista.Rows[row].Cells[0].Value.ToString());
+            mokki.Mokkinimi = (string)dgvMokkilista.Rows[row].Cells[1].Value;
+            mokki.Henkilomaara = int.Parse(dgvMokkilista.Rows[row].Cells[2].Value.ToString());
+            mokki.Mokinhinta = double.Parse(dgvMokkilista.Rows[row].Cells[3].Value.ToString());
+            mokki.Katuosoite = (string)dgvMokkilista.Rows[row].Cells[5].Value;
+            mokki.Postinro = (string)dgvMokkilista.Rows[row].Cells[6].Value;
+            mokki.Kuvaus = (string)dgvMokkilista.Rows[row].Cells[7].Value;
+            mokki.Varustelu = (string)dgvMokkilista.Rows[row].Cells[8].Value;
+            
 
+            Muokkaa_mokki formi = new Muokkaa_mokki(mokki);
+            this.Close();
+            formi.Show();
         }
 
 		private void btnLisaa_Click(object sender, EventArgs e)

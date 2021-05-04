@@ -252,7 +252,7 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT mokki_id,mokkinimi,henkilomaara,mokinhinta,mokinalv,katuosoite,postinro FROM {tablename5}", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT mokki_id,mokkinimi,henkilomaara,mokinhinta,mokinalv,katuosoite,postinro,kuvaus,varustelu FROM {tablename5}", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -504,6 +504,31 @@ namespace village
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
                     connection.Open();
                     SQLiteCommand cmd = new SQLiteCommand($"UPDATE {tablename6} SET nimi='{t.Nimi}', toimintaalue_id='{t.Toimintaalue_id}' WHERE toimintaalue_id='{t.Toimintaalue_id}'", connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                else
+                {
+                    throw new System.IO.FileNotFoundException("Tiedostoa ei löytynyt");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public static bool MuokkaaMokki(Mokki m)
+        {   //Päivittää tiedot mökki taulussa 
+            try
+            {
+                if (System.IO.File.Exists(filename))
+                {
+                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
+                    connection.Open();
+                    SQLiteCommand cmd = new SQLiteCommand($"UPDATE {tablename5} SET mokkinimi='{m.Mokkinimi}', mokki_id='{m.Mokki_id}', henkilomaara='{m.Henkilomaara}', mokinhinta='{m.Mokinhinta}'" +
+                        $", katuosoite='{m.Katuosoite}', postinro='{m.Postinro}', kuvaus='{m.Kuvaus}', varustelu='{m.Varustelu}' WHERE mokki_id='{m.Mokki_id}'", connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
                     return true;
