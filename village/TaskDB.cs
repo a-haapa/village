@@ -587,7 +587,7 @@ namespace village
                 throw;
             }
         }
-        public static bool LisaaVarauksenPalvelu(Palvelu pa)
+        public static bool LisaaVarauksenPalvelu(Palvelu p,int varaus_id)
         {   // Lisää käyttäjän kirjaamat palvelut kantaan
             try
             {
@@ -595,8 +595,8 @@ namespace village
                 {
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
                     connection.Open();
-                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename8} (palvelu_id,varaus_id)" +
-                        $"VALUES ('{pa.Palvelu_id}','{pa.varaus.Varaus_id})'", connection);
+                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename8} (palvelu_id)" +
+                        $"VALUES ('{p.Palvelu_id}' WHERE varaus_id='{varaus_id}')", connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
                     return true;
@@ -735,14 +735,14 @@ namespace village
             }
         }
         
-        public static DataTable LastVarausID()
+        public static DataTable HaeVaID(Asiakas a)
         {
-            //THakee varausten alku ja loppupäivämäärän !!! KESKEN, en tiedä onko sittenkään tarvetta !!!
+            //THakee varauksen Id:n
             if (File.Exists(filename))
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT last_insert_rowid() FROM {tablename3}", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT varaus_id FROM {tablename3} WHERE varattu_pvm='{DateTime.Today.ToString("yyyy-MM-dd")}' and varaus.asiakas_id='{a.Asiakas_id}'", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();

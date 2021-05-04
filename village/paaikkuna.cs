@@ -26,19 +26,27 @@ namespace village
 
         private void btnTeeVaraus_Click(object sender, EventArgs e)
         {
-            //Etsii dgv:stä valitun rivin rivi-indexin ja hakee sen id-numeron muuttujaan ja hakee tietokannasta tiedot mökistä, jolla ko id-numro
-            Mokki m = new Mokki();
-            int row = dgvMokit.SelectedCells[0].RowIndex;
-            int id = int.Parse(dgvMokit.Rows[row].Cells[0].Value.ToString());
+            try
+            {
+                //Etsii dgv:stä valitun rivin rivi-indexin ja hakee sen id-numeron muuttujaan ja hakee tietokannasta tiedot mökistä, jolla ko id-numro
+                Mokki m = new Mokki();
+                int row = dgvMokit.SelectedCells[0].RowIndex;
+                int id = int.Parse(dgvMokit.Rows[row].Cells[0].Value.ToString());
 
-            DateTime alku = dtpAlku.Value;
-            DateTime loppu = dtpLoppu.Value;
+                DateTime alku = dtpAlku.Value;
+                DateTime loppu = dtpLoppu.Value;
+
+                DataTable t = TaskDB.Hae(id);
+                string ta = cbToimintaAlue.Text;
+                //t siirtää valitun mökin tiedot, ta siirtää toiminta-alueen nimen.
+                varaus vr = new varaus(id, t, ta, alku, loppu);
+                vr.Show();
+            }
+            catch
+            {
+                throw;
+            }
             
-            DataTable t = TaskDB.Hae(id);
-            string ta = cbToimintaAlue.Text;
-            //t siirtää valitun mökin tiedot, ta siirtää toiminta-alueen nimen.
-            varaus vr = new varaus(id, t, ta, alku, loppu);
-            vr.Show();
         }
 
         private void btnMokkienHaku_Click(object sender, EventArgs e)
@@ -49,21 +57,27 @@ namespace village
 
         private void btnHaeMokit_Click(object sender, EventArgs e)
         {
-            
-            string toimintaalue = cbToimintaAlue.Text;
-            int id = int.Parse(cbToimintaAlue.SelectedValue.ToString());
+            try
+            {
+                string toimintaalue = cbToimintaAlue.Text;
+                int id = int.Parse(cbToimintaAlue.SelectedValue.ToString());
 
-            //Ottaa talteen päivämäärät
-            DateTime date1 = DateTime.Parse(dtpAlku.Text);
-            DateTime date2 = DateTime.Parse(dtpLoppu.Text);
-            if (cbHenkilomaara.SelectedItem == null)
-            {
-                dgvMokit.DataSource = TaskDB.HaeMokki3(id, date1, date2);
+                //Ottaa talteen päivämäärät
+                DateTime date1 = DateTime.Parse(dtpAlku.Text);
+                DateTime date2 = DateTime.Parse(dtpLoppu.Text);
+                if (cbHenkilomaara.SelectedItem == null)
+                {
+                    dgvMokit.DataSource = TaskDB.HaeMokki3(id, date1, date2);
+                }
+                else
+                {
+                    int henkilomaara = int.Parse(cbHenkilomaara.Text);
+                    dgvMokit.DataSource = TaskDB.HaeMokki2(id, henkilomaara, date1, date2);
+                }
             }
-            else
+            catch
             {
-                int henkilomaara = int.Parse(cbHenkilomaara.Text);
-                dgvMokit.DataSource = TaskDB.HaeMokki2(id, henkilomaara, date1, date2);
+                throw;
             }
             
         }
