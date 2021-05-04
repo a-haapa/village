@@ -13,7 +13,7 @@ namespace village
         public string Kuvaus { get; set; }
         public double Hinta { get; set; }
         public double Alv { get; set; }
-        public string Tyyppi { get; set; }
+        public int Tyyppi { get; set; }
 
         public Toimintaalue toimintaalue = new Toimintaalue();
         public varausL varaus = new varausL();

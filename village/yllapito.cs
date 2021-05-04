@@ -152,7 +152,7 @@ namespace village
                 string str = p.toimintaalue.Nimi;
                 DataTable t = TaskDB.HaeTaID(str);
                 p.toimintaalue.Toimintaalue_id = int.Parse(t.Rows[0].ItemArray[0].ToString());
-                p.Tyyppi = tbPalvTyyppi.Text;
+                p.Tyyppi = int.Parse(tbPalvTyyppi.Text);
                 p.Kuvaus = tbPalvKuvaus.Text;
                 p.Hinta = double.Parse(tbPalvHinta.Text);
                 p.Alv = double.Parse(tbPalvAlv.Text);
@@ -189,7 +189,27 @@ namespace village
 
         private void btnMuokkaaPalvelua_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                // ottaa tiedot dgv:stä olioon
+                Palvelu pa = new Palvelu();
+                int row = dgvPalvelut.SelectedCells[0].RowIndex;
+                pa.Palvelu_id = int.Parse(dgvPalvelut.Rows[row].Cells[0].Value.ToString());
+                pa.toimintaalue.Nimi = (string)dgvPalvelut.Rows[row].Cells[1].Value;
+                pa.Nimi = (string)dgvPalvelut.Rows[row].Cells[2].Value;
+                pa.Tyyppi = int.Parse(dgvPalvelut.Rows[row].Cells[3].Value.ToString());
+                pa.Kuvaus = (string)dgvPalvelut.Rows[row].Cells[4].Value;
+                pa.Hinta = double.Parse(dgvPalvelut.Rows[row].Cells[5].Value.ToString());
+                pa.Alv = double.Parse(dgvPalvelut.Rows[row].Cells[6].Value.ToString());
+                //avaa uuden formin ja siirtää olion sinne
+                Muokkaa_palvelua formi = new Muokkaa_palvelua(pa);
+                this.Close();
+                formi.Show();
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         private void btnMuokkaamokki_Click(object sender, EventArgs e)
