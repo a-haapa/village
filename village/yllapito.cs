@@ -196,5 +196,25 @@ namespace village
         {
 
         }
-    }
+
+		private void btnLisaa_Click(object sender, EventArgs e)
+		{
+            Asiakas a = new Asiakas();
+            a.Etunimi = tbAsEtunimi.Text;
+            a.Sukunimi = tbAsSukunimi.Text;
+            a.Lahiosoite = tbAsLahiosoite.Text;
+            a.Postinro = tbAsPostinumero.Text;
+            a.Email = tbAsEmail.Text;
+            a.Puhelinnro = tbAsPuhnro.Text;
+            TaskDB.LisaaAsiakas(a);
+            tbAsEtunimi.Clear();
+            tbAsSukunimi.Clear();
+            tbAsLahiosoite.Clear();
+            tbAsPostinumero.Clear();
+            tbAsEmail.Clear();
+            tbAsPuhnro.Clear();
+            dgvAsiakkaanTiedot.DataSource = TaskDB.HaeAsiakkaanTiedot();
+            
+		}
+	}
 }
