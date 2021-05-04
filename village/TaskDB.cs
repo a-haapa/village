@@ -526,7 +526,7 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu_id,toimintaalue_id,nimi,tyyppi,kuvaus,hinta,alv,toimintaalue.nimi" +
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu_id,toimintaalue.toimintaalue_id,palvelu.nimi,tyyppi,kuvaus,hinta,alv,toimintaalue.nimi" +
                     $" FROM {tablename7},{tablename6} WHERE palvelu.toimintaalue_id = toimintaalue.toimintaalue_id", connection);
 
                 //tiedon lukeminen
