@@ -66,6 +66,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asiakas.cs" />
+    <Compile Include="Muokkaa_mokki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Muokkaa_mokki.Designer.cs">
+      <DependentUpon>Muokkaa_mokki.cs</DependentUpon>
+    </Compile>
     <Compile Include="Muokkaa_palvelua.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Muokkaa_mokki.resx">
+      <DependentUpon>Muokkaa_mokki.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VarausMuokkaus.resx">
       <DependentUpon>VarausMuokkaus.cs</DependentUpon>
     </EmbeddedResource>
