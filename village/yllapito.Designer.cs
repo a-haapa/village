@@ -77,12 +77,31 @@
 			this.label12 = new System.Windows.Forms.Label();
 			this.dgvPalvelut = new System.Windows.Forms.DataGridView();
 			this.tabPage4 = new System.Windows.Forms.TabPage();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label21 = new System.Windows.Forms.Label();
+			this.label22 = new System.Windows.Forms.Label();
+			this.label23 = new System.Windows.Forms.Label();
+			this.label24 = new System.Windows.Forms.Label();
+			this.label25 = new System.Windows.Forms.Label();
+			this.label26 = new System.Windows.Forms.Label();
+			this.tbAsEtunimi = new System.Windows.Forms.TextBox();
+			this.tbAsPuhnro = new System.Windows.Forms.TextBox();
+			this.tbAsEmail = new System.Windows.Forms.TextBox();
+			this.tbAsLahiosoite = new System.Windows.Forms.TextBox();
+			this.tbAsPostinumero = new System.Windows.Forms.TextBox();
+			this.tbAsSukunimi = new System.Windows.Forms.TextBox();
+			this.dgvAsiakkaanTiedot = new System.Windows.Forms.DataGridView();
+			this.btnLisaa = new System.Windows.Forms.Button();
+			this.btnPoista = new System.Windows.Forms.Button();
+			this.btnMuokkaus = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvMokkilista)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvToimintaalueet)).BeginInit();
 			this.tabPage2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvPalvelut)).BeginInit();
+			this.tabPage4.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvAsiakkaanTiedot)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -576,6 +595,23 @@
 			// 
 			// tabPage4
 			// 
+			this.tabPage4.Controls.Add(this.btnMuokkaus);
+			this.tabPage4.Controls.Add(this.btnPoista);
+			this.tabPage4.Controls.Add(this.btnLisaa);
+			this.tabPage4.Controls.Add(this.dgvAsiakkaanTiedot);
+			this.tabPage4.Controls.Add(this.tbAsSukunimi);
+			this.tabPage4.Controls.Add(this.tbAsPostinumero);
+			this.tabPage4.Controls.Add(this.tbAsLahiosoite);
+			this.tabPage4.Controls.Add(this.tbAsEmail);
+			this.tabPage4.Controls.Add(this.tbAsPuhnro);
+			this.tabPage4.Controls.Add(this.tbAsEtunimi);
+			this.tabPage4.Controls.Add(this.label26);
+			this.tabPage4.Controls.Add(this.label25);
+			this.tabPage4.Controls.Add(this.label24);
+			this.tabPage4.Controls.Add(this.label23);
+			this.tabPage4.Controls.Add(this.label22);
+			this.tabPage4.Controls.Add(this.label21);
+			this.tabPage4.Controls.Add(this.label2);
 			this.tabPage4.Location = new System.Drawing.Point(4, 25);
 			this.tabPage4.Name = "tabPage4";
 			this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -583,6 +619,156 @@
 			this.tabPage4.TabIndex = 2;
 			this.tabPage4.Text = "Asiakkaiden hallinta";
 			this.tabPage4.UseVisualStyleBackColor = true;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(29, 3);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(136, 18);
+			this.label2.TabIndex = 15;
+			this.label2.Text = "Asiakkaiden hallinta";
+			// 
+			// label21
+			// 
+			this.label21.AutoSize = true;
+			this.label21.Location = new System.Drawing.Point(29, 396);
+			this.label21.Name = "label21";
+			this.label21.Size = new System.Drawing.Size(103, 17);
+			this.label21.TabIndex = 18;
+			this.label21.Text = "Puhelinnumero";
+			// 
+			// label22
+			// 
+			this.label22.AutoSize = true;
+			this.label22.Location = new System.Drawing.Point(29, 321);
+			this.label22.Name = "label22";
+			this.label22.Size = new System.Drawing.Size(78, 17);
+			this.label22.TabIndex = 19;
+			this.label22.Text = "Sähköposti";
+			// 
+			// label23
+			// 
+			this.label23.AutoSize = true;
+			this.label23.Location = new System.Drawing.Point(29, 246);
+			this.label23.Name = "label23";
+			this.label23.Size = new System.Drawing.Size(73, 17);
+			this.label23.TabIndex = 20;
+			this.label23.Text = "Lähiosoite";
+			// 
+			// label24
+			// 
+			this.label24.AutoSize = true;
+			this.label24.Location = new System.Drawing.Point(29, 171);
+			this.label24.Name = "label24";
+			this.label24.Size = new System.Drawing.Size(87, 17);
+			this.label24.TabIndex = 21;
+			this.label24.Text = "Postinumero";
+			// 
+			// label25
+			// 
+			this.label25.AutoSize = true;
+			this.label25.Location = new System.Drawing.Point(29, 100);
+			this.label25.Name = "label25";
+			this.label25.Size = new System.Drawing.Size(65, 17);
+			this.label25.TabIndex = 22;
+			this.label25.Text = "Sukunimi";
+			// 
+			// label26
+			// 
+			this.label26.AutoSize = true;
+			this.label26.Location = new System.Drawing.Point(29, 38);
+			this.label26.Name = "label26";
+			this.label26.Size = new System.Drawing.Size(54, 17);
+			this.label26.TabIndex = 23;
+			this.label26.Text = "Etunimi";
+			// 
+			// tbAsEtunimi
+			// 
+			this.tbAsEtunimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tbAsEtunimi.Location = new System.Drawing.Point(32, 58);
+			this.tbAsEtunimi.Name = "tbAsEtunimi";
+			this.tbAsEtunimi.Size = new System.Drawing.Size(123, 27);
+			this.tbAsEtunimi.TabIndex = 24;
+			// 
+			// tbAsPuhnro
+			// 
+			this.tbAsPuhnro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tbAsPuhnro.Location = new System.Drawing.Point(32, 431);
+			this.tbAsPuhnro.Name = "tbAsPuhnro";
+			this.tbAsPuhnro.Size = new System.Drawing.Size(123, 27);
+			this.tbAsPuhnro.TabIndex = 26;
+			// 
+			// tbAsEmail
+			// 
+			this.tbAsEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tbAsEmail.Location = new System.Drawing.Point(32, 353);
+			this.tbAsEmail.Name = "tbAsEmail";
+			this.tbAsEmail.Size = new System.Drawing.Size(123, 27);
+			this.tbAsEmail.TabIndex = 27;
+			// 
+			// tbAsLahiosoite
+			// 
+			this.tbAsLahiosoite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tbAsLahiosoite.Location = new System.Drawing.Point(32, 279);
+			this.tbAsLahiosoite.Name = "tbAsLahiosoite";
+			this.tbAsLahiosoite.Size = new System.Drawing.Size(123, 27);
+			this.tbAsLahiosoite.TabIndex = 28;
+			// 
+			// tbAsPostinumero
+			// 
+			this.tbAsPostinumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tbAsPostinumero.Location = new System.Drawing.Point(32, 200);
+			this.tbAsPostinumero.Name = "tbAsPostinumero";
+			this.tbAsPostinumero.Size = new System.Drawing.Size(123, 27);
+			this.tbAsPostinumero.TabIndex = 29;
+			// 
+			// tbAsSukunimi
+			// 
+			this.tbAsSukunimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tbAsSukunimi.Location = new System.Drawing.Point(32, 129);
+			this.tbAsSukunimi.Name = "tbAsSukunimi";
+			this.tbAsSukunimi.Size = new System.Drawing.Size(123, 27);
+			this.tbAsSukunimi.TabIndex = 30;
+			// 
+			// dgvAsiakkaanTiedot
+			// 
+			this.dgvAsiakkaanTiedot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvAsiakkaanTiedot.Location = new System.Drawing.Point(397, 48);
+			this.dgvAsiakkaanTiedot.Name = "dgvAsiakkaanTiedot";
+			this.dgvAsiakkaanTiedot.RowHeadersWidth = 51;
+			this.dgvAsiakkaanTiedot.RowTemplate.Height = 24;
+			this.dgvAsiakkaanTiedot.Size = new System.Drawing.Size(544, 290);
+			this.dgvAsiakkaanTiedot.TabIndex = 31;
+			// 
+			// btnLisaa
+			// 
+			this.btnLisaa.Location = new System.Drawing.Point(397, 378);
+			this.btnLisaa.Name = "btnLisaa";
+			this.btnLisaa.Size = new System.Drawing.Size(97, 35);
+			this.btnLisaa.TabIndex = 32;
+			this.btnLisaa.Text = "Lisää";
+			this.btnLisaa.UseVisualStyleBackColor = true;
+			this.btnLisaa.Click += new System.EventHandler(this.btnLisaa_Click);
+			// 
+			// btnPoista
+			// 
+			this.btnPoista.Location = new System.Drawing.Point(529, 378);
+			this.btnPoista.Name = "btnPoista";
+			this.btnPoista.Size = new System.Drawing.Size(97, 35);
+			this.btnPoista.TabIndex = 33;
+			this.btnPoista.Text = "Poista";
+			this.btnPoista.UseVisualStyleBackColor = true;
+			// 
+			// btnMuokkaus
+			// 
+			this.btnMuokkaus.Location = new System.Drawing.Point(666, 378);
+			this.btnMuokkaus.Name = "btnMuokkaus";
+			this.btnMuokkaus.Size = new System.Drawing.Size(97, 35);
+			this.btnMuokkaus.TabIndex = 34;
+			this.btnMuokkaus.Text = "Muokkaus";
+			this.btnMuokkaus.UseVisualStyleBackColor = true;
 			// 
 			// yllapito
 			// 
@@ -601,6 +787,9 @@
 			this.tabPage2.ResumeLayout(false);
 			this.tabPage2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvPalvelut)).EndInit();
+			this.tabPage4.ResumeLayout(false);
+			this.tabPage4.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvAsiakkaanTiedot)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -663,5 +852,22 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox tbPalvTyyppi;
-    }
+		private System.Windows.Forms.Label label26;
+		private System.Windows.Forms.Label label25;
+		private System.Windows.Forms.Label label24;
+		private System.Windows.Forms.Label label23;
+		private System.Windows.Forms.Label label22;
+		private System.Windows.Forms.Label label21;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Button btnMuokkaus;
+		private System.Windows.Forms.Button btnPoista;
+		private System.Windows.Forms.Button btnLisaa;
+		private System.Windows.Forms.DataGridView dgvAsiakkaanTiedot;
+		private System.Windows.Forms.TextBox tbAsSukunimi;
+		private System.Windows.Forms.TextBox tbAsPostinumero;
+		private System.Windows.Forms.TextBox tbAsLahiosoite;
+		private System.Windows.Forms.TextBox tbAsEmail;
+		private System.Windows.Forms.TextBox tbAsPuhnro;
+		private System.Windows.Forms.TextBox tbAsEtunimi;
+	}
 }
