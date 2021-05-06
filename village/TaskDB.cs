@@ -574,7 +574,7 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu.* FROM {tablename7},{tablename6} WHERE toimintaalue.nimi='{ta}'", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu.nimi FROM {tablename7},{tablename6} WHERE toimintaalue.nimi='{ta}'", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -636,7 +636,7 @@ namespace village
                 throw;
             }
         }
-        public static bool LisaaVarauksenPalvelu(Palvelu p,int varaus_id)
+        public static bool LisaaVarauksenPalvelu(varausL v)
         {   // Lisää käyttäjän kirjaamat palvelut kantaan
             try
             {
@@ -644,8 +644,8 @@ namespace village
                 {
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
                     connection.Open();
-                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename8} (palvelu_id)" +
-                        $"VALUES ('{p.Palvelu_id}' WHERE varaus_id='{varaus_id}')", connection);
+                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename8} ((palvelu_id) " +
+                        $"VALUES (SELECT palvelu_id FROM {tablename7} WHERE nimi= '{v.Palvelu_nimi}')) WHERE varaus_id='{v.Varaus_id}'))", connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
                     return true;

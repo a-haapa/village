@@ -26,6 +26,7 @@ namespace village
 
         private void btnTeeVaraus_Click(object sender, EventArgs e)
         {
+           
             try
             {
                 //Etsii dgv:stä valitun rivin rivi-indexin ja hakee sen id-numeron muuttujaan ja hakee tietokannasta tiedot mökistä, jolla ko id-numro
@@ -35,11 +36,12 @@ namespace village
 
                 DateTime alku = dtpAlku.Value;
                 DateTime loppu = dtpLoppu.Value;
+                double lkm = (loppu - alku).TotalDays;
 
                 DataTable t = TaskDB.Hae(id);
                 string ta = cbToimintaAlue.Text;
                 //t siirtää valitun mökin tiedot, ta siirtää toiminta-alueen nimen.
-                varaus vr = new varaus(id, t, ta, alku, loppu);
+                varaus vr = new varaus(id, t, ta, alku, loppu, lkm);
                 vr.Show();
             }
             catch

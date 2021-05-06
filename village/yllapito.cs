@@ -19,6 +19,7 @@ namespace village
             dgvToimintaalueet.DataSource = TaskDB.HaeToimintaalue();
             dgvMokkilista.DataSource = TaskDB.HaeMokit();
             dgvPalvelut.DataSource = TaskDB.HaePalvelut();
+            dgvAsiakkaanTiedot.DataSource = TaskDB.HaeAsiakkaanTiedot();
             cbAlue.DataSource = TaskDB.HaeToimintaalue();
             //Alla olevat lisää comboboxeihin vaihtoehdot 
             cbAlue.ValueMember = "toimintaalue_id";

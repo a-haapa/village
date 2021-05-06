@@ -13,7 +13,7 @@ namespace village
 {
     public partial class varaus : Form
     {
-        public varaus(int id, DataTable t, string ta, DateTime alku, DateTime loppu)
+        public varaus(int id, DataTable t, string ta, DateTime alku, DateTime loppu, double lkm)
         {
             //varausformin latauksessa hakee mökkitiedot tietokannasta ja avaa labeleihin
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace village
             lblID.Text = id.ToString();
             lblAlku.Text = alku.ToString();
             lblLoppu.Text = loppu.ToString();
-            lblHinta.Text = hinta.ToString();
+            lblHinta.Text = "Hinta ajalle: " + (hinta*lkm).ToString();
             lblToimintaalue.Text = ta;
             lblMokkinimi.Text = t.Rows[0].Field<string>(3);
             lblHenkilomaara.Text = "Henkilömäärä " + t.Rows[0].Field<int>(6).ToString();
@@ -33,10 +33,9 @@ namespace village
             lblKuvaus.Text = t.Rows[0].Field<string>(5);
             lblVarustelu.Text = t.Rows[0].Field<string>(7);
             //Hakee listboxeihin kyseisen toiminta-alueen palvelut
-            
-            listBox1.ValueMember = "palvelu_id";
-            listBox1.DisplayMember = "nimi";
-            listBox1.DataSource = TaskDB.HaePalvelunNimi(ta);
+
+            clbPalv.DataSource = TaskDB.HaePalvelunNimi(ta);
+            clbPalv.DisplayMember = "nimi";
 
         }
 
@@ -46,7 +45,7 @@ namespace village
             {
                 //Jos on valittuna checkbox, niin lisää asiakkaan tietokantaan.
                 Asiakas a = new Asiakas();
-
+                
                 a.Etunimi = tbEtunimi.Text;
                 a.Sukunimi = tbSukunimi.Text;
                 a.Lahiosoite = tbOsoite.Text;
@@ -57,6 +56,7 @@ namespace village
                 {
                     TaskDB.LisaaAsiakas(a);
                 }
+                
                 //Poimii varauksen tallettamista varten tietoja 
                 varausL v = new varausL();
                 v.Mokki_mokki_id = int.Parse(lblID.Text);
@@ -64,9 +64,24 @@ namespace village
                 v.Varattu_loppupvm = DateTime.Parse(lblLoppu.Text);
                 v.Varattu = DateTime.Today;
                 v.Vahvistus_pvm = DateTime.Parse(lblAlku.Text).AddDays(-2);
+                DataTable tt = TaskDB.HaeAsID(a);
+                v.Asiakas_id = int.Parse(tt.Rows[0].ItemArray[0].ToString());
 
+
+                TaskDB.LisaaVaraus(v,a);
+
+                DataTable varaus = TaskDB.HaeVaID(a);
+                v.Varaus_id = int.Parse(varaus.Rows[0].ItemArray[0].ToString());
+                var list = new List<string>();
                 
-                TaskDB.LisaaVaraus(v, a);
+                //Allaoleva pitäisi saada loopattua niin että vie kaikki palvelut tietokantaan.
+                //Oikeastaan ainoa ongelma on, miten saada listboxista se arvo stringinä
+                TaskDB.LisaaVarauksenPalvelu(v);
+                
+
+                varausHallinta uusi = new varausHallinta();
+                uusi.Show();
+                this.Close();
                 
             }
             catch
@@ -114,15 +129,11 @@ namespace village
         {
             //Siirtää valitut palvelut listalta toiselle
             
-            listBox2.ValueMember = "palvelu_id";
-            listBox2.DisplayMember = "nimi";
-            listBox2.Items.Add(listBox1.SelectedItem);
         }
 
         private void btnPoistaValittuPalvelu_Click(object sender, EventArgs e)
         {
             //poistaa palvelun listalta
-            listBox2.Items.Remove(listBox2.SelectedItem);
         }
     }
 }
