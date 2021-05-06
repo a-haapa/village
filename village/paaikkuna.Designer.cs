@@ -36,6 +36,11 @@ namespace village
             this.btnMokkienHaku = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.dtpLoppu = new System.Windows.Forms.DateTimePicker();
             this.dtpAlku = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,11 +53,7 @@ namespace village
             this.cbToimintaAlue = new System.Windows.Forms.ComboBox();
             this.dgvMokit = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.btnRaportointi = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -73,6 +74,7 @@ namespace village
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnRaportointi);
             this.tabPage1.Controls.Add(this.btnYllapito);
             this.tabPage1.Controls.Add(this.btnVaraustenHallinta);
             this.tabPage1.Controls.Add(this.btnMokkienHaku);
@@ -157,6 +159,56 @@ namespace village
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mökkien haku";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(847, 11);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(124, 17);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "* = pakollinen tieto";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(321, 228);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(13, 17);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "*";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(258, 150);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(13, 17);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "*";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(258, 71);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(13, 17);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "*";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(32, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(127, 24);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Mökkien haku";
             // 
             // dtpLoppu
             // 
@@ -280,55 +332,15 @@ namespace village
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label6
+            // btnRaportointi
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(32, 26);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(127, 24);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Mökkien haku";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(258, 71);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(13, 17);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "*";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(258, 150);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(13, 17);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "*";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(321, 228);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(13, 17);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "*";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(847, 11);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(124, 17);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "* = pakollinen tieto";
+            this.btnRaportointi.Location = new System.Drawing.Point(407, 488);
+            this.btnRaportointi.Name = "btnRaportointi";
+            this.btnRaportointi.Size = new System.Drawing.Size(276, 46);
+            this.btnRaportointi.TabIndex = 4;
+            this.btnRaportointi.Text = "Raportointi";
+            this.btnRaportointi.UseVisualStyleBackColor = true;
+            this.btnRaportointi.Click += new System.EventHandler(this.btnRaportointi_Click);
             // 
             // paaikkuna
             // 
@@ -375,5 +387,6 @@ namespace village
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnRaportointi;
     }
 }

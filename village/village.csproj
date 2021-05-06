@@ -84,6 +84,12 @@
     <Compile Include="Muokkaa_ToimintaAlue.Designer.cs">
       <DependentUpon>Muokkaa_ToimintaAlue.cs</DependentUpon>
     </Compile>
+    <Compile Include="raportointi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="raportointi.Designer.cs">
+      <DependentUpon>raportointi.cs</DependentUpon>
+    </Compile>
     <Compile Include="varausHallinta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Muokkaa_mokki.resx">
       <DependentUpon>Muokkaa_mokki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="raportointi.resx">
+      <DependentUpon>raportointi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VarausMuokkaus.resx">
       <DependentUpon>VarausMuokkaus.cs</DependentUpon>
