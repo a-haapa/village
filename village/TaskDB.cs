@@ -834,6 +834,29 @@ namespace village
                 throw;
             }
         }
+        public static DataTable HaeRaportti(string toimialue, DateTime alku, DateTime loppu)
+        {
+            //Hakee varaukset
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT mokki_id,mokkinimi,varattu_alkupvm,varattu_loppupvm FROM {tablename5},{tablename3},{tablename6} " +
+                    $"WHERE mokki.mokki_id=varaus.mokki_mokki_id and varaus.varattu_alkupvm BETWEEN '{alku.ToString("yyyy-MM-dd")}' and '{loppu.ToString("yyyy-MM-dd")}' and mokki.toimintaalue_id=toimintaalue.toimintaalue_id", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
 
     }
 }

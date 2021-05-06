@@ -105,5 +105,11 @@ namespace village
         {
             dtpLoppu.CustomFormat = "dd/MM/yyyy hh:mm:ss";
         }
+
+        private void btnRaportointi_Click(object sender, EventArgs e)
+        {
+            raportointi uusi = new raportointi();
+            uusi.Show();
+        }
     }
 }
