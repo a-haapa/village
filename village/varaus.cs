@@ -70,13 +70,6 @@ namespace village
 
                 TaskDB.LisaaVaraus(v,a);
 
-                DataTable varaus = TaskDB.HaeVaID(a);
-                v.Varaus_id = int.Parse(varaus.Rows[0].ItemArray[0].ToString());
-                var list = new List<string>();
-                
-                //Allaoleva pitäisi saada loopattua niin että vie kaikki palvelut tietokantaan.
-                //Oikeastaan ainoa ongelma on, miten saada listboxista se arvo stringinä
-                TaskDB.LisaaVarauksenPalvelu(v);
                 
 
                 varausHallinta uusi = new varausHallinta();
@@ -99,17 +92,20 @@ namespace village
                 Asiakas a = new Asiakas();
                 a.Email = tbEmail.Text;
                 DataTable t = TaskDB.HaeAsiakas(a);
+
                 a.Etunimi = t.Rows[0].Field<string>(2);
                 a.Sukunimi = t.Rows[0].Field<string>(3);
                 a.Lahiosoite = t.Rows[0].Field<string>(4);
                 a.Puhelinnro = t.Rows[0].Field<string>(6);
                 a.Postinro = t.Rows[0].Field<string>(1);
+                a.Asiakas_id = int.Parse(t.Rows[0].ItemArray[0].ToString());
 
                 tbEtunimi.Text = a.Etunimi;
                 tbSukunimi.Text = a.Sukunimi;
                 tbOsoite.Text = a.Lahiosoite;
                 tbPostinro.Text = a.Postinro;
                 tbPuhnro.Text = a.Puhelinnro;
+                tbID.Text = a.Asiakas_id.ToString();
             }
              catch
             {
