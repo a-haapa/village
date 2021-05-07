@@ -766,7 +766,7 @@ namespace village
             }
         }
       
-        public static bool LisaaVaraus(varausL v, Asiakas a)
+        public static bool LisaaVaraus(varausL v)
         {   // Lisää käyttäjän kirjaamat palvelut tietokantaan
             try
             {
@@ -775,7 +775,7 @@ namespace village
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
                     connection.Open();
                     SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename3} (asiakas_id,mokki_mokki_id,varattu_pvm,vahvistus_pvm,varattu_alkupvm,varattu_loppupvm)" +
-                        $"VALUES ('{a.Asiakas_id}','{v.Mokki_mokki_id}','{v.Varattu.ToString("yyyy-MM-dd")}','{v.Vahvistus_pvm.ToString("yyyy-MM-dd")}','{v.Varattu_alkupvm.ToString("yyyy-MM-dd")}','{v.Varattu_loppupvm.ToString("yyyy-MM-dd")}')", connection);
+                        $"VALUES ('{v.asiakas.Asiakas_id}','{v.Mokki_mokki_id}','{v.Varattu.ToString("yyyy-MM-dd")}','{v.Vahvistus_pvm.ToString("yyyy-MM-dd")}','{v.Varattu_alkupvm.ToString("yyyy-MM-dd")}','{v.Varattu_loppupvm.ToString("yyyy-MM-dd")}')", connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
                     return true;
@@ -819,9 +819,10 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT varaus.varaus_id,toimintaalue.nimi,mokki.mokkinimi,varattu_alkupvm,varattu_loppupvm " +
-                    $"FROM {tablename3},{tablename5},{tablename6} " +
-                    $"WHERE varaus.mokki_mokki_id=mokki.mokki_id and mokki.toimintaalue_id=toimintaalue.toimintaalue_id ORDER BY varattu_alkupvm", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT varaus.varaus_id,mokki.mokkinimi,varattu_alkupvm,varattu_loppupvm, etunimi,sukunimi " +
+                    $"FROM {tablename3} " +
+                    $"LEFT JOIN asiakas ON varaus.asiakas_id=asiakas.asiakas_id " +
+                    $"LEFT JOIN mokki ON varaus.mokki_mokki_id=mokki.mokki_id", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();

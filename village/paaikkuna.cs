@@ -37,9 +37,13 @@ namespace village
                 DateTime alku = dtpAlku.Value;
                 DateTime loppu = dtpLoppu.Value;
                 double lkm = (loppu - alku).TotalDays;
+                dtpAlku.CustomFormat = " ";
+                dtpLoppu.CustomFormat = " ";
+                dgvMokit.DataSource = null; 
 
                 DataTable t = TaskDB.Hae(id);
                 string ta = cbToimintaAlue.Text;
+                cbToimintaAlue.SelectedItem = null;
                 //t siirtää valitun mökin tiedot, ta siirtää toiminta-alueen nimen.
                 varaus vr = new varaus(id, t, ta, alku, loppu, lkm);
                 vr.Show();
@@ -76,6 +80,7 @@ namespace village
                     int henkilomaara = int.Parse(cbHenkilomaara.Text);
                     dgvMokit.DataSource = TaskDB.HaeMokki2(id, henkilomaara, date1, date2);
                 }
+
             }
             catch
             {
