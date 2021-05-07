@@ -289,36 +289,6 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
-        
-        public static DataTable DeleteFromSQLite()
-        {   //Tietojen poistaminen tietokannassa "Asiakas" -kohdasta
-            try
-            {
-                if (File.Exists(filename))
-                {
-                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
-                    connection.Open();
-                    SQLiteCommand cmd = new SQLiteCommand();
-
-                    SQLiteDataReader rdr = cmd.ExecuteReader();
-                    DataTable tt = new DataTable();
-                    tt.Load(rdr);
-                    rdr.Close();
-                    connection.Close();
-                    ReadFromAsiakas();
-                    return tt;
-                }
-                else
-                {
-                    throw new FileNotFoundException("Tiedostoa ei löytynyt");
-                }
-            }
-            catch
-            {
-                throw;
-            }
-        }
-
         public static DataTable PoistaToimintaAlue(int id)
         {   //Tietojen poistaminen tietokannassa "Toiminta-Alue" -kohdasta
             try
@@ -471,30 +441,6 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
-
-        public static bool UpdateSql()
-        {   //Päivittää tiedot tietokantaan
-            try
-            {
-                if (System.IO.File.Exists(filename))
-                {
-                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
-                    connection.Open();
-                    SQLiteCommand cmd = new SQLiteCommand();
-                    cmd.ExecuteNonQuery();
-                    connection.Close();
-                    return true;
-                }
-                else
-                {
-                    throw new System.IO.FileNotFoundException("Tiedostoa ei löytynyt");
-                }
-            }
-            catch
-            {
-                throw;
-            }
-        }
         public static bool MuokkaaToimintaAlue( Toimintaalue t)
         {   //Päivittää tiedot toiminta-alue taulussa 
             try
@@ -644,8 +590,8 @@ namespace village
                 {
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
                     connection.Open();
-                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename8} ((palvelu_id) " +
-                        $"VALUES (SELECT palvelu_id FROM {tablename7} WHERE nimi= '{v.Palvelu_nimi}')) WHERE varaus_id='{v.Varaus_id}'))", connection);
+                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename8} (lkm) " +
+                        $"VALUES ('{1}')", connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
                     return true;
