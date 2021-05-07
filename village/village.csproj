@@ -67,6 +67,12 @@
   <ItemGroup>
     <Compile Include="Asiakas.cs" />
     <Compile Include="Lasku.cs" />
+    <Compile Include="laskut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="laskut.Designer.cs">
+      <DependentUpon>laskut.cs</DependentUpon>
+    </Compile>
     <Compile Include="Muokkaa_asiakas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="laskut.resx">
+      <DependentUpon>laskut.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Muokkaa_asiakas.resx">
       <DependentUpon>Muokkaa_asiakas.cs</DependentUpon>
     </EmbeddedResource>
