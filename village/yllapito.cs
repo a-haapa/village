@@ -251,5 +251,19 @@ namespace village
             dgvAsiakkaanTiedot.DataSource = TaskDB.HaeAsiakkaanTiedot();
             
 		}
+
+		private void btnAsPoista_Click(object sender, EventArgs e)
+		{
+            
+           if (MessageBox.Show("Haluatko varmasti poistaa asiakkaan?", "  ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+              {
+                 int row = dgvAsiakkaanTiedot.SelectedCells[0].RowIndex;
+                 int id = int.Parse(dgvAsiakkaanTiedot.Rows[row].Cells[0].Value.ToString());
+                 TaskDB.PoistaAsiakas(id);
+
+                 dgvToimintaalueet.DataSource = TaskDB.HaeAsiakkaanTiedot();
+               }
+            
+        }
 	}
 }
