@@ -35,5 +35,17 @@ namespace village
             DateTime loppu = DateTime.Parse(dtpLoppu.Text);
             dgvLaskut.DataSource = TaskDB.HaeLaskut(alku,loppu);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int row = dgvLaskut.SelectedCells[0].RowIndex;
+            Lasku l = new Lasku();
+            l.varaus.Varaus_id = int.Parse(dgvLaskut.Rows[row].Cells[0].Value.ToString());
+            DateTime date = DateTime.Today;
+            TaskDB.MuokkaaVahvistus(l,date);
+            DateTime alku = DateTime.Parse(dtpAlku.Text);
+            DateTime loppu = DateTime.Parse(dtpLoppu.Text);
+            dgvLaskut.DataSource = TaskDB.HaeLaskut(alku,loppu);
+        }
     }
 }
