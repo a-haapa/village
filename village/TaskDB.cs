@@ -943,7 +943,7 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT lasku_id,summa,asiakas_id,varattu_alkupvm,varattu_loppupvm FROM {tablename2},{tablename3} " +
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT varaus.varaus_id,lasku_id,summa,asiakas_id,varattu_alkupvm,varattu_loppupvm,vahvistus_pvm FROM {tablename2},{tablename3} " +
                     $"WHERE lasku.varaus_id=varaus.varaus_id and varattu_alkupvm BETWEEN '{alku.ToString("yyyy-MM-dd")}' and '{loppu.ToString("yyyy-MM-dd")}' and varattu_loppupvm BETWEEN '{alku.ToString("yyyy-MM-dd")}' and '{loppu.ToString("yyyy-MM-dd")}'", connection);
 
                 //tiedon lukeminen
@@ -980,6 +980,29 @@ namespace village
                 else
                 {
                     throw new FileNotFoundException("Tiedostoa ei löytynyt");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public static bool MuokkaaVahvistus(Lasku l, DateTime date)
+        {   //Päivittää tiedot palvelu taulussa 
+            try
+            {
+                if (System.IO.File.Exists(filename))
+                {
+                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
+                    connection.Open();
+                    SQLiteCommand cmd = new SQLiteCommand($"UPDATE {tablename3} SET vahvistus_pvm='{date.ToString("yyyy-MM-dd")}' WHERE varaus_id='{l.varaus.Varaus_id}'", connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                else
+                {
+                    throw new System.IO.FileNotFoundException("Tiedostoa ei löytynyt");
                 }
             }
             catch

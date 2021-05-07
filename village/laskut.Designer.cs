@@ -106,10 +106,11 @@ namespace village
             this.button2.TabIndex = 6;
             this.button2.Text = "Maksettu";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnSulje
             // 
-            this.btnSulje.Location = new System.Drawing.Point(666, 475);
+            this.btnSulje.Location = new System.Drawing.Point(761, 477);
             this.btnSulje.Name = "btnSulje";
             this.btnSulje.Size = new System.Drawing.Size(113, 33);
             this.btnSulje.TabIndex = 7;
@@ -123,7 +124,7 @@ namespace village
             this.dgvLaskut.Name = "dgvLaskut";
             this.dgvLaskut.RowHeadersWidth = 51;
             this.dgvLaskut.RowTemplate.Height = 24;
-            this.dgvLaskut.Size = new System.Drawing.Size(749, 326);
+            this.dgvLaskut.Size = new System.Drawing.Size(844, 326);
             this.dgvLaskut.TabIndex = 8;
             // 
             // btnPoista
