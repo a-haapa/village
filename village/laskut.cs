@@ -47,5 +47,13 @@ namespace village
             DateTime loppu = DateTime.Parse(dtpLoppu.Text);
             dgvLaskut.DataSource = TaskDB.HaeLaskut(alku,loppu);
         }
+
+        private void btnAvaa_Click(object sender, EventArgs e)
+        {
+            int row = dgvLaskut.SelectedCells[0].RowIndex;
+            int varausid = int.Parse(dgvLaskut.Rows[row].Cells[0].Value.ToString());
+            int laskuid = int.Parse(dgvLaskut.Rows[row].Cells[1].Value.ToString());
+            dgvLaskut.DataSource = TaskDB.HaeYksiLasku(varausid,laskuid);
+        }
     }
 }

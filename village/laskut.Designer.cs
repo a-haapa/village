@@ -39,6 +39,7 @@ namespace village
             this.btnSulje = new System.Windows.Forms.Button();
             this.dgvLaskut = new System.Windows.Forms.DataGridView();
             this.btnPoista = new System.Windows.Forms.Button();
+            this.btnAvaa = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLaskut)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,7 +111,7 @@ namespace village
             // 
             // btnSulje
             // 
-            this.btnSulje.Location = new System.Drawing.Point(761, 477);
+            this.btnSulje.Location = new System.Drawing.Point(812, 477);
             this.btnSulje.Name = "btnSulje";
             this.btnSulje.Size = new System.Drawing.Size(113, 33);
             this.btnSulje.TabIndex = 7;
@@ -124,7 +125,7 @@ namespace village
             this.dgvLaskut.Name = "dgvLaskut";
             this.dgvLaskut.RowHeadersWidth = 51;
             this.dgvLaskut.RowTemplate.Height = 24;
-            this.dgvLaskut.Size = new System.Drawing.Size(844, 326);
+            this.dgvLaskut.Size = new System.Drawing.Size(906, 326);
             this.dgvLaskut.TabIndex = 8;
             // 
             // btnPoista
@@ -136,11 +137,22 @@ namespace village
             this.btnPoista.Text = "Poista";
             this.btnPoista.UseVisualStyleBackColor = true;
             // 
+            // btnAvaa
+            // 
+            this.btnAvaa.Location = new System.Drawing.Point(35, 477);
+            this.btnAvaa.Name = "btnAvaa";
+            this.btnAvaa.Size = new System.Drawing.Size(105, 29);
+            this.btnAvaa.TabIndex = 10;
+            this.btnAvaa.Text = "Avaa lasku";
+            this.btnAvaa.UseVisualStyleBackColor = true;
+            this.btnAvaa.Click += new System.EventHandler(this.btnAvaa_Click);
+            // 
             // laskut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 632);
+            this.Controls.Add(this.btnAvaa);
             this.Controls.Add(this.btnPoista);
             this.Controls.Add(this.dgvLaskut);
             this.Controls.Add(this.btnSulje);
@@ -171,5 +183,6 @@ namespace village
         private System.Windows.Forms.Button btnSulje;
         private System.Windows.Forms.DataGridView dgvLaskut;
         private System.Windows.Forms.Button btnPoista;
+        private System.Windows.Forms.Button btnAvaa;
     }
 }

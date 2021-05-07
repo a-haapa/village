@@ -1010,5 +1010,32 @@ namespace village
                 throw;
             }
         }
+        public static DataTable HaeYksiLasku(int varausid,int laskuid)
+        {
+            //Hakee laskut toivotulle aikavälille
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT varaus.varaus_id,lasku_id,summa,asiakas_id,varattu_alkupvm,varattu_loppupvm,vahvistus_pvm " +
+                    $"FROM {tablename3},{tablename2},{tablename6},{tablename7} " +
+                    $"INNER JOIN { tablename } ON varaus.asiakas_id=asiakas.asiakas_id" +
+                    $"INNER JOIN {tablename5} ON varaus.mokki_mokki_id=mokki.mokki_id" +
+                    $"INNER JOIN {tablename6} ON mokki.toimintaalue_id=toimintaalue.toimintaalue_id" +
+                    $"WHERE )", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
     }
 }
