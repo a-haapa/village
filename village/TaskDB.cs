@@ -471,6 +471,30 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
+        public static bool MuokkaaAsiakas(Asiakas a)
+        {   //Päivittää tiedot asiakas taulussa 
+            try
+            {
+                if (System.IO.File.Exists(filename))
+                {
+                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
+                    connection.Open();
+                    SQLiteCommand cmd = new SQLiteCommand($"UPDATE {tablename} SET etunimi='{a.Etunimi}', asiakas_id='{a.Asiakas_id}', etunimi ='{a.Etunimi}', sukunimi='{a.Sukunimi}'" +
+                        $", lahiosoite='{a.Lahiosoite}', postinro='{a.Postinro}', email='{a.Email}',puhelinnro ='{a.Puhelinnro}' WHERE asiakas_id='{a.Asiakas_id}'", connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                else
+                {
+                    throw new System.IO.FileNotFoundException("Tiedostoa ei löytynyt");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
         public static DataTable PoistaAsiakas(int id)
         {   //Tietojen poistaminen tietokannassa "asiakas" -kohdasta
             try

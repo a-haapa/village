@@ -41,6 +41,7 @@ namespace village
 			a.Postinro = tbMuokkaaAsPosNum.Text;
 			a.Email = tbMuokkaaAsSposti.Text;
 			a.Puhelinnro = tbMuokkaaAspuhnro.Text;
+			TaskDB.MuokkaaAsiakas(a);
 			yllapito formi = new yllapito();
 			formi.Show();
 			this.Close();

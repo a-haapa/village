@@ -274,11 +274,12 @@ namespace village
             asiakas.Etunimi = (string)dgvAsiakkaanTiedot.Rows[row].Cells[1].Value;
             asiakas.Sukunimi = (string)dgvAsiakkaanTiedot.Rows[row].Cells[2].Value;
             asiakas.Lahiosoite = (string)dgvAsiakkaanTiedot.Rows[row].Cells[3].Value;
-            asiakas.Postinro = (string)dgvAsiakkaanTiedot.Rows[row].Cells[5].Value;
-            asiakas.Email = (string)dgvAsiakkaanTiedot.Rows[row].Cells[6].Value;
-            asiakas.Puhelinnro = (string)dgvAsiakkaanTiedot.Rows[row].Cells[7].Value;
+            asiakas.Postinro = (string)dgvAsiakkaanTiedot.Rows[row].Cells[4].Value;
+            asiakas.Email = (string)dgvAsiakkaanTiedot.Rows[row].Cells[5].Value;
+            asiakas.Puhelinnro = (string)dgvAsiakkaanTiedot.Rows[row].Cells[6].Value;
 
             Muokkaa_asiakas asForm = new Muokkaa_asiakas(asiakas);
+            asForm.Show();
             
         }
 	}
