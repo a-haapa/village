@@ -819,9 +819,9 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT varaus_id,nimi,mokkinimi,etunimi,sukunimi,varattu_alkupvm,varattu_loppupvm " +
-                    $"FROM {tablename},{tablename3},{tablename5},{tablename6} " +
-                    $"WHERE asiakas.asiakas_id=varaus.asiakas_id and varaus.mokki_mokki_id=mokki.mokki_id ORDER BY varattu_alkupvm", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT varaus.varaus_id,toimintaalue.nimi,mokki.mokkinimi,varattu_alkupvm,varattu_loppupvm " +
+                    $"FROM {tablename3},{tablename5},{tablename6} " +
+                    $"WHERE varaus.mokki_mokki_id=mokki.mokki_id and mokki.toimintaalue_id=toimintaalue.toimintaalue_id ORDER BY varattu_alkupvm", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();

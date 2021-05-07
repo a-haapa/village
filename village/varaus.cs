@@ -64,8 +64,15 @@ namespace village
                 v.Varattu_loppupvm = DateTime.Parse(lblLoppu.Text);
                 v.Varattu = DateTime.Today;
                 v.Vahvistus_pvm = DateTime.Parse(lblAlku.Text).AddDays(-2);
-                DataTable tt = TaskDB.HaeAsID(a);
-                v.Asiakas_id = int.Parse(tt.Rows[0].ItemArray[0].ToString());
+                if (tbID != null)
+                {
+                    v.Asiakas_id = int.Parse(tbID.Text);
+                }
+                else
+                {
+                    DataTable tt = TaskDB.HaeAsID(a);
+                    v.Asiakas_id = int.Parse(tt.Rows[0].ItemArray[0].ToString());
+                }
 
 
                 TaskDB.LisaaVaraus(v,a);
