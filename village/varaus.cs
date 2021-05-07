@@ -59,6 +59,7 @@ namespace village
                 
                 //Poimii varauksen tallettamista varten tietoja 
                 varausL v = new varausL();
+                v.asiakas = a;
                 v.Mokki_mokki_id = int.Parse(lblID.Text);
                 v.Varattu_alkupvm = DateTime.Parse(lblAlku.Text);
                 v.Varattu_loppupvm = DateTime.Parse(lblLoppu.Text);
@@ -66,16 +67,17 @@ namespace village
                 v.Vahvistus_pvm = DateTime.Parse(lblAlku.Text).AddDays(-2);
                 if (tbID != null)
                 {
-                    v.Asiakas_id = int.Parse(tbID.Text);
+                    v.asiakas.Asiakas_id = int.Parse(tbID.Text);
                 }
                 else
                 {
                     DataTable tt = TaskDB.HaeAsID(a);
-                    v.Asiakas_id = int.Parse(tt.Rows[0].ItemArray[0].ToString());
+                    v.asiakas.Asiakas_id = int.Parse(tt.Rows[0].ItemArray[0].ToString());
                 }
+                
 
 
-                TaskDB.LisaaVaraus(v,a);
+                TaskDB.LisaaVaraus(v);
 
                 
 
