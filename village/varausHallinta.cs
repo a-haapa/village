@@ -35,6 +35,9 @@ namespace village
             }
         }
 
-        
+        private void btnLaskutus_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

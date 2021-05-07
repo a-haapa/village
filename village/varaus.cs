@@ -74,12 +74,14 @@ namespace village
                     DataTable tt = TaskDB.HaeAsID(a);
                     v.asiakas.Asiakas_id = int.Parse(tt.Rows[0].ItemArray[0].ToString());
                 }
-                
-
-
+                //Liittää varaukseen laskun
                 TaskDB.LisaaVaraus(v);
-
-                
+                Lasku l = new Lasku();
+                l.summa = double.Parse(lblHinta.Text);
+                l.alv = 10;
+                l.varaus = v;
+                DataTable t = TaskDB.HaeVaID(a);
+                l.varaus.Varaus_id = int.Parse(t.Rows[0].ItemArray[0].ToString());
 
                 varausHallinta uusi = new varausHallinta();
                 uusi.Show();
