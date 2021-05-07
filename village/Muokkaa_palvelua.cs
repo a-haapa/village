@@ -38,6 +38,8 @@ namespace village
             pa.Hinta = double.Parse(tbHinta.Text);
             pa.Alv = double.Parse(tbAlv.Text);
             TaskDB.MuokkaaPalvelu(pa);
+            yllapito formi = new yllapito();
+            formi.Show();
             this.Close();
         }
     }
