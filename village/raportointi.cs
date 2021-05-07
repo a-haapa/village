@@ -51,6 +51,7 @@ namespace village
             int rivi = 0;
             double hinta;
             double alv;
+
             List<int> list = new List<int>(); 
             try
             {

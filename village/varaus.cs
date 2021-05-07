@@ -66,10 +66,11 @@ namespace village
                 v.Vahvistus_pvm = DateTime.Parse(lblAlku.Text).AddDays(-2);
                 DataTable tt = TaskDB.HaeAsID(a);
                 v.Asiakas_id = int.Parse(tt.Rows[0].ItemArray[0].ToString());
-                TaskDB.LisaaVaraus(v,a);
-                
 
-                //TaskDB.LisaaVarauksenPalvelu(v);
+
+                TaskDB.LisaaVaraus(v,a);
+
+                
 
                 varausHallinta uusi = new varausHallinta();
                 uusi.Show();
@@ -91,17 +92,20 @@ namespace village
                 Asiakas a = new Asiakas();
                 a.Email = tbEmail.Text;
                 DataTable t = TaskDB.HaeAsiakas(a);
+
                 a.Etunimi = t.Rows[0].Field<string>(2);
                 a.Sukunimi = t.Rows[0].Field<string>(3);
                 a.Lahiosoite = t.Rows[0].Field<string>(4);
                 a.Puhelinnro = t.Rows[0].Field<string>(6);
                 a.Postinro = t.Rows[0].Field<string>(1);
+                a.Asiakas_id = int.Parse(t.Rows[0].ItemArray[0].ToString());
 
                 tbEtunimi.Text = a.Etunimi;
                 tbSukunimi.Text = a.Sukunimi;
                 tbOsoite.Text = a.Lahiosoite;
                 tbPostinro.Text = a.Postinro;
                 tbPuhnro.Text = a.Puhelinnro;
+                tbID.Text = a.Asiakas_id.ToString();
             }
              catch
             {
