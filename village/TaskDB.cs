@@ -821,7 +821,7 @@ namespace village
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand($"SELECT varaus_id,nimi,mokkinimi,etunimi,sukunimi,varattu_alkupvm,varattu_loppupvm " +
                     $"FROM {tablename},{tablename3},{tablename5},{tablename6} " +
-                    $"WHERE asiakas.asiakas_id=varaus.asiakas_id and varaus.mokki_mokki_id=mokki.mokki_id and mokki.toimintaalue_id=toimintaalue.toimintaalue_id ORDER BY varattu_alkupvm", connection);
+                    $"WHERE asiakas.asiakas_id=varaus.asiakas_id and varaus.mokki_mokki_id=mokki.mokki_id ORDER BY varattu_alkupvm", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();
