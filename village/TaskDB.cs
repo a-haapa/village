@@ -959,5 +959,33 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
+        public static DataTable PoistaLasku(int id)
+        {   //Tietojen poistaminen tietokannassa "Palvelu" -kohdasta
+            try
+            {
+                if (File.Exists(filename))
+                {
+                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                    connection.Open();
+                    SQLiteCommand cmd = new SQLiteCommand($"DELETE FROM {tablename2} WHERE varaus_id = '{id}'", connection);
+
+                    SQLiteDataReader rdr = cmd.ExecuteReader();
+                    DataTable tt = new DataTable();
+                    tt.Load(rdr);
+                    rdr.Close();
+                    connection.Close();
+                    HaePalvelut();
+                    return tt;
+                }
+                else
+                {
+                    throw new FileNotFoundException("Tiedostoa ei löytynyt");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }
