@@ -67,9 +67,18 @@ namespace village
                 DataTable tt = TaskDB.HaeAsID(a);
                 v.Asiakas_id = int.Parse(tt.Rows[0].ItemArray[0].ToString());
 
-                //tänne pitäisi saada varauksen lisäys tehtyä
 
                 TaskDB.LisaaVaraus(v,a);
+
+                DataTable varaus = TaskDB.HaeVaID(a);
+                v.Varaus_id = int.Parse(varaus.Rows[0].ItemArray[0].ToString());
+                var list = new List<string>();
+                
+                //Allaoleva pitäisi saada loopattua niin että vie kaikki palvelut tietokantaan.
+                //Oikeastaan ainoa ongelma on, miten saada listboxista se arvo stringinä
+                TaskDB.LisaaVarauksenPalvelu(v);
+                
+
                 varausHallinta uusi = new varausHallinta();
                 uusi.Show();
                 this.Close();
