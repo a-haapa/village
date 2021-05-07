@@ -265,5 +265,21 @@ namespace village
                }
             
         }
+
+		private void btnMuokkaus_Click(object sender, EventArgs e)
+		{
+            Asiakas asiakas = new Asiakas();
+            int row = dgvAsiakkaanTiedot.SelectedCells[0].RowIndex;
+            asiakas.Asiakas_id = int.Parse(dgvAsiakkaanTiedot.Rows[row].Cells[0].Value.ToString());
+            asiakas.Etunimi = (string)dgvAsiakkaanTiedot.Rows[row].Cells[1].Value;
+            asiakas.Sukunimi = (string)dgvAsiakkaanTiedot.Rows[row].Cells[2].Value;
+            asiakas.Lahiosoite = (string)dgvAsiakkaanTiedot.Rows[row].Cells[3].Value;
+            asiakas.Postinro = (string)dgvAsiakkaanTiedot.Rows[row].Cells[5].Value;
+            asiakas.Email = (string)dgvAsiakkaanTiedot.Rows[row].Cells[6].Value;
+            asiakas.Puhelinnro = (string)dgvAsiakkaanTiedot.Rows[row].Cells[7].Value;
+
+            Muokkaa_asiakas asForm = new Muokkaa_asiakas(asiakas);
+            
+        }
 	}
 }
