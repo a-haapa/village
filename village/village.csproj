@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asiakas.cs" />
+    <Compile Include="Lasku.cs" />
     <Compile Include="Muokkaa_asiakas.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -911,6 +911,29 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
-
+        public static bool LisaaLasku(Lasku l)
+        {   // Lisää käyttäjän kirjaamat palvelut tietokantaan
+            try
+            {
+                if (File.Exists(filename))
+                {
+                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
+                    connection.Open();
+                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename2} (varaus_id,summa,alv,vahvistus_pvm,varattu_alkupvm,varattu_loppupvm)" +
+                        $"VALUES ('{l.varaus.Varaus_id}','{l.summa}','{l.alv}')", connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                else
+                {
+                    throw new FileNotFoundException("Tiedostoa ei löytynyt");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }
