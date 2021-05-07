@@ -65,6 +65,7 @@ namespace village
             this.tbID = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.clbPalv = new System.Windows.Forms.CheckedListBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -313,7 +314,7 @@ namespace village
             // lblHinta
             // 
             this.lblHinta.AutoSize = true;
-            this.lblHinta.Location = new System.Drawing.Point(195, 213);
+            this.lblHinta.Location = new System.Drawing.Point(299, 213);
             this.lblHinta.Name = "lblHinta";
             this.lblHinta.Size = new System.Drawing.Size(54, 17);
             this.lblHinta.TabIndex = 26;
@@ -399,11 +400,21 @@ namespace village
             this.clbPalv.Size = new System.Drawing.Size(176, 123);
             this.clbPalv.TabIndex = 40;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(195, 213);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(98, 17);
+            this.label11.TabIndex = 41;
+            this.label11.Text = "Hinta (sis. alv)";
+            // 
             // varaus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1109, 667);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.clbPalv);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tbID);
@@ -487,5 +498,6 @@ namespace village
         private System.Windows.Forms.TextBox tbID;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckedListBox clbPalv;
+        private System.Windows.Forms.Label label11;
     }
 }

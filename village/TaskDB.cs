@@ -919,7 +919,7 @@ namespace village
                 {
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
                     connection.Open();
-                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename2} (varaus_id,summa,alv,vahvistus_pvm,varattu_alkupvm,varattu_loppupvm)" +
+                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename2} (varaus_id,summa,alv)" +
                         $"VALUES ('{l.varaus.Varaus_id}','{l.summa}','{l.alv}')", connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
@@ -933,6 +933,30 @@ namespace village
             catch
             {
                 throw;
+            }
+
+        }
+        public static DataTable HaeLaskut(DateTime alku,DateTime loppu)
+        {
+            //Hakee laskut toivotulle aikavälille
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT lasku_id,summa,asiakas_id,varattu_alkupvm,varattu_loppupvm FROM {tablename2},{tablename3} " +
+                    $"WHERE lasku.varaus_id=varaus.varaus_id and varattu_alkupvm BETWEEN '{alku.ToString("yyyy-MM-dd")}' and '{loppu.ToString("yyyy-MM-dd")}' and varattu_loppupvm BETWEEN '{alku.ToString("yyyy-MM-dd")}' and '{loppu.ToString("yyyy-MM-dd")}'", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
     }

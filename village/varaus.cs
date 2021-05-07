@@ -24,7 +24,7 @@ namespace village
             lblID.Text = id.ToString();
             lblAlku.Text = alku.ToString();
             lblLoppu.Text = loppu.ToString();
-            lblHinta.Text = "Hinta ajalle: " + (hinta*lkm).ToString();
+            lblHinta.Text = (hinta*lkm).ToString();
             lblToimintaalue.Text = ta;
             lblMokkinimi.Text = t.Rows[0].Field<string>(3);
             lblHenkilomaara.Text = "Henkilömäärä " + t.Rows[0].Field<int>(6).ToString();
@@ -78,11 +78,13 @@ namespace village
                 TaskDB.LisaaVaraus(v);
                 Lasku l = new Lasku();
                 l.summa = double.Parse(lblHinta.Text);
+                l.Lasku_id = 4556;
                 l.alv = 10;
                 l.varaus = v;
+                l.varaus.Asiakas_id = a.Asiakas_id;
                 DataTable t = TaskDB.HaeVaID(a);
                 l.varaus.Varaus_id = int.Parse(t.Rows[0].ItemArray[0].ToString());
-
+                TaskDB.LisaaLasku(l);
                 varausHallinta uusi = new varausHallinta();
                 uusi.Show();
                 this.Close();

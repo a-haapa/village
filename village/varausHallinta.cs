@@ -37,7 +37,9 @@ namespace village
 
         private void btnLaskutus_Click(object sender, EventArgs e)
         {
-            
+            laskut laskut = new laskut();
+            laskut.Show();
+            this.Close();
         }
     }
 }
