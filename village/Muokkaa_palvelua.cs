@@ -15,6 +15,7 @@ namespace village
         public Muokkaa_palvelua(Palvelu p)
         {
             InitializeComponent();
+            tbPalveluID.Text = p.Palvelu_id.ToString();
             tbPalveluNimi.Text = p.Nimi;
             cbToimintaAlue.Text = p.toimintaalue.Nimi;
             tbTyyppi.Text = p.Tyyppi.ToString();
@@ -31,6 +32,7 @@ namespace village
         private void btnTallenna_Click(object sender, EventArgs e)
         {
             Palvelu pa = new Palvelu();
+            pa.Palvelu_id = int.Parse(tbPalveluID.Text);
             pa.Nimi = tbPalveluNimi.Text;
             pa.toimintaalue.Nimi = cbToimintaAlue.Text;
             pa.Tyyppi = int.Parse(tbTyyppi.Text);
@@ -38,6 +40,8 @@ namespace village
             pa.Hinta = double.Parse(tbHinta.Text);
             pa.Alv = double.Parse(tbAlv.Text);
             TaskDB.MuokkaaPalvelu(pa);
+            yllapito formi = new yllapito();
+            formi.Show();
             this.Close();
         }
     }

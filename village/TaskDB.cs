@@ -726,7 +726,7 @@ namespace village
                 {
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
                     connection.Open();
-                    SQLiteCommand cmd = new SQLiteCommand($"UPDATE {tablename6} SET nimi='{pa.Nimi}',toimintaalue_id='{pa.toimintaalue.Toimintaalue_id}',tyyppi='{pa.Tyyppi}',kuvaus='{pa.Kuvaus}',hinta='{pa.Hinta}',nimi='{pa.Nimi}',alv='{pa.Alv}' WHERE palvelu_id_id='{pa.Palvelu_id}'", connection);
+                    SQLiteCommand cmd = new SQLiteCommand($"UPDATE {tablename7} SET nimi='{pa.Nimi}',tyyppi='{pa.Tyyppi}',kuvaus='{pa.Kuvaus}',hinta='{pa.Hinta}',nimi='{pa.Nimi}',alv='{pa.Alv}' WHERE palvelu_id='{pa.Palvelu_id}'", connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
                     return true;
