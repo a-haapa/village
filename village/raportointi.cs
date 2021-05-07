@@ -49,45 +49,54 @@ namespace village
 
             double paivat = 0;
             int rivi = 0;
-            List<int> list = new List<int>();
-            foreach (DataRow row in tt.Rows)
+            double hinta;
+            double alv;
+            List<int> list = new List<int>(); 
+            try
             {
-                //Hakee taulukosta päivämäärät sekä dtp:loppupäivän vertailukohteeksi
-                DateTime alkupv = (DateTime)tt.Rows[rivi].ItemArray[2];
-                DateTime loppupv = tt.Rows[rivi].Field<DateTime>(3);
-                DateTime vertaa = DateTime.Parse(dtpLoppu.Text);
-                int id = int.Parse(tt.Rows[rivi].ItemArray[0].ToString());
-                //Jos listassa ei ole ko mökkiä, lisää sen id:n listaan, jotta myöhemmin voidaan laskea mökkien lukumäärä
-                if (!list.Contains(id))
+                foreach (DataRow row in tt.Rows)
                 {
-                    list.Add(id);
+                    //Hakee taulukosta päivämäärät sekä dtp:loppupäivän vertailukohteeksi
+                    DateTime alkupv = (DateTime)tt.Rows[rivi].ItemArray[2];
+                    DateTime loppupv = tt.Rows[rivi].Field<DateTime>(3);
+                    DateTime vertaa = DateTime.Parse(dtpLoppu.Text);
+                    int id = int.Parse(tt.Rows[rivi].ItemArray[0].ToString());
+                    //Jos listassa ei ole ko mökkiä, lisää sen id:n listaan, jotta myöhemmin voidaan laskea mökkien lukumäärä
+                    if (!list.Contains(id))
+                    {
+                        list.Add(id);
+                    }
+                    rivi++;
+                    //Jos päättymispäivä on suurempi, kuin vertauspäivä, lasketaan varatutpäivät vertauspäivän mukaan eli raportointijakson päättymisen mukaan
+                    if (loppupv > vertaa)
+                    {
+                        paivat += (vertaa - alkupv).TotalDays;
+                    }
+                    else
+                    {
+                        //Muussa tapauksessa lasketaan loppupäivän mukaan. Tällä lasketaan varatut vuorokaudet kaikkiaan.
+                        paivat += (loppupv - alkupv).TotalDays;
+                    }
                 }
-                rivi++;
-                //Jos päättymispäivä on suurempi, kuin vertauspäivä, lasketaan varatutpäivät vertauspäivän mukaan eli raportointijakson päättymisen mukaan
-                if (loppupv > vertaa)
-                {
-                    paivat += (vertaa - alkupv).TotalDays;
-                }
-                else
-                {
-                    //Muussa tapauksessa lasketaan loppupäivän mukaan. Tällä lasketaan varatut vuorokaudet kaikkiaan.
-                    paivat += (loppupv - alkupv).TotalDays;
-                }
+                lbPaivat.Text = "Varatut päivät yhteensä: " + paivat.ToString();
+                lbPaivat.Visible = true;
+                DateTime raporttiAlku = DateTime.Parse(dtpAlku.Text);
+                DateTime raporttiLoppu = DateTime.Parse(dtpLoppu.Text);
+                //Lasketaan raportoitavien päivien määrä
+                double raportoitavaAika = (raporttiLoppu - raporttiAlku).TotalDays;
+                //Katsotaan listasta mökkien lukumäärä
+                int kerroin = list.Count;
+                //Kaikkiaan varattavissa olevien päivien määrä ajanjaksolla
+                double mokkipäivatYht = raportoitavaAika * kerroin;
+                //Täyttöaste
+                double tayttoaste = (paivat / mokkipäivatYht) * 100;
+                lbTaytto.Text = "Täyttöaste: " + tayttoaste.ToString() + " %";
+                lbTaytto.Visible = true;
             }
-            lbPaivat.Text = "Varatut päivät yhteensä: " + paivat.ToString();
-            lbPaivat.Visible = true;
-            DateTime raporttiAlku = DateTime.Parse(dtpAlku.Text);
-            DateTime raporttiLoppu = DateTime.Parse(dtpLoppu.Text);
-            //Lasketaan raportoitavien päivien määrä
-            double raportoitavaAika = (raporttiLoppu - raporttiAlku).TotalDays;
-            //Katsotaan listasta mökkien lukumäärä
-            int kerroin = list.Count;
-            //Kaikkiaan varattavissa olevien päivien määrä ajanjaksolla
-            double mokkipäivatYht = raportoitavaAika * kerroin;
-            //Täyttöaste
-            double tayttoaste = (paivat / mokkipäivatYht) * 100;
-            lbTaytto.Text = "Täyttöaste: " + tayttoaste.ToString() + " %";
-            lbTaytto.Visible = true;
+            catch (Exception ex)
+            {
+                throw;
+            }
             
         }
     }
