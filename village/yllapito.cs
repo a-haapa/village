@@ -196,7 +196,7 @@ namespace village
                 Palvelu pa = new Palvelu();
                 int row = dgvPalvelut.SelectedCells[0].RowIndex;
                 pa.Palvelu_id = int.Parse(dgvPalvelut.Rows[row].Cells[0].Value.ToString());
-                pa.toimintaalue.Nimi = (string)dgvPalvelut.Rows[row].Cells[1].Value;
+                pa.toimintaalue.Nimi = (string)dgvPalvelut.Rows[row].Cells[7].Value;
                 pa.Nimi = (string)dgvPalvelut.Rows[row].Cells[2].Value;
                 pa.Tyyppi = int.Parse(dgvPalvelut.Rows[row].Cells[3].Value.ToString());
                 pa.Kuvaus = (string)dgvPalvelut.Rows[row].Cells[4].Value;
