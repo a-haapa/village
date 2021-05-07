@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace village
 {
-    class Lasku
+    public class Lasku
     {
         public int Lasku_id { get; set; }
         public double summa { get; set; }
