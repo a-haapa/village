@@ -27,8 +27,15 @@ namespace village
         {
             if (MessageBox.Show("Haluatko varmasti poistaa varauksen?", "  ", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                //Varmistaa haluaako käyttäjä poistaa, ottaa talteen varaus_id:n
                 int row = dgvNaytavaraukset.SelectedCells[0].RowIndex;
                 int id = int.Parse(dgvNaytavaraukset.Rows[row].Cells[0].Value.ToString());
+                DateTime vahvistus = DateTime.Parse(dgvNaytavaraukset.Rows[row].Cells[2].Value.ToString()).AddDays(-2);
+                //Jos varaus poistetaan yli 2 pv ennen varauksen alkamista, myös lasku poistuu
+                if (vahvistus > DateTime.Today)
+                {
+                    TaskDB.PoistaLasku(id);
+                }
                 TaskDB.PoistaVaraus(id);
 
                 dgvNaytavaraukset.DataSource = TaskDB.HaeVaraukset();

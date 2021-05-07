@@ -37,8 +37,6 @@ namespace village
                 DateTime alku = dtpAlku.Value;
                 DateTime loppu = dtpLoppu.Value;
                 double lkm = (loppu - alku).TotalDays;
-                dtpAlku.CustomFormat = " ";
-                dtpLoppu.CustomFormat = " ";
                 dgvMokit.DataSource = null; 
 
                 DataTable t = TaskDB.Hae(id);
