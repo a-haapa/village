@@ -117,6 +117,7 @@ namespace village
             this.btnSulje.TabIndex = 7;
             this.btnSulje.Text = "Sulje";
             this.btnSulje.UseVisualStyleBackColor = true;
+            this.btnSulje.Click += new System.EventHandler(this.btnSulje_Click);
             // 
             // dgvLaskut
             // 

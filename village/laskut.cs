@@ -52,8 +52,13 @@ namespace village
         {
             int row = dgvLaskut.SelectedCells[0].RowIndex;
             int varausid = int.Parse(dgvLaskut.Rows[row].Cells[0].Value.ToString());
-            int laskuid = int.Parse(dgvLaskut.Rows[row].Cells[1].Value.ToString());
-            dgvLaskut.DataSource = TaskDB.HaeYksiLasku(varausid,laskuid);
+            avaaLasku uusi = new avaaLasku(varausid);
+            uusi.Show();
+        }
+
+        private void btnSulje_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
