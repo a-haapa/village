@@ -26,8 +26,6 @@ namespace village
 
 		private void btnPoisAsMuok_Click(object sender, EventArgs e)
 		{
-			yllapito formi = new yllapito();
-			formi.Show();
 			this.Close();
 		}
 

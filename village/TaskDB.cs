@@ -624,7 +624,7 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu.nimi FROM {tablename7},{tablename6} WHERE toimintaalue.nimi='{ta}'", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu.nimi FROM {tablename6},{tablename7} WHERE palvelu.toimintaalue_id=toimintaalue.toimintaalue_id and toimintaalue.nimi='{ta}'", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -963,6 +963,28 @@ namespace village
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand($"SELECT varaus.varaus_id,lasku_id,summa,asiakas_id,varattu_alkupvm,varattu_loppupvm,vahvistus_pvm FROM {tablename2},{tablename3} " +
                     $"WHERE lasku.varaus_id=varaus.varaus_id and varattu_alkupvm BETWEEN '{alku.ToString("yyyy-MM-dd")}' and '{loppu.ToString("yyyy-MM-dd")}' and varattu_loppupvm BETWEEN '{alku.ToString("yyyy-MM-dd")}' and '{loppu.ToString("yyyy-MM-dd")}'", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
+        public static DataTable HaeKaikkiLaskut()
+        {
+            //Hakee laskut toivotulle aikavälille
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT varaus.varaus_id,lasku_id,summa,asiakas_id,varattu_alkupvm,varattu_loppupvm,vahvistus_pvm FROM {tablename2},{tablename3} WHERE varaus.varaus_id=lasku.varaus_id", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();

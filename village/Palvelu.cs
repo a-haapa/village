@@ -16,8 +16,6 @@ namespace village
         public int Tyyppi { get; set; }
 
         public Toimintaalue toimintaalue = new Toimintaalue();
-        public varausL varaus = new varausL();
-        public List<Palvelu> palvelut = new List<Palvelu>();
         public override string ToString()
         {
             return Palvelu_id + Nimi + Kuvaus + Hinta + Alv;

@@ -45,14 +45,13 @@ namespace village
             DateTime loppu = DateTime.Parse(dtpLoppu.Text);
             string toimialue = cbToimialueet.Text;
             DataTable tt = TaskDB.HaeRaportti(toimialue, alku, loppu);
-            dgvRaportti.DataSource = tt;
 
             double paivat = 0;
             int rivi = 0;
             double hinta;
             double alv;
 
-            List<int> list = new List<int>(); 
+            List<int> list = new List<int>();
             try
             {
                 foreach (DataRow row in tt.Rows)
@@ -79,7 +78,7 @@ namespace village
                         paivat += (loppupv - alkupv).TotalDays;
                     }
                 }
-                lbPaivat.Text = "Varatut päivät yhteensä: " + paivat.ToString();
+                lbPaivat.Text = "Varatut päivät yhteensä: " + paivat.ToString("00");
                 lbPaivat.Visible = true;
                 DateTime raporttiAlku = DateTime.Parse(dtpAlku.Text);
                 DateTime raporttiLoppu = DateTime.Parse(dtpLoppu.Text);
@@ -91,12 +90,14 @@ namespace village
                 double mokkipäivatYht = raportoitavaAika * kerroin;
                 //Täyttöaste
                 double tayttoaste = (paivat / mokkipäivatYht) * 100;
-                lbTaytto.Text = "Täyttöaste: " + tayttoaste.ToString() + " %";
+                lbTaytto.Text = "Täyttöaste: " + tayttoaste.ToString("00") + " %";
                 lbTaytto.Visible = true;
+                cbToimialueet.SelectedItem = null;
+                dgvRaportti.DataSource = tt;
             }
             catch (Exception ex)
             {
-                throw;
+                MessageBox.Show("Virhe tiedoissa! " + ex.Message);
             }
             
         }
