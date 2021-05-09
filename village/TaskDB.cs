@@ -642,14 +642,14 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
-        public static DataTable HaePalvelunID(Palvelu pa)
+        public static DataTable HaePalvelunID(varausL v)
         {
             //Tietojen haku "Palvelu" taulusta
             if (File.Exists(filename))
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu_id FROM {tablename7} WHERE nimi='{pa.Nimi}'", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu_id FROM {tablename7} WHERE nimi='{v.Palvelu_nimi}'", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -697,8 +697,7 @@ namespace village
                 {
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
                     connection.Open();
-                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename8} ((palvelu_id) " +
-                        $"VALUES (SELECT palvelu_id FROM {tablename7} WHERE nimi= '{v.Palvelu_nimi}')) WHERE varaus_id='{v.Varaus_id}'))", connection);
+                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename8} (varaus_id,palvelu_id,lkm) VALUES ((SELECT varaus_id FROM {tablename3} WHERE varaus_id='{v.Varaus_id}'),(SELECT palvelu_id FROM {tablename7} WHERE palvelu_id='{v.Palvelu_id}'),'{1}')", connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
                     return true;

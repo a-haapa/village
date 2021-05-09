@@ -85,7 +85,13 @@ namespace village
                 l.varaus.Varaus_id = int.Parse(t.Rows[0].ItemArray[0].ToString());
                 TaskDB.LisaaLasku(l);
 
-
+                foreach (var item in clbPalv.CheckedItems)
+                {
+                    v.Palvelu_nimi = clbPalv.Text;
+                    DataTable pa_dt = TaskDB.HaePalvelunID(v);
+                    v.Palvelu_id = int.Parse(pa_dt.Rows[0].ItemArray[0].ToString());
+                    TaskDB.LisaaVarauksenPalvelu(v);
+                }
 
                 varausHallinta uusi = new varausHallinta();
                 uusi.Show();
