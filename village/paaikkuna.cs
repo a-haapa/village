@@ -22,6 +22,8 @@ namespace village
             cbToimintaAlue.SelectedItem = null;
             dtpAlku.CustomFormat = " ";
             dtpLoppu.CustomFormat = " ";
+            dtpAlku.MinDate = DateTime.Today;
+            dtpLoppu.MinDate = DateTime.Today.AddDays(1);
         }
 
         private void btnTeeVaraus_Click(object sender, EventArgs e)
@@ -64,25 +66,26 @@ namespace village
             try
             {
                 string toimintaalue = cbToimintaAlue.Text;
-                int id = int.Parse(cbToimintaAlue.SelectedValue.ToString());
-
-                //Ottaa talteen päivämäärät
-                DateTime date1 = DateTime.Parse(dtpAlku.Text);
-                DateTime date2 = DateTime.Parse(dtpLoppu.Text);
-                if (cbHenkilomaara.SelectedItem == null)
+                if (cbToimintaAlue.Text.Length > 0)
                 {
-                    dgvMokit.DataSource = TaskDB.HaeMokki3(id, date1, date2);
+                    int id = int.Parse(cbToimintaAlue.SelectedValue.ToString());
+                    //Ottaa talteen päivämäärät
+                    DateTime date1 = DateTime.Parse(dtpAlku.Text);
+                    DateTime date2 = DateTime.Parse(dtpLoppu.Text);
+                    if (cbHenkilomaara.SelectedItem == null)
+                    {
+                        dgvMokit.DataSource = TaskDB.HaeMokki3(id, date1, date2);
+                    }
+                    else
+                    {
+                        int henkilomaara = int.Parse(cbHenkilomaara.Text);
+                        dgvMokit.DataSource = TaskDB.HaeMokki2(id, henkilomaara, date1, date2);
+                    }
                 }
-                else
-                {
-                    int henkilomaara = int.Parse(cbHenkilomaara.Text);
-                    dgvMokit.DataSource = TaskDB.HaeMokki2(id, henkilomaara, date1, date2);
-                }
-
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show("Virheellinen syöte! " + ex.Message);
             }
             
         }
@@ -102,11 +105,13 @@ namespace village
         private void dtpAlku_ValueChanged(object sender, EventArgs e)
         {
             dtpAlku.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+            dtpLoppu.MinDate = dtpAlku.Value.AddDays(1);
         }
 
         private void dtpLoppu_ValueChanged(object sender, EventArgs e)
         {
             dtpLoppu.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+            
         }
 
         private void btnRaportointi_Click(object sender, EventArgs e)

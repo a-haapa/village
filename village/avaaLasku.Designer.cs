@@ -86,7 +86,7 @@ namespace village
             this.dgvAsiakas.Name = "dgvAsiakas";
             this.dgvAsiakas.RowHeadersWidth = 51;
             this.dgvAsiakas.RowTemplate.Height = 24;
-            this.dgvAsiakas.Size = new System.Drawing.Size(887, 99);
+            this.dgvAsiakas.Size = new System.Drawing.Size(761, 99);
             this.dgvAsiakas.TabIndex = 4;
             // 
             // dgvMokki
@@ -106,7 +106,7 @@ namespace village
             this.dgvVaraus.Name = "dgvVaraus";
             this.dgvVaraus.RowHeadersWidth = 51;
             this.dgvVaraus.RowTemplate.Height = 24;
-            this.dgvVaraus.Size = new System.Drawing.Size(887, 103);
+            this.dgvVaraus.Size = new System.Drawing.Size(761, 103);
             this.dgvVaraus.TabIndex = 6;
             // 
             // btnTulosta

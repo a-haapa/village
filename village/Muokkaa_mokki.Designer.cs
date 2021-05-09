@@ -52,7 +52,7 @@ namespace village
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(95, 27);
+            this.label1.Location = new System.Drawing.Point(38, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 17);
             this.label1.TabIndex = 0;
@@ -61,7 +61,7 @@ namespace village
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(144, 130);
+            this.label2.Location = new System.Drawing.Point(146, 156);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(123, 17);
             this.label2.TabIndex = 1;
@@ -70,7 +70,7 @@ namespace village
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(37, 289);
+            this.label3.Location = new System.Drawing.Point(37, 342);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 17);
             this.label3.TabIndex = 2;
@@ -79,7 +79,7 @@ namespace village
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(37, 236);
+            this.label4.Location = new System.Drawing.Point(37, 281);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 17);
             this.label4.TabIndex = 3;
@@ -88,7 +88,7 @@ namespace village
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(37, 191);
+            this.label5.Location = new System.Drawing.Point(38, 218);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 17);
             this.label5.TabIndex = 4;
@@ -97,7 +97,7 @@ namespace village
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(37, 130);
+            this.label6.Location = new System.Drawing.Point(37, 156);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 17);
             this.label6.TabIndex = 5;
@@ -106,7 +106,7 @@ namespace village
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(153, 73);
+            this.label7.Location = new System.Drawing.Point(146, 99);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 17);
             this.label7.TabIndex = 6;
@@ -115,7 +115,7 @@ namespace village
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(37, 73);
+            this.label9.Location = new System.Drawing.Point(37, 99);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(35, 17);
             this.label9.TabIndex = 8;
@@ -123,7 +123,7 @@ namespace village
             // 
             // tbMuokkaaMokkiNimi
             // 
-            this.tbMuokkaaMokkiNimi.Location = new System.Drawing.Point(41, 91);
+            this.tbMuokkaaMokkiNimi.Location = new System.Drawing.Point(40, 118);
             this.tbMuokkaaMokkiNimi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbMuokkaaMokkiNimi.MaxLength = 45;
             this.tbMuokkaaMokkiNimi.Name = "tbMuokkaaMokkiNimi";
@@ -132,7 +132,7 @@ namespace village
             // 
             // tbMuokkaaMokinHinta
             // 
-            this.tbMuokkaaMokinHinta.Location = new System.Drawing.Point(149, 149);
+            this.tbMuokkaaMokinHinta.Location = new System.Drawing.Point(147, 175);
             this.tbMuokkaaMokinHinta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbMuokkaaMokinHinta.Name = "tbMuokkaaMokinHinta";
             this.tbMuokkaaMokinHinta.Size = new System.Drawing.Size(89, 22);
@@ -140,7 +140,7 @@ namespace village
             // 
             // tbMuokkaaMokinPostinro
             // 
-            this.tbMuokkaaMokinPostinro.Location = new System.Drawing.Point(149, 91);
+            this.tbMuokkaaMokinPostinro.Location = new System.Drawing.Point(147, 118);
             this.tbMuokkaaMokinPostinro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbMuokkaaMokinPostinro.MaxLength = 5;
             this.tbMuokkaaMokinPostinro.Name = "tbMuokkaaMokinPostinro";
@@ -149,7 +149,7 @@ namespace village
             // 
             // tbMuokkaMokkiID
             // 
-            this.tbMuokkaMokkiID.Location = new System.Drawing.Point(99, 46);
+            this.tbMuokkaMokkiID.Location = new System.Drawing.Point(40, 57);
             this.tbMuokkaMokkiID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbMuokkaMokkiID.Name = "tbMuokkaMokkiID";
             this.tbMuokkaMokkiID.ReadOnly = true;
@@ -158,7 +158,7 @@ namespace village
             // 
             // tbMuokkaamokinOsoite
             // 
-            this.tbMuokkaamokinOsoite.Location = new System.Drawing.Point(41, 149);
+            this.tbMuokkaamokinOsoite.Location = new System.Drawing.Point(40, 175);
             this.tbMuokkaamokinOsoite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbMuokkaamokinOsoite.MaxLength = 45;
             this.tbMuokkaamokinOsoite.Name = "tbMuokkaamokinOsoite";
@@ -167,7 +167,7 @@ namespace village
             // 
             // tbMuokkaaMokinHlomaara
             // 
-            this.tbMuokkaaMokinHlomaara.Location = new System.Drawing.Point(41, 209);
+            this.tbMuokkaaMokinHlomaara.Location = new System.Drawing.Point(40, 237);
             this.tbMuokkaaMokinHlomaara.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbMuokkaaMokinHlomaara.Name = "tbMuokkaaMokinHlomaara";
             this.tbMuokkaaMokinHlomaara.Size = new System.Drawing.Size(89, 22);
@@ -175,7 +175,7 @@ namespace village
             // 
             // TbMuokkaaMokinKuvaus
             // 
-            this.TbMuokkaaMokinKuvaus.Location = new System.Drawing.Point(41, 255);
+            this.TbMuokkaaMokinKuvaus.Location = new System.Drawing.Point(40, 300);
             this.TbMuokkaaMokinKuvaus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TbMuokkaaMokinKuvaus.MaxLength = 150;
             this.TbMuokkaaMokinKuvaus.Name = "TbMuokkaaMokinKuvaus";
@@ -184,7 +184,7 @@ namespace village
             // 
             // tbMuokkaaMokinVarustelu
             // 
-            this.tbMuokkaaMokinVarustelu.Location = new System.Drawing.Point(41, 315);
+            this.tbMuokkaaMokinVarustelu.Location = new System.Drawing.Point(40, 361);
             this.tbMuokkaaMokinVarustelu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbMuokkaaMokinVarustelu.MaxLength = 100;
             this.tbMuokkaaMokinVarustelu.Name = "tbMuokkaaMokinVarustelu";
@@ -193,7 +193,7 @@ namespace village
             // 
             // btnMuokkaaMokkiTallenna
             // 
-            this.btnMuokkaaMokkiTallenna.Location = new System.Drawing.Point(41, 380);
+            this.btnMuokkaaMokkiTallenna.Location = new System.Drawing.Point(41, 404);
             this.btnMuokkaaMokkiTallenna.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMuokkaaMokkiTallenna.Name = "btnMuokkaaMokkiTallenna";
             this.btnMuokkaaMokkiTallenna.Size = new System.Drawing.Size(92, 37);
@@ -204,7 +204,7 @@ namespace village
             // 
             // btnMuokkaaMokkiPoistu
             // 
-            this.btnMuokkaaMokkiPoistu.Location = new System.Drawing.Point(148, 380);
+            this.btnMuokkaaMokkiPoistu.Location = new System.Drawing.Point(156, 404);
             this.btnMuokkaaMokkiPoistu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMuokkaaMokkiPoistu.Name = "btnMuokkaaMokkiPoistu";
             this.btnMuokkaaMokkiPoistu.Size = new System.Drawing.Size(92, 37);
@@ -217,7 +217,7 @@ namespace village
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(303, 426);
+            this.ClientSize = new System.Drawing.Size(420, 496);
             this.Controls.Add(this.btnMuokkaaMokkiPoistu);
             this.Controls.Add(this.btnMuokkaaMokkiTallenna);
             this.Controls.Add(this.tbMuokkaaMokinVarustelu);

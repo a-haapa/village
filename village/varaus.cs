@@ -92,9 +92,9 @@ namespace village
                 this.Close();
                 
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show("Virheellinen syöte" + ex.Message);
             }
             
         }

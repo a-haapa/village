@@ -34,10 +34,17 @@ namespace village
        
         private void btnLisaaToimintaAlue_Click(object sender, EventArgs e)
         {
-            Toimintaalue t = new Toimintaalue();
-            t.Nimi = tbToimintaAlue.Text;
-            TaskDB.LisaaToimintaalue(t);
-            dgvToimintaalueet.DataSource = TaskDB.HaeToimintaalue();
+            try
+            {
+                Toimintaalue t = new Toimintaalue();
+                t.Nimi = tbToimintaAlue.Text;
+                TaskDB.LisaaToimintaalue(t);
+                dgvToimintaalueet.DataSource = TaskDB.HaeToimintaalue();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Virheellinen syöte! " + ex.Message);
+            }
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
@@ -75,9 +82,9 @@ namespace village
                 //Haetaan mökit eli päivitetään muutokset DataGridView-taulukkoon
                 dgvMokkilista.DataSource = TaskDB.HaeMokit();
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show("Virheellinen syöte! " + ex.Message);
             }
             
         }
@@ -153,7 +160,14 @@ namespace village
                 string str = p.toimintaalue.Nimi;
                 DataTable t = TaskDB.HaeTaID(str);
                 p.toimintaalue.Toimintaalue_id = int.Parse(t.Rows[0].ItemArray[0].ToString());
-                p.Tyyppi = int.Parse(tbPalvTyyppi.Text);
+                if (tbPalveluTyyppi.Text.Length > 0)
+                {
+                    p.Tyyppi = int.Parse(tbPalvTyyppi.Text);
+                }
+                else
+                {
+                    p.Tyyppi = 0;
+                }
                 p.Kuvaus = tbPalvKuvaus.Text;
                 p.Hinta = double.Parse(tbPalvHinta.Text);
                 p.Alv = double.Parse(tbPalvAlv.Text);
@@ -169,9 +183,9 @@ namespace village
                 //päivitetään muutokset datagridviewiin
                 dgvPalvelut.DataSource = TaskDB.HaePalvelut();
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show("Virheellinen syöte" + ex.Message);
             }
             
         }
@@ -282,5 +296,15 @@ namespace village
             asForm.Show();
             
         }
-	}
+
+        private void btnSuljePalv_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSuljeAs_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
 }

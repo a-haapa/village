@@ -119,7 +119,7 @@ namespace village
             // 
             // btnSulje
             // 
-            this.btnSulje.Location = new System.Drawing.Point(924, 70);
+            this.btnSulje.Location = new System.Drawing.Point(924, 590);
             this.btnSulje.Name = "btnSulje";
             this.btnSulje.Size = new System.Drawing.Size(129, 36);
             this.btnSulje.TabIndex = 8;

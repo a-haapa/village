@@ -17,6 +17,7 @@ namespace village
             InitializeComponent();
             dtpAlku.CustomFormat = " ";
             dtpLoppu.CustomFormat = " ";
+            dgvLaskut.DataSource = TaskDB.HaeKaikkiLaskut();
         }
 
         private void dtpLoppu_ValueChanged(object sender, EventArgs e)
@@ -54,11 +55,19 @@ namespace village
             int varausid = int.Parse(dgvLaskut.Rows[row].Cells[0].Value.ToString());
             avaaLasku uusi = new avaaLasku(varausid);
             uusi.Show();
+            this.Close();
         }
 
         private void btnSulje_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnPoista_Click(object sender, EventArgs e)
+        {
+            int row = dgvLaskut.SelectedCells[0].RowIndex;
+            int id = int.Parse(dgvLaskut.Rows[row].Cells[0].Value.ToString());
+            TaskDB.PoistaLasku(id);
         }
     }
 }

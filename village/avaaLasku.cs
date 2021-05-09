@@ -32,7 +32,7 @@ namespace village
             bool fileError = false;
 
             Document pdfD = new Document(PageSize.A4);
-            pdfD.SetMargins(3, 3, 3, 3);
+            pdfD.SetMargins(70, 70, 110, 110);
             Paragraph prg = new Paragraph("Lasku, Newbie Village");
             prg.Add(Chunk.NEWLINE);
             prg.Add(Chunk.NEWLINE);
@@ -56,11 +56,11 @@ namespace village
             if (dgvAsiakas.Rows.Count >0)
             {
                 if (sfd.ShowDialog() == DialogResult.OK)
-                {
+                {   //Tarkistaa, onko saman niminen tiedosto
                     if (File.Exists(sfd.FileName))
                     {
                         try
-                        {
+                        {   //Jos on, yrittää poistaa vanhan
                             File.Delete(sfd.FileName);
                         }
                         catch (IOException ex)
@@ -80,8 +80,7 @@ namespace village
                             pdf.WidthPercentage = 100;
                             pdf.HorizontalAlignment = Element.ALIGN_LEFT;
                            
-
-
+                            //Lukee Asiakas-dgv:n
                             iTextSharp.text.Font text = new iTextSharp.text.Font(bf,10,iTextSharp.text.Font.NORMAL);
                             foreach (DataGridViewColumn column in dgvAsiakas.Columns)
                             {
@@ -104,7 +103,7 @@ namespace village
                                     }
                                 }
                             }
-
+                            //Lukee Mökki-dgv:n
                             PdfPTable pdf2 = new PdfPTable(dgvMokki.Columns.Count);
                             pdf2.DefaultCell.Padding = 3;
                             pdf2.WidthPercentage = 100;
@@ -136,7 +135,7 @@ namespace village
                             }
 
 
-
+                            //Lukee varaustiedot
                             BaseFont bf3 = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.EMBEDDED);
                             PdfPTable pdf3 = new PdfPTable(dgvVaraus.Columns.Count);
                             pdf3.DefaultCell.Padding = 3;
@@ -169,7 +168,7 @@ namespace village
 
                             using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
                             {
-
+                                //Tekee pdf:n
                                 PdfWriter.GetInstance(pdfD, stream);
                                 pdfD.Open();
                                 pdfD.Add(prg);
@@ -192,7 +191,7 @@ namespace village
                 }
             }
 
-          
+            this.Close();
         }
     }
 }
