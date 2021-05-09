@@ -1017,12 +1017,13 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT varaus.varaus_id,lasku_id,summa,asiakas_id,varattu_alkupvm,varattu_loppupvm,vahvistus_pvm " +
-                    $"FROM {tablename3},{tablename2},{tablename6},{tablename7} " +
-                    $"INNER JOIN { tablename } ON varaus.asiakas_id=asiakas.asiakas_id" +
-                    $"INNER JOIN {tablename5} ON varaus.mokki_mokki_id=mokki.mokki_id" +
-                    $"INNER JOIN {tablename6} ON mokki.toimintaalue_id=toimintaalue.toimintaalue_id" +
-                    $"WHERE )", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT varaus.varaus_id,lasku.lasku_id,etunimi,sukunimi,summa,varattu_alkupvm,varattu_loppupvm,varattu_pvm,asiakas.asiakas_id " +
+                    $"FROM {tablename3} " +
+                    $"INNER JOIN {tablename} ON varaus.asiakas_id=asiakas.asiakas_id " +
+                    $"INNER JOIN {tablename5} ON varaus.mokki_mokki_id=mokki.mokki_id " +
+                    $"INNER JOIN {tablename6} ON mokki.toimintaalue_id=toimintaalue.toimintaalue_id " +
+                    $"INNER JOIN {tablename2} ON varaus.varaus_id=lasku.varaus_id " +
+                    $"WHERE varaus.varaus_id='{varausid}' and lasku_id='{laskuid}'", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();

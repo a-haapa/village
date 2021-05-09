@@ -84,6 +84,9 @@ namespace village
                 DataTable t = TaskDB.HaeVaID(a);
                 l.varaus.Varaus_id = int.Parse(t.Rows[0].ItemArray[0].ToString());
                 TaskDB.LisaaLasku(l);
+
+
+
                 varausHallinta uusi = new varausHallinta();
                 uusi.Show();
                 this.Close();

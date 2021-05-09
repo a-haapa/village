@@ -395,9 +395,9 @@ namespace village
             // clbPalv
             // 
             this.clbPalv.FormattingEnabled = true;
-            this.clbPalv.Location = new System.Drawing.Point(12, 457);
+            this.clbPalv.Location = new System.Drawing.Point(144, 466);
             this.clbPalv.Name = "clbPalv";
-            this.clbPalv.Size = new System.Drawing.Size(176, 123);
+            this.clbPalv.Size = new System.Drawing.Size(230, 123);
             this.clbPalv.TabIndex = 40;
             // 
             // label11
