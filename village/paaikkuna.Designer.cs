@@ -31,6 +31,7 @@ namespace village
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnRaportointi = new System.Windows.Forms.Button();
             this.btnYllapito = new System.Windows.Forms.Button();
             this.btnVaraustenHallinta = new System.Windows.Forms.Button();
             this.btnMokkienHaku = new System.Windows.Forms.Button();
@@ -53,7 +54,7 @@ namespace village
             this.cbToimintaAlue = new System.Windows.Forms.ComboBox();
             this.dgvMokit = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnRaportointi = new System.Windows.Forms.Button();
+            this.btnSuljeMH = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -87,6 +88,16 @@ namespace village
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Etusivu";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnRaportointi
+            // 
+            this.btnRaportointi.Location = new System.Drawing.Point(407, 488);
+            this.btnRaportointi.Name = "btnRaportointi";
+            this.btnRaportointi.Size = new System.Drawing.Size(276, 46);
+            this.btnRaportointi.TabIndex = 4;
+            this.btnRaportointi.Text = "Raportointi";
+            this.btnRaportointi.UseVisualStyleBackColor = true;
+            this.btnRaportointi.Click += new System.EventHandler(this.btnRaportointi_Click);
             // 
             // btnYllapito
             // 
@@ -135,6 +146,7 @@ namespace village
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnSuljeMH);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.label8);
@@ -174,7 +186,7 @@ namespace village
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(321, 228);
+            this.label9.Location = new System.Drawing.Point(729, 70);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(13, 17);
             this.label9.TabIndex = 14;
@@ -184,7 +196,7 @@ namespace village
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(258, 150);
+            this.label8.Location = new System.Drawing.Point(495, 71);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(13, 17);
             this.label8.TabIndex = 13;
@@ -214,7 +226,7 @@ namespace village
             // 
             this.dtpLoppu.CustomFormat = "yyy-MM-dd";
             this.dtpLoppu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpLoppu.Location = new System.Drawing.Point(67, 170);
+            this.dtpLoppu.Location = new System.Drawing.Point(308, 91);
             this.dtpLoppu.Name = "dtpLoppu";
             this.dtpLoppu.Size = new System.Drawing.Size(200, 22);
             this.dtpLoppu.TabIndex = 10;
@@ -235,7 +247,7 @@ namespace village
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(63, 150);
+            this.label5.Location = new System.Drawing.Point(305, 71);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(122, 17);
             this.label5.TabIndex = 8;
@@ -252,7 +264,7 @@ namespace village
             // 
             // btnTeeVaraus
             // 
-            this.btnTeeVaraus.Location = new System.Drawing.Point(932, 524);
+            this.btnTeeVaraus.Location = new System.Drawing.Point(67, 516);
             this.btnTeeVaraus.Margin = new System.Windows.Forms.Padding(2);
             this.btnTeeVaraus.Name = "btnTeeVaraus";
             this.btnTeeVaraus.Size = new System.Drawing.Size(145, 32);
@@ -263,7 +275,7 @@ namespace village
             // 
             // btnHaeMokit
             // 
-            this.btnHaeMokit.Location = new System.Drawing.Point(189, 432);
+            this.btnHaeMokit.Location = new System.Drawing.Point(67, 140);
             this.btnHaeMokit.Margin = new System.Windows.Forms.Padding(2);
             this.btnHaeMokit.Name = "btnHaeMokit";
             this.btnHaeMokit.Size = new System.Drawing.Size(145, 32);
@@ -275,17 +287,18 @@ namespace village
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(64, 346);
+            this.label3.Location = new System.Drawing.Point(804, 70);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Henkilömäärä";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(63, 228);
+            this.label2.Location = new System.Drawing.Point(566, 70);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 17);
@@ -295,30 +308,31 @@ namespace village
             // cbHenkilomaara
             // 
             this.cbHenkilomaara.FormattingEnabled = true;
-            this.cbHenkilomaara.Location = new System.Drawing.Point(66, 365);
+            this.cbHenkilomaara.Location = new System.Drawing.Point(808, 89);
             this.cbHenkilomaara.Margin = new System.Windows.Forms.Padding(2);
             this.cbHenkilomaara.Name = "cbHenkilomaara";
-            this.cbHenkilomaara.Size = new System.Drawing.Size(268, 24);
+            this.cbHenkilomaara.Size = new System.Drawing.Size(91, 24);
             this.cbHenkilomaara.TabIndex = 2;
             // 
             // cbToimintaAlue
             // 
             this.cbToimintaAlue.FormattingEnabled = true;
-            this.cbToimintaAlue.Location = new System.Drawing.Point(66, 247);
+            this.cbToimintaAlue.Location = new System.Drawing.Point(569, 89);
             this.cbToimintaAlue.Margin = new System.Windows.Forms.Padding(2);
             this.cbToimintaAlue.Name = "cbToimintaAlue";
-            this.cbToimintaAlue.Size = new System.Drawing.Size(268, 24);
+            this.cbToimintaAlue.Size = new System.Drawing.Size(173, 24);
             this.cbToimintaAlue.TabIndex = 1;
             // 
             // dgvMokit
             // 
+            this.dgvMokit.BackgroundColor = System.Drawing.Color.White;
             this.dgvMokit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMokit.Location = new System.Drawing.Point(481, 91);
+            this.dgvMokit.Location = new System.Drawing.Point(67, 198);
             this.dgvMokit.Margin = new System.Windows.Forms.Padding(2);
             this.dgvMokit.Name = "dgvMokit";
             this.dgvMokit.RowHeadersWidth = 72;
             this.dgvMokit.RowTemplate.Height = 31;
-            this.dgvMokit.Size = new System.Drawing.Size(596, 373);
+            this.dgvMokit.Size = new System.Drawing.Size(1010, 285);
             this.dgvMokit.TabIndex = 0;
             // 
             // tabPage3
@@ -332,15 +346,15 @@ namespace village
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // btnRaportointi
+            // btnSuljeMH
             // 
-            this.btnRaportointi.Location = new System.Drawing.Point(407, 488);
-            this.btnRaportointi.Name = "btnRaportointi";
-            this.btnRaportointi.Size = new System.Drawing.Size(276, 46);
-            this.btnRaportointi.TabIndex = 4;
-            this.btnRaportointi.Text = "Raportointi";
-            this.btnRaportointi.UseVisualStyleBackColor = true;
-            this.btnRaportointi.Click += new System.EventHandler(this.btnRaportointi_Click);
+            this.btnSuljeMH.Location = new System.Drawing.Point(954, 516);
+            this.btnSuljeMH.Name = "btnSuljeMH";
+            this.btnSuljeMH.Size = new System.Drawing.Size(123, 32);
+            this.btnSuljeMH.TabIndex = 16;
+            this.btnSuljeMH.Text = "Sulje";
+            this.btnSuljeMH.UseVisualStyleBackColor = true;
+            this.btnSuljeMH.Click += new System.EventHandler(this.btnSuljeMH_Click);
             // 
             // paaikkuna
             // 
@@ -388,5 +402,6 @@ namespace village
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnRaportointi;
+        private System.Windows.Forms.Button btnSuljeMH;
     }
 }

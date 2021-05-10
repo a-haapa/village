@@ -24,6 +24,10 @@ namespace village
             dtpLoppu.CustomFormat = " ";
             dtpAlku.MinDate = DateTime.Today;
             dtpLoppu.MinDate = DateTime.Today.AddDays(1);
+            cbHenkilomaara.Items.Add("alle 4");
+            cbHenkilomaara.Items.Add("4 - 6");
+            cbHenkilomaara.Items.Add("6 -8");
+            cbHenkilomaara.Items.Add("yli 8");
         }
 
         private void btnTeeVaraus_Click(object sender, EventArgs e)
@@ -118,6 +122,16 @@ namespace village
         {
             raportointi uusi = new raportointi();
             uusi.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSuljeMH_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
