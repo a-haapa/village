@@ -480,7 +480,7 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT max(asiakas_id FROM {tablename})", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT max(asiakas_id) FROM {tablename}", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -589,30 +589,6 @@ namespace village
                 else
                 {
                     throw new FileNotFoundException("Tiedostoa ei löytynyt");
-                }
-            }
-            catch
-            {
-                throw;
-            }
-        }
-
-        public static bool UpdateSql()
-        {   //Päivittää tiedot tietokantaan
-            try
-            {
-                if (System.IO.File.Exists(filename))
-                {
-                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
-                    connection.Open();
-                    SQLiteCommand cmd = new SQLiteCommand();
-                    cmd.ExecuteNonQuery();
-                    connection.Close();
-                    return true;
-                }
-                else
-                {
-                    throw new System.IO.FileNotFoundException("Tiedostoa ei löytynyt");
                 }
             }
             catch
@@ -786,15 +762,38 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
-        public static DataTable HaeVaratutPalv()
+        public static DataTable HaeVaratutPalv(string toimialue,DateTime alku,DateTime loppu)
+        {
+            //THakee varausten palvelut raporttiin
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu.palvelu_id,palvelu.nimi,varauksen_palvelut.lkm FROM {tablename8},{tablename3},{tablename5},{tablename6} " +
+                    $"WHERE varaus.varaus_id=varauksen_palvelut.varaus_id and mokki.mokki_id=varaus.mokki_mokki_id and toimintaalue.toimintaalue_id=mokki.toiminteelue_id and varaus.varattu_alkupvm BETWEEN '{alku.ToString("yyyy-MM-dd")}' and '{loppu.ToString("yyyy-MM-dd")}' and mokki.toimintaalue_id=toimintaalue.toimintaalue_id ", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
+        public static DataTable HaeHinta(Palvelu p)
         {
             //THakee varausten palvelut
             if (File.Exists(filename))
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu.palvelu_id,palvelu.nimi,varauksen_palvelut.lkm FROM {tablename8},{tablename7} " +
-                    $"WHERE palvelu.palvelu_id=varauksen_palvelut.palvelu_id ", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT hinta FROM {tablename7} " +
+                    $"WHERE nimi='{p.Nimi}' ", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();

@@ -160,13 +160,13 @@ namespace village
                 string str = p.toimintaalue.Nimi;
                 DataTable t = TaskDB.HaeTaID(str);
                 p.toimintaalue.Toimintaalue_id = int.Parse(t.Rows[0].ItemArray[0].ToString());
-                if (tbPalveluTyyppi.Text.Length > 0)
+                if (tbPalvTyyppi.Text.Length > 0)
                 {
                     p.Tyyppi = int.Parse(tbPalvTyyppi.Text);
                 }
                 else
                 {
-                    p.Tyyppi = 0;
+                    p.Tyyppi = 1;
                 }
                 p.Kuvaus = tbPalvKuvaus.Text;
                 p.Hinta = double.Parse(tbPalvHinta.Text);

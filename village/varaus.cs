@@ -82,15 +82,10 @@ namespace village
                 v.Varaus_id = int.Parse(dt.Rows[0].ItemArray[0].ToString());
                 double summa = 0;
                 Palvelu p = new Palvelu();
-                if (clbPalv.CheckedItems.Count > 0)
-                {
-                    foreach (var item in clbPalv.CheckedItems)
-                    {
-                        p.Nimi = clbPalv.Text;
-                        TaskDB.LisaaVarauksenPalvelu(v, p);
-
-                    }
-                }
+                p.Nimi = clbPalv.Text;
+                TaskDB.LisaaVarauksenPalvelu(v, p);
+                DataTable g = TaskDB.HaeHinta(p);
+                p.Hinta = double.Parse(dt.Rows[0].ItemArray[0].ToString());
 
                 //Laskutietojen tallennus
                 Lasku l = new Lasku();
