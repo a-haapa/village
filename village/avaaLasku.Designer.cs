@@ -48,36 +48,40 @@ namespace village
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 28);
+            this.label1.Location = new System.Drawing.Point(32, 42);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 24);
+            this.label1.Size = new System.Drawing.Size(81, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "Lasku";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 77);
+            this.label2.Location = new System.Drawing.Point(33, 116);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 17);
+            this.label2.Size = new System.Drawing.Size(82, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Asiakas";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 223);
+            this.label3.Location = new System.Drawing.Point(32, 334);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 17);
+            this.label3.Size = new System.Drawing.Size(64, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Mökki";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 367);
+            this.label4.Location = new System.Drawing.Point(33, 550);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 17);
+            this.label4.Size = new System.Drawing.Size(75, 25);
             this.label4.TabIndex = 3;
             this.label4.Text = "Varaus";
             // 
@@ -85,40 +89,44 @@ namespace village
             // 
             this.dgvAsiakas.BackgroundColor = System.Drawing.Color.White;
             this.dgvAsiakas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAsiakas.Location = new System.Drawing.Point(27, 106);
+            this.dgvAsiakas.Location = new System.Drawing.Point(37, 159);
+            this.dgvAsiakas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvAsiakas.Name = "dgvAsiakas";
             this.dgvAsiakas.RowHeadersWidth = 51;
             this.dgvAsiakas.RowTemplate.Height = 24;
-            this.dgvAsiakas.Size = new System.Drawing.Size(761, 99);
+            this.dgvAsiakas.Size = new System.Drawing.Size(1046, 148);
             this.dgvAsiakas.TabIndex = 4;
             // 
             // dgvMokki
             // 
             this.dgvMokki.BackgroundColor = System.Drawing.Color.White;
             this.dgvMokki.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMokki.Location = new System.Drawing.Point(26, 243);
+            this.dgvMokki.Location = new System.Drawing.Point(36, 364);
+            this.dgvMokki.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvMokki.Name = "dgvMokki";
             this.dgvMokki.RowHeadersWidth = 51;
             this.dgvMokki.RowTemplate.Height = 24;
-            this.dgvMokki.Size = new System.Drawing.Size(888, 94);
+            this.dgvMokki.Size = new System.Drawing.Size(1221, 141);
             this.dgvMokki.TabIndex = 5;
             // 
             // dgvVaraus
             // 
             this.dgvVaraus.BackgroundColor = System.Drawing.Color.White;
             this.dgvVaraus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVaraus.Location = new System.Drawing.Point(27, 387);
+            this.dgvVaraus.Location = new System.Drawing.Point(37, 580);
+            this.dgvVaraus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvVaraus.Name = "dgvVaraus";
             this.dgvVaraus.RowHeadersWidth = 51;
             this.dgvVaraus.RowTemplate.Height = 24;
-            this.dgvVaraus.Size = new System.Drawing.Size(568, 103);
+            this.dgvVaraus.Size = new System.Drawing.Size(781, 154);
             this.dgvVaraus.TabIndex = 6;
             // 
             // btnTulosta
             // 
-            this.btnTulosta.Location = new System.Drawing.Point(779, 28);
+            this.btnTulosta.Location = new System.Drawing.Point(1075, 42);
+            this.btnTulosta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTulosta.Name = "btnTulosta";
-            this.btnTulosta.Size = new System.Drawing.Size(135, 43);
+            this.btnTulosta.Size = new System.Drawing.Size(200, 60);
             this.btnTulosta.TabIndex = 7;
             this.btnTulosta.Text = "Tulosta";
             this.btnTulosta.UseVisualStyleBackColor = true;
@@ -128,18 +136,19 @@ namespace village
             // 
             this.dgvPalv.BackgroundColor = System.Drawing.Color.White;
             this.dgvPalv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPalv.Location = new System.Drawing.Point(620, 387);
+            this.dgvPalv.Location = new System.Drawing.Point(852, 580);
+            this.dgvPalv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvPalv.Name = "dgvPalv";
             this.dgvPalv.RowHeadersWidth = 51;
             this.dgvPalv.RowTemplate.Height = 24;
-            this.dgvPalv.Size = new System.Drawing.Size(294, 103);
+            this.dgvPalv.Size = new System.Drawing.Size(404, 154);
             this.dgvPalv.TabIndex = 8;
             // 
             // avaaLasku
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(963, 573);
+            this.ClientSize = new System.Drawing.Size(1324, 860);
             this.Controls.Add(this.dgvPalv);
             this.Controls.Add(this.btnTulosta);
             this.Controls.Add(this.dgvVaraus);
@@ -149,6 +158,7 @@ namespace village
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "avaaLasku";
             this.Text = "avaaLasku";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsiakas)).EndInit();

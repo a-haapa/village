@@ -47,53 +47,59 @@ namespace village
             // 
             this.Laskutus.AutoSize = true;
             this.Laskutus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Laskutus.Location = new System.Drawing.Point(27, 23);
+            this.Laskutus.Location = new System.Drawing.Point(37, 34);
+            this.Laskutus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Laskutus.Name = "Laskutus";
-            this.Laskutus.Size = new System.Drawing.Size(63, 24);
+            this.Laskutus.Size = new System.Drawing.Size(88, 30);
             this.Laskutus.TabIndex = 0;
             this.Laskutus.Text = "Laskut";
             // 
             // Aikaväli
             // 
             this.Aikaväli.AutoSize = true;
-            this.Aikaväli.Location = new System.Drawing.Point(28, 74);
+            this.Aikaväli.Location = new System.Drawing.Point(38, 111);
+            this.Aikaväli.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Aikaväli.Name = "Aikaväli";
-            this.Aikaväli.Size = new System.Drawing.Size(56, 17);
+            this.Aikaväli.Size = new System.Drawing.Size(80, 25);
             this.Aikaväli.TabIndex = 1;
             this.Aikaväli.Text = "Aikaväli";
             // 
             // dtpAlku
             // 
             this.dtpAlku.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpAlku.Location = new System.Drawing.Point(30, 94);
+            this.dtpAlku.Location = new System.Drawing.Point(41, 141);
+            this.dtpAlku.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpAlku.Name = "dtpAlku";
-            this.dtpAlku.Size = new System.Drawing.Size(110, 22);
+            this.dtpAlku.Size = new System.Drawing.Size(150, 29);
             this.dtpAlku.TabIndex = 2;
             this.dtpAlku.ValueChanged += new System.EventHandler(this.dtpAlku_ValueChanged);
             // 
             // dtpLoppu
             // 
             this.dtpLoppu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpLoppu.Location = new System.Drawing.Point(206, 94);
+            this.dtpLoppu.Location = new System.Drawing.Point(283, 141);
+            this.dtpLoppu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpLoppu.Name = "dtpLoppu";
-            this.dtpLoppu.Size = new System.Drawing.Size(105, 22);
+            this.dtpLoppu.Size = new System.Drawing.Size(143, 29);
             this.dtpLoppu.TabIndex = 3;
             this.dtpLoppu.ValueChanged += new System.EventHandler(this.dtpLoppu_ValueChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(166, 94);
+            this.label3.Location = new System.Drawing.Point(228, 141);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(13, 17);
+            this.label3.Size = new System.Drawing.Size(19, 25);
             this.label3.TabIndex = 4;
             this.label3.Text = "-";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(351, 83);
+            this.button1.Location = new System.Drawing.Point(713, 133);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 33);
+            this.button1.Size = new System.Drawing.Size(200, 60);
             this.button1.TabIndex = 5;
             this.button1.Text = "Hae laskut";
             this.button1.UseVisualStyleBackColor = true;
@@ -101,9 +107,10 @@ namespace village
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(481, 83);
+            this.button2.Location = new System.Drawing.Point(921, 133);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 33);
+            this.button2.Size = new System.Drawing.Size(200, 60);
             this.button2.TabIndex = 6;
             this.button2.Text = "Maksettu";
             this.button2.UseVisualStyleBackColor = true;
@@ -111,9 +118,10 @@ namespace village
             // 
             // btnSulje
             // 
-            this.btnSulje.Location = new System.Drawing.Point(812, 477);
+            this.btnSulje.Location = new System.Drawing.Point(1129, 838);
+            this.btnSulje.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSulje.Name = "btnSulje";
-            this.btnSulje.Size = new System.Drawing.Size(113, 33);
+            this.btnSulje.Size = new System.Drawing.Size(200, 60);
             this.btnSulje.TabIndex = 7;
             this.btnSulje.Text = "Sulje";
             this.btnSulje.UseVisualStyleBackColor = true;
@@ -123,18 +131,20 @@ namespace village
             // 
             this.dgvLaskut.BackgroundColor = System.Drawing.Color.White;
             this.dgvLaskut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLaskut.Location = new System.Drawing.Point(30, 134);
+            this.dgvLaskut.Location = new System.Drawing.Point(41, 201);
+            this.dgvLaskut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvLaskut.Name = "dgvLaskut";
             this.dgvLaskut.RowHeadersWidth = 51;
             this.dgvLaskut.RowTemplate.Height = 24;
-            this.dgvLaskut.Size = new System.Drawing.Size(906, 326);
+            this.dgvLaskut.Size = new System.Drawing.Size(1288, 489);
             this.dgvLaskut.TabIndex = 8;
             // 
             // btnPoista
             // 
-            this.btnPoista.Location = new System.Drawing.Point(614, 83);
+            this.btnPoista.Location = new System.Drawing.Point(1129, 133);
+            this.btnPoista.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPoista.Name = "btnPoista";
-            this.btnPoista.Size = new System.Drawing.Size(101, 33);
+            this.btnPoista.Size = new System.Drawing.Size(200, 60);
             this.btnPoista.TabIndex = 9;
             this.btnPoista.Text = "Poista";
             this.btnPoista.UseVisualStyleBackColor = true;
@@ -142,9 +152,10 @@ namespace village
             // 
             // btnAvaa
             // 
-            this.btnAvaa.Location = new System.Drawing.Point(35, 477);
+            this.btnAvaa.Location = new System.Drawing.Point(41, 698);
+            this.btnAvaa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAvaa.Name = "btnAvaa";
-            this.btnAvaa.Size = new System.Drawing.Size(105, 29);
+            this.btnAvaa.Size = new System.Drawing.Size(200, 60);
             this.btnAvaa.TabIndex = 10;
             this.btnAvaa.Text = "Avaa lasku";
             this.btnAvaa.UseVisualStyleBackColor = true;
@@ -152,9 +163,9 @@ namespace village
             // 
             // laskut
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1002, 632);
+            this.ClientSize = new System.Drawing.Size(1378, 948);
             this.Controls.Add(this.btnAvaa);
             this.Controls.Add(this.btnPoista);
             this.Controls.Add(this.dgvLaskut);
@@ -166,6 +177,7 @@ namespace village
             this.Controls.Add(this.dtpAlku);
             this.Controls.Add(this.Aikaväli);
             this.Controls.Add(this.Laskutus);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "laskut";
             this.Text = "laskut";
             ((System.ComponentModel.ISupportInitialize)(this.dgvLaskut)).EndInit();

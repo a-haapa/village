@@ -39,10 +39,10 @@
             // 
             // btnTallennaToimintaMuokkaus
             // 
-            this.btnTallennaToimintaMuokkaus.Location = new System.Drawing.Point(82, 152);
-            this.btnTallennaToimintaMuokkaus.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTallennaToimintaMuokkaus.Location = new System.Drawing.Point(64, 228);
+            this.btnTallennaToimintaMuokkaus.Margin = new System.Windows.Forms.Padding(6);
             this.btnTallennaToimintaMuokkaus.Name = "btnTallennaToimintaMuokkaus";
-            this.btnTallennaToimintaMuokkaus.Size = new System.Drawing.Size(100, 28);
+            this.btnTallennaToimintaMuokkaus.Size = new System.Drawing.Size(200, 60);
             this.btnTallennaToimintaMuokkaus.TabIndex = 0;
             this.btnTallennaToimintaMuokkaus.Text = "Tallenna";
             this.btnTallennaToimintaMuokkaus.UseVisualStyleBackColor = true;
@@ -50,10 +50,10 @@
             // 
             // btnPoistuToimintaMuokkaus
             // 
-            this.btnPoistuToimintaMuokkaus.Location = new System.Drawing.Point(215, 152);
-            this.btnPoistuToimintaMuokkaus.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPoistuToimintaMuokkaus.Location = new System.Drawing.Point(300, 228);
+            this.btnPoistuToimintaMuokkaus.Margin = new System.Windows.Forms.Padding(6);
             this.btnPoistuToimintaMuokkaus.Name = "btnPoistuToimintaMuokkaus";
-            this.btnPoistuToimintaMuokkaus.Size = new System.Drawing.Size(100, 28);
+            this.btnPoistuToimintaMuokkaus.Size = new System.Drawing.Size(200, 60);
             this.btnPoistuToimintaMuokkaus.TabIndex = 1;
             this.btnPoistuToimintaMuokkaus.Text = "Poistu";
             this.btnPoistuToimintaMuokkaus.UseVisualStyleBackColor = true;
@@ -61,55 +61,59 @@
             // 
             // tbToimintaAlueenMuok
             // 
-            this.tbToimintaAlueenMuok.Location = new System.Drawing.Point(147, 108);
-            this.tbToimintaAlueenMuok.Margin = new System.Windows.Forms.Padding(4);
+            this.tbToimintaAlueenMuok.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbToimintaAlueenMuok.Location = new System.Drawing.Point(202, 162);
+            this.tbToimintaAlueenMuok.Margin = new System.Windows.Forms.Padding(6);
             this.tbToimintaAlueenMuok.Name = "tbToimintaAlueenMuok";
-            this.tbToimintaAlueenMuok.Size = new System.Drawing.Size(132, 22);
+            this.tbToimintaAlueenMuok.Size = new System.Drawing.Size(180, 31);
             this.tbToimintaAlueenMuok.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(129, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(339, 31);
+            this.label1.Size = new System.Drawing.Size(303, 29);
             this.label1.TabIndex = 3;
             this.label1.Text = "Toiminta-alueen muokkaus";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(79, 113);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(109, 170);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 17);
+            this.label2.Size = new System.Drawing.Size(50, 25);
             this.label2.TabIndex = 4;
             this.label2.Text = "Nimi";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(79, 61);
+            this.label3.Location = new System.Drawing.Point(109, 92);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(19, 17);
+            this.label3.Size = new System.Drawing.Size(28, 25);
             this.label3.TabIndex = 5;
             this.label3.Text = "Id";
             // 
             // tbID
             // 
-            this.tbID.Location = new System.Drawing.Point(147, 61);
+            this.tbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbID.Location = new System.Drawing.Point(202, 92);
+            this.tbID.Margin = new System.Windows.Forms.Padding(4);
             this.tbID.Name = "tbID";
             this.tbID.ReadOnly = true;
-            this.tbID.Size = new System.Drawing.Size(132, 22);
+            this.tbID.Size = new System.Drawing.Size(180, 31);
             this.tbID.TabIndex = 6;
             // 
             // Muokkaa_ToimintaAlue
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 268);
+            this.ClientSize = new System.Drawing.Size(561, 342);
             this.Controls.Add(this.tbID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -117,7 +121,7 @@
             this.Controls.Add(this.tbToimintaAlueenMuok);
             this.Controls.Add(this.btnPoistuToimintaMuokkaus);
             this.Controls.Add(this.btnTallennaToimintaMuokkaus);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Muokkaa_ToimintaAlue";
             this.Text = "Muokkaa_ToimintaAlue";
             this.ResumeLayout(false);

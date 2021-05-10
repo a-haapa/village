@@ -49,27 +49,30 @@ namespace village
             // dtpAlku
             // 
             this.dtpAlku.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpAlku.Location = new System.Drawing.Point(28, 84);
+            this.dtpAlku.Location = new System.Drawing.Point(38, 126);
+            this.dtpAlku.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpAlku.Name = "dtpAlku";
-            this.dtpAlku.Size = new System.Drawing.Size(166, 22);
+            this.dtpAlku.Size = new System.Drawing.Size(227, 29);
             this.dtpAlku.TabIndex = 0;
             this.dtpAlku.ValueChanged += new System.EventHandler(this.dtpAlku_ValueChanged);
             // 
             // dtpLoppu
             // 
             this.dtpLoppu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpLoppu.Location = new System.Drawing.Point(238, 84);
+            this.dtpLoppu.Location = new System.Drawing.Point(327, 126);
+            this.dtpLoppu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpLoppu.Name = "dtpLoppu";
-            this.dtpLoppu.Size = new System.Drawing.Size(169, 22);
+            this.dtpLoppu.Size = new System.Drawing.Size(231, 29);
             this.dtpLoppu.TabIndex = 1;
             this.dtpLoppu.ValueChanged += new System.EventHandler(this.dtpLoppu_ValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(210, 84);
+            this.label1.Location = new System.Drawing.Point(289, 126);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(13, 17);
+            this.label1.Size = new System.Drawing.Size(19, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "-";
             // 
@@ -77,35 +80,39 @@ namespace village
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 18);
+            this.label2.Location = new System.Drawing.Point(33, 27);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 24);
+            this.label2.Size = new System.Drawing.Size(103, 30);
             this.label2.TabIndex = 3;
             this.label2.Text = "Raportit";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 54);
+            this.label3.Location = new System.Drawing.Point(34, 81);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 17);
+            this.label3.Size = new System.Drawing.Size(80, 25);
             this.label3.TabIndex = 4;
             this.label3.Text = "Aikaväli";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(447, 54);
+            this.label4.Location = new System.Drawing.Point(615, 81);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 17);
+            this.label4.Size = new System.Drawing.Size(97, 25);
             this.label4.TabIndex = 5;
             this.label4.Text = "Toimialue";
             // 
             // btnHaeRaportti
             // 
-            this.btnHaeRaportti.Location = new System.Drawing.Point(630, 70);
+            this.btnHaeRaportti.Location = new System.Drawing.Point(845, 108);
+            this.btnHaeRaportti.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHaeRaportti.Name = "btnHaeRaportti";
-            this.btnHaeRaportti.Size = new System.Drawing.Size(129, 36);
+            this.btnHaeRaportti.Size = new System.Drawing.Size(200, 60);
             this.btnHaeRaportti.TabIndex = 6;
             this.btnHaeRaportti.Text = "Hae raportti";
             this.btnHaeRaportti.UseVisualStyleBackColor = true;
@@ -114,16 +121,18 @@ namespace village
             // cbToimialueet
             // 
             this.cbToimialueet.FormattingEnabled = true;
-            this.cbToimialueet.Location = new System.Drawing.Point(450, 82);
+            this.cbToimialueet.Location = new System.Drawing.Point(619, 123);
+            this.cbToimialueet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbToimialueet.Name = "cbToimialueet";
-            this.cbToimialueet.Size = new System.Drawing.Size(121, 24);
+            this.cbToimialueet.Size = new System.Drawing.Size(165, 32);
             this.cbToimialueet.TabIndex = 7;
             // 
             // btnSulje
             // 
-            this.btnSulje.Location = new System.Drawing.Point(924, 590);
+            this.btnSulje.Location = new System.Drawing.Point(1222, 890);
+            this.btnSulje.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSulje.Name = "btnSulje";
-            this.btnSulje.Size = new System.Drawing.Size(129, 36);
+            this.btnSulje.Size = new System.Drawing.Size(200, 60);
             this.btnSulje.TabIndex = 8;
             this.btnSulje.Text = "Sulje";
             this.btnSulje.UseVisualStyleBackColor = true;
@@ -134,20 +143,22 @@ namespace village
             this.dgvRaportti.BackgroundColor = System.Drawing.Color.White;
             this.dgvRaportti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRaportti.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvRaportti.Location = new System.Drawing.Point(28, 131);
+            this.dgvRaportti.Location = new System.Drawing.Point(38, 196);
+            this.dgvRaportti.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvRaportti.Name = "dgvRaportti";
             this.dgvRaportti.RowHeadersWidth = 51;
             this.dgvRaportti.RowTemplate.Height = 24;
-            this.dgvRaportti.Size = new System.Drawing.Size(694, 432);
+            this.dgvRaportti.Size = new System.Drawing.Size(954, 648);
             this.dgvRaportti.TabIndex = 9;
             // 
             // lbPaivat
             // 
             this.lbPaivat.AutoSize = true;
             this.lbPaivat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPaivat.Location = new System.Drawing.Point(37, 566);
+            this.lbPaivat.Location = new System.Drawing.Point(51, 849);
+            this.lbPaivat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbPaivat.Name = "lbPaivat";
-            this.lbPaivat.Size = new System.Drawing.Size(60, 24);
+            this.lbPaivat.Size = new System.Drawing.Size(81, 30);
             this.lbPaivat.TabIndex = 10;
             this.lbPaivat.Text = "label5";
             this.lbPaivat.Visible = false;
@@ -156,9 +167,10 @@ namespace village
             // 
             this.lbTaytto.AutoSize = true;
             this.lbTaytto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTaytto.Location = new System.Drawing.Point(38, 602);
+            this.lbTaytto.Location = new System.Drawing.Point(52, 903);
+            this.lbTaytto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTaytto.Name = "lbTaytto";
-            this.lbTaytto.Size = new System.Drawing.Size(60, 24);
+            this.lbTaytto.Size = new System.Drawing.Size(81, 30);
             this.lbTaytto.TabIndex = 11;
             this.lbTaytto.Text = "label5";
             this.lbTaytto.Visible = false;
@@ -168,18 +180,19 @@ namespace village
             this.dgvPalvRapsa.BackgroundColor = System.Drawing.Color.White;
             this.dgvPalvRapsa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPalvRapsa.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvPalvRapsa.Location = new System.Drawing.Point(737, 131);
+            this.dgvPalvRapsa.Location = new System.Drawing.Point(1013, 196);
+            this.dgvPalvRapsa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvPalvRapsa.Name = "dgvPalvRapsa";
             this.dgvPalvRapsa.RowHeadersWidth = 51;
             this.dgvPalvRapsa.RowTemplate.Height = 24;
-            this.dgvPalvRapsa.Size = new System.Drawing.Size(324, 431);
+            this.dgvPalvRapsa.Size = new System.Drawing.Size(446, 646);
             this.dgvPalvRapsa.TabIndex = 12;
             // 
             // raportointi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1065, 652);
+            this.ClientSize = new System.Drawing.Size(1464, 978);
             this.Controls.Add(this.dgvPalvRapsa);
             this.Controls.Add(this.lbTaytto);
             this.Controls.Add(this.lbPaivat);
@@ -193,6 +206,7 @@ namespace village
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpLoppu);
             this.Controls.Add(this.dtpAlku);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "raportointi";
             this.Text = "raportointi";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRaportti)).EndInit();

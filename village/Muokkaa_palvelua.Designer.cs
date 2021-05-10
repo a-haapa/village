@@ -51,10 +51,10 @@ namespace village
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.85714F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(59, 56);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(80, 74);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(343, 42);
+            this.label1.Size = new System.Drawing.Size(220, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Palvelun muokkaus";
             // 
@@ -114,52 +114,58 @@ namespace village
             // 
             // tbPalveluNimi
             // 
+            this.tbPalveluNimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPalveluNimi.Location = new System.Drawing.Point(284, 245);
             this.tbPalveluNimi.Name = "tbPalveluNimi";
-            this.tbPalveluNimi.Size = new System.Drawing.Size(204, 29);
+            this.tbPalveluNimi.Size = new System.Drawing.Size(204, 31);
             this.tbPalveluNimi.TabIndex = 7;
             // 
             // tbTyyppi
             // 
+            this.tbTyyppi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTyyppi.Location = new System.Drawing.Point(284, 385);
             this.tbTyyppi.Name = "tbTyyppi";
-            this.tbTyyppi.Size = new System.Drawing.Size(204, 29);
+            this.tbTyyppi.Size = new System.Drawing.Size(204, 31);
             this.tbTyyppi.TabIndex = 8;
             // 
             // tbKuvaus
             // 
+            this.tbKuvaus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbKuvaus.Location = new System.Drawing.Point(284, 453);
             this.tbKuvaus.Name = "tbKuvaus";
-            this.tbKuvaus.Size = new System.Drawing.Size(204, 29);
+            this.tbKuvaus.Size = new System.Drawing.Size(204, 31);
             this.tbKuvaus.TabIndex = 9;
             // 
             // tbHinta
             // 
+            this.tbHinta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbHinta.Location = new System.Drawing.Point(284, 524);
             this.tbHinta.Name = "tbHinta";
-            this.tbHinta.Size = new System.Drawing.Size(204, 29);
+            this.tbHinta.Size = new System.Drawing.Size(204, 31);
             this.tbHinta.TabIndex = 10;
             // 
             // tbAlv
             // 
+            this.tbAlv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbAlv.Location = new System.Drawing.Point(284, 587);
             this.tbAlv.Name = "tbAlv";
-            this.tbAlv.Size = new System.Drawing.Size(204, 29);
+            this.tbAlv.Size = new System.Drawing.Size(204, 31);
             this.tbAlv.TabIndex = 11;
             // 
             // cbToimintaAlue
             // 
+            this.cbToimintaAlue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbToimintaAlue.FormattingEnabled = true;
             this.cbToimintaAlue.Location = new System.Drawing.Point(284, 311);
             this.cbToimintaAlue.Name = "cbToimintaAlue";
-            this.cbToimintaAlue.Size = new System.Drawing.Size(204, 32);
+            this.cbToimintaAlue.Size = new System.Drawing.Size(204, 33);
             this.cbToimintaAlue.TabIndex = 12;
             // 
             // btnTallenna
             // 
-            this.btnTallenna.Location = new System.Drawing.Point(85, 689);
+            this.btnTallenna.Location = new System.Drawing.Point(62, 686);
             this.btnTallenna.Name = "btnTallenna";
-            this.btnTallenna.Size = new System.Drawing.Size(148, 43);
+            this.btnTallenna.Size = new System.Drawing.Size(200, 60);
             this.btnTallenna.TabIndex = 13;
             this.btnTallenna.Text = "Tallenna";
             this.btnTallenna.UseVisualStyleBackColor = true;
@@ -167,9 +173,9 @@ namespace village
             // 
             // btnPoistu
             // 
-            this.btnPoistu.Location = new System.Drawing.Point(324, 689);
+            this.btnPoistu.Location = new System.Drawing.Point(311, 686);
             this.btnPoistu.Name = "btnPoistu";
-            this.btnPoistu.Size = new System.Drawing.Size(148, 43);
+            this.btnPoistu.Size = new System.Drawing.Size(200, 60);
             this.btnPoistu.TabIndex = 14;
             this.btnPoistu.Text = "Poistu";
             this.btnPoistu.UseVisualStyleBackColor = true;
@@ -186,10 +192,11 @@ namespace village
             // 
             // tbPalveluID
             // 
+            this.tbPalveluID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPalveluID.Location = new System.Drawing.Point(284, 167);
             this.tbPalveluID.Name = "tbPalveluID";
             this.tbPalveluID.ReadOnly = true;
-            this.tbPalveluID.Size = new System.Drawing.Size(204, 29);
+            this.tbPalveluID.Size = new System.Drawing.Size(204, 31);
             this.tbPalveluID.TabIndex = 16;
             // 
             // Muokkaa_palvelua
