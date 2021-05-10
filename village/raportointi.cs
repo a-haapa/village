@@ -46,10 +46,10 @@ namespace village
             string toimialue = cbToimialueet.Text;
             DataTable tt = TaskDB.HaeRaportti(toimialue, alku, loppu);
 
+            dgvPalvRapsa.DataSource = TaskDB.HaeVaratutPalv(toimialue,alku,loppu);
+
             double paivat = 0;
             int rivi = 0;
-            double hinta;
-            double alv;
 
             List<int> list = new List<int>();
             try
@@ -94,7 +94,7 @@ namespace village
                 lbTaytto.Visible = true;
                 cbToimialueet.SelectedItem = null;
                 dgvRaportti.DataSource = tt;
-                dgvPalvRapsa.DataSource = TaskDB.HaeVaratutPalv();
+                
             }
             catch (Exception ex)
             {
