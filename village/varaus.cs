@@ -56,7 +56,16 @@ namespace village
                 {
                     TaskDB.LisaaAsiakas(a);
                 }
-                
+                if (tbID.Text.Length > 0)
+                {
+                    a.Asiakas_id = int.Parse(tbID.Text);
+                }
+                else
+                {
+                    DataTable tt = TaskDB.HaeAsID();
+                    a.Asiakas_id = int.Parse(tt.Rows[0].ItemArray[0].ToString());
+                }
+
                 //Poimii varauksen tallettamista varten tietoja 
                 varausL v = new varausL();
                 v.asiakas = a;
@@ -64,28 +73,32 @@ namespace village
                 v.Varattu_alkupvm = DateTime.Parse(lblAlku.Text);
                 v.Varattu_loppupvm = DateTime.Parse(lblLoppu.Text);
                 v.Varattu = DateTime.Today;
-                if (tbID.Text.Length>0)
-                {
-                    v.asiakas.Asiakas_id = int.Parse(tbID.Text);
-                }
-                else
-                {
-                    DataTable tt = TaskDB.HaeAsID(a);
-                    v.asiakas.Asiakas_id = int.Parse(tt.Rows[0].ItemArray[0].ToString());
-                }
+                v.Lukumaara = 1;
                 
-                //Liittää varaukseen laskun
+                
+                
                 TaskDB.LisaaVaraus(v);
+                DataTable dt = TaskDB.HaeVaID();
+                v.Varaus_id = int.Parse(dt.Rows[0].ItemArray[0].ToString());
+                double summa = 0;
+                Palvelu p = new Palvelu();
+                if (clbPalv.CheckedItems.Count > 0)
+                {
+                    foreach (var item in clbPalv.CheckedItems)
+                    {
+                        p.Nimi = clbPalv.Text;
+                        TaskDB.LisaaVarauksenPalvelu(v, p);
+
+                    }
+                }
+
+                //Laskutietojen tallennus
                 Lasku l = new Lasku();
-                l.summa = double.Parse(lblHinta.Text);
-                l.alv = 10;
                 l.varaus = v;
-                l.varaus.Asiakas_id = v.asiakas.Asiakas_id;
-                DataTable t = TaskDB.HaeVaID(a);
-                l.varaus.Varaus_id = int.Parse(t.Rows[0].ItemArray[0].ToString());
+                l.summa = summa + double.Parse(lblHinta.Text);
+                l.alv = 10;
                 TaskDB.LisaaLasku(l);
 
-               
 
                 varausHallinta uusi = new varausHallinta();
                 uusi.Show();
@@ -94,7 +107,7 @@ namespace village
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Virheellinen syöte" + ex.Message);
+                MessageBox.Show(ex.Message);
             }
             
         }

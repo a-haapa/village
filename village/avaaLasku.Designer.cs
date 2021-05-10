@@ -37,9 +37,11 @@ namespace village
             this.dgvMokki = new System.Windows.Forms.DataGridView();
             this.dgvVaraus = new System.Windows.Forms.DataGridView();
             this.btnTulosta = new System.Windows.Forms.Button();
+            this.dgvPalv = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsiakas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMokki)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVaraus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPalv)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -109,7 +111,7 @@ namespace village
             this.dgvVaraus.Name = "dgvVaraus";
             this.dgvVaraus.RowHeadersWidth = 51;
             this.dgvVaraus.RowTemplate.Height = 24;
-            this.dgvVaraus.Size = new System.Drawing.Size(761, 103);
+            this.dgvVaraus.Size = new System.Drawing.Size(568, 103);
             this.dgvVaraus.TabIndex = 6;
             // 
             // btnTulosta
@@ -122,11 +124,23 @@ namespace village
             this.btnTulosta.UseVisualStyleBackColor = true;
             this.btnTulosta.Click += new System.EventHandler(this.btnTulosta_Click);
             // 
+            // dgvPalv
+            // 
+            this.dgvPalv.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPalv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPalv.Location = new System.Drawing.Point(620, 387);
+            this.dgvPalv.Name = "dgvPalv";
+            this.dgvPalv.RowHeadersWidth = 51;
+            this.dgvPalv.RowTemplate.Height = 24;
+            this.dgvPalv.Size = new System.Drawing.Size(294, 103);
+            this.dgvPalv.TabIndex = 8;
+            // 
             // avaaLasku
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(963, 573);
+            this.Controls.Add(this.dgvPalv);
             this.Controls.Add(this.btnTulosta);
             this.Controls.Add(this.dgvVaraus);
             this.Controls.Add(this.dgvMokki);
@@ -140,6 +154,7 @@ namespace village
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsiakas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMokki)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVaraus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPalv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,5 +170,6 @@ namespace village
         private System.Windows.Forms.DataGridView dgvMokki;
         private System.Windows.Forms.DataGridView dgvVaraus;
         private System.Windows.Forms.Button btnTulosta;
+        private System.Windows.Forms.DataGridView dgvPalv;
     }
 }

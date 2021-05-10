@@ -473,14 +473,14 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
-        public static DataTable HaeAsID(Asiakas a)
+        public static DataTable HaeAsID()
         {
             //ID haku "asiakas" -taulusta sähköpostiosoitteen perusteella
             if (File.Exists(filename))
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT asiakas_id FROM {tablename} WHERE email='{a.Email}'", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT max(asiakas_id FROM {tablename})", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -714,28 +714,7 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
-        public static DataTable HaePalvelunID(varausL v)
-        {
-            //Tietojen haku "Palvelu" taulusta
-            if (File.Exists(filename))
-            {
-                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
-                connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu_id FROM {tablename7} WHERE nimi='{v.Palvelu_nimi}'", connection);
-
-                //tiedon lukeminen
-                SQLiteDataReader rdr = cmd.ExecuteReader();
-                DataTable tt = new DataTable();
-                tt.Load(rdr);
-                rdr.Close();
-                connection.Close();
-                return tt;
-            }
-            else
-            {
-                throw new FileNotFoundException("Tiedostoa ei löytynyt");
-            }
-        }
+        
 
         public static bool LisaaPalvelu(Palvelu p)
         {   // Lisää käyttäjän kirjaamat palvelut kantaan
@@ -761,7 +740,7 @@ namespace village
                 throw;
             }
         }
-        public static bool LisaaVarauksenPalvelu(varausL v)
+        public static bool LisaaVarauksenPalvelu(varausL v, Palvelu p)
         {   // Lisää käyttäjän kirjaamat palvelut kantaan
             try
             {
@@ -769,7 +748,7 @@ namespace village
                 {
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
                     connection.Open();
-                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename8}", connection);
+                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename8} (varaus_id,palvelu_id,lkm) VALUES ((SELECT max(varaus_id) FROM {tablename3}),(SELECT palvelu_id FROM {tablename7} WHERE palvelu.nimi='{p.Nimi}'),'{v.Lukumaara}')", connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
                     return true;
@@ -782,6 +761,52 @@ namespace village
             catch
             {
                 throw;
+            }
+        }
+        public static DataTable HaeVarauksenPalvelut(int varausid)
+        {
+            //THakee varausten palvelut
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu.nimi,varauksen_palvelut.lkm,palvelu.hinta FROM {tablename7},{tablename8} " +
+                    $"WHERE palvelu.palvelu_id=varauksen_palvelut.palvelu_id and varauksen_palvelut.varaus_id='{varausid}' ", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
+        public static DataTable HaeVaratutPalv()
+        {
+            //THakee varausten palvelut
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu.palvelu_id,palvelu.nimi,varauksen_palvelut.lkm FROM {tablename8},{tablename7} " +
+                    $"WHERE palvelu.palvelu_id=varauksen_palvelut.palvelu_id ", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
         public static DataTable PoistaPalvelu(int id)
@@ -931,14 +956,14 @@ namespace village
             }
         }
 
-        public static DataTable HaeVaID(Asiakas a)
+        public static DataTable HaeVaID()
         {
             //THakee varauksen Id:n
             if (File.Exists(filename))
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT varaus_id FROM {tablename3} WHERE varattu_pvm='{DateTime.Today.ToString("yyyy-MM-dd")}' and varaus.asiakas_id='{a.Asiakas_id}'", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT max(varaus_id) FROM {tablename3}", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -1013,7 +1038,7 @@ namespace village
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
                     connection.Open();
                     SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename2} (varaus_id,summa,alv)" +
-                        $"VALUES ('{l.varaus.Varaus_id}','{l.summa}','{l.alv}')", connection);
+                        $"VALUES ((SELECT max(varaus_id) FROM {tablename3}),'{l.summa}','{l.alv}')", connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
                     return true;

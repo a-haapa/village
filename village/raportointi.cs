@@ -94,6 +94,7 @@ namespace village
                 lbTaytto.Visible = true;
                 cbToimialueet.SelectedItem = null;
                 dgvRaportti.DataSource = tt;
+                dgvPalvRapsa.DataSource = TaskDB.HaeVaratutPalv();
             }
             catch (Exception ex)
             {
