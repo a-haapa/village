@@ -26,8 +26,8 @@ namespace village
             dtpLoppu.MinDate = DateTime.Today.AddDays(1);
             cbHenkilomaara.Items.Add("alle 4");
             cbHenkilomaara.Items.Add("4 - 6");
-            cbHenkilomaara.Items.Add("6 -8");
-            cbHenkilomaara.Items.Add("yli 8");
+            cbHenkilomaara.Items.Add("7 - 10");
+            cbHenkilomaara.Items.Add("yli 10");
         }
 
         private void btnTeeVaraus_Click(object sender, EventArgs e)
@@ -82,8 +82,23 @@ namespace village
                     }
                     else
                     {
-                        int henkilomaara = int.Parse(cbHenkilomaara.Text);
-                        dgvMokit.DataSource = TaskDB.HaeMokki2(id, henkilomaara, date1, date2);
+                        if (cbHenkilomaara.Text == "alle 4")
+                        {
+                            dgvMokit.DataSource = TaskDB.HaeMokki2(id, date1, date2);
+                        }
+                        else if (cbHenkilomaara.Text == "4 - 6")
+                        {
+                            dgvMokit.DataSource = TaskDB.HaeMokki4(id, date1, date2);
+                        }
+                        else if (cbHenkilomaara.Text == "7 - 10")
+                        {
+                            dgvMokit.DataSource = TaskDB.HaeMokki5(id, date1, date2);
+                        }
+                        else
+                        {
+                            dgvMokit.DataSource = TaskDB.HaeMokki6(id, date1, date2);
+                        }
+
                     }
                 }
             }

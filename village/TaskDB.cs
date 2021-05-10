@@ -195,7 +195,7 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
-        public static DataTable HaeMokki2(int id, int henkilomaara, DateTime date1, DateTime date2)
+        public static DataTable HaeMokki2(int id, DateTime date1, DateTime date2)
         {
             //Tietojen haku "Mökki" taulusta toiminta-alueen ja henkilömäärän mukaan
             if (File.Exists(filename))
@@ -203,7 +203,82 @@ namespace village
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand($"SELECT mokki_id,mokkinimi,henkilomaara,mokinhinta,mokinalv,katuosoite,postinro " +
-                    $"FROM {tablename5},{tablename6} WHERE mokki.toimintaalue_id='{id}' and mokki.henkilomaara='{henkilomaara}' and mokki_id NOT IN " +
+                    $"FROM {tablename5},{tablename6} WHERE mokki.toimintaalue_id='{id}' and mokki.henkilomaara <'{4}' and mokki_id NOT IN " +
+                    $"(SELECT mokki_id FROM {tablename3},{tablename5} " +
+                    $"WHERE mokki.mokki_id=varaus.mokki_mokki_id and varaus.varattu_alkupvm BETWEEN '{date1.ToString("yyyy-MM-dd")}' and '{date2.ToString("yyyy-MM-dd")}' and varaus.varattu_loppupvm BETWEEN '{date1.ToString("yyyy-MM-dd")}' and '{date2.ToString("yyyy-MM-dd")}')", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
+        public static DataTable HaeMokki4(int id, DateTime date1, DateTime date2)
+        {
+            //Tietojen haku "Mökki" taulusta toiminta-alueen ja henkilömäärän mukaan
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT mokki_id,mokkinimi,henkilomaara,mokinhinta,mokinalv,katuosoite,postinro " +
+                    $"FROM {tablename5} WHERE toimintaalue_id='{id}' and henkilomaara <'{7}' and mokki_id NOT IN " +
+                    $"(SELECT mokki_id FROM {tablename3},{tablename5} " +
+                    $"WHERE mokki.mokki_id=varaus.mokki_mokki_id and varaus.varattu_alkupvm BETWEEN '{date1.ToString("yyyy-MM-dd")}' and '{date2.ToString("yyyy-MM-dd")}' and varaus.varattu_loppupvm BETWEEN '{date1.ToString("yyyy-MM-dd")}' and '{date2.ToString("yyyy-MM-dd")}')", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
+        public static DataTable HaeMokki5(int id, DateTime date1, DateTime date2)
+        {
+            //Tietojen haku "Mökki" taulusta toiminta-alueen ja henkilömäärän mukaan
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT mokki_id,mokkinimi,henkilomaara,mokinhinta,mokinalv,katuosoite,postinro " +
+                    $"FROM {tablename5} WHERE mokki.toimintaalue_id='{id}' and mokki.henkilomaara BETWEEN '{7}' and '{10}' and mokki_id NOT IN " +
+                    $"(SELECT mokki_id FROM {tablename3},{tablename5} " +
+                    $"WHERE mokki.mokki_id=varaus.mokki_mokki_id and varaus.varattu_alkupvm BETWEEN '{date1.ToString("yyyy-MM-dd")}' and '{date2.ToString("yyyy-MM-dd")}' and varaus.varattu_loppupvm BETWEEN '{date1.ToString("yyyy-MM-dd")}' and '{date2.ToString("yyyy-MM-dd")}')", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
+        public static DataTable HaeMokki6(int id, DateTime date1, DateTime date2)
+        {
+            //Tietojen haku "Mökki" taulusta toiminta-alueen ja henkilömäärän mukaan
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT mokki_id,mokkinimi,henkilomaara,mokinhinta,mokinalv,katuosoite,postinro " +
+                    $"FROM {tablename5} WHERE mokki.toimintaalue_id='{id}' and mokki.henkilomaara> '{10}' and mokki_id NOT IN " +
                     $"(SELECT mokki_id FROM {tablename3},{tablename5} " +
                     $"WHERE mokki.mokki_id=varaus.mokki_mokki_id and varaus.varattu_alkupvm BETWEEN '{date1.ToString("yyyy-MM-dd")}' and '{date2.ToString("yyyy-MM-dd")}' and varaus.varattu_loppupvm BETWEEN '{date1.ToString("yyyy-MM-dd")}' and '{date2.ToString("yyyy-MM-dd")}')", connection);
 
