@@ -47,6 +47,9 @@ namespace village
             DataTable tt = TaskDB.HaeRaportti(toimialue, alku, loppu);
 
             dgvPalvRapsa.DataSource = TaskDB.HaeVaratutPalv(toimialue,alku,loppu);
+            int i = dgvPalvRapsa.Rows.Count - 1;
+            lbMaara.Text = "Yhteensä: " + i + " kpl";
+            lbMaara.Visible = true;
 
             double paivat = 0;
             int rivi = 0;
@@ -101,6 +104,11 @@ namespace village
                 MessageBox.Show("Virhe tiedoissa! " + ex.Message);
             }
             
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

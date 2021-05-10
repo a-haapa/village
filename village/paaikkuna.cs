@@ -52,9 +52,9 @@ namespace village
                 varaus vr = new varaus(id, t, ta, alku, loppu, lkm);
                 vr.Show();
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show("Valitse mökki! " + ex.Message);
             }
             
         }

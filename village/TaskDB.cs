@@ -769,8 +769,10 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu.palvelu_id,palvelu.nimi,varauksen_palvelut.lkm FROM {tablename8},{tablename3},{tablename5},{tablename6} " +
-                    $"WHERE varaus.varaus_id=varauksen_palvelut.varaus_id and mokki.mokki_id=varaus.mokki_mokki_id and toimintaalue.toimintaalue_id=mokki.toiminteelue_id and varaus.varattu_alkupvm BETWEEN '{alku.ToString("yyyy-MM-dd")}' and '{loppu.ToString("yyyy-MM-dd")}' and mokki.toimintaalue_id=toimintaalue.toimintaalue_id ", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT varaus.varaus_id,palvelu.palvelu_id,palvelu.nimi,varauksen_palvelut.lkm,varattu_alkupvm,varattu_loppupvm " +
+                    $"FROM {tablename7},{tablename8},{tablename3},{tablename5},{tablename6} " +
+                    $"WHERE varauksen_palvelut.palvelu_id=palvelu.palvelu_id and varauksen_palvelut.varaus_id=varaus.varaus_id and mokki.mokki_id=varaus.mokki_mokki_id and toimintaalue.toimintaalue_id=mokki.toimintaalue_id " +
+                    $"and varaus.varattu_alkupvm BETWEEN '{alku.ToString("yyyy-MM-dd")}' and '{loppu.ToString("yyyy-MM-dd")}' and toimintaalue.nimi='{toimialue}' ", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -1053,6 +1055,7 @@ namespace village
             }
 
         }
+
         public static DataTable HaeLaskut(DateTime alku,DateTime loppu)
         {
             //Hakee laskut toivotulle aikavälille
@@ -1062,6 +1065,29 @@ namespace village
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand($"SELECT varaus.varaus_id,lasku_id,summa,asiakas_id,varattu_alkupvm,varattu_loppupvm,vahvistus_pvm FROM {tablename2},{tablename3} " +
                     $"WHERE lasku.varaus_id=varaus.varaus_id and varattu_alkupvm BETWEEN '{alku.ToString("yyyy-MM-dd")}' and '{loppu.ToString("yyyy-MM-dd")}' and varattu_loppupvm BETWEEN '{alku.ToString("yyyy-MM-dd")}' and '{loppu.ToString("yyyy-MM-dd")}'", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
+        public static DataTable HaeSumma(int lasku_id)
+        {
+            //Hakee laskut toivotulle aikavälille
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT summa FROM {tablename2} " +
+                    $"WHERE lasku_id='{lasku_id}'", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();

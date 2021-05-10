@@ -221,9 +221,9 @@ namespace village
                 this.Close();
                 formi.Show();
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show("Toimintoa ei voitu suorittaa! " + ex.Message);
             }
         }
 
