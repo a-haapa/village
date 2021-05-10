@@ -39,23 +39,39 @@ namespace village
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int row = dgvLaskut.SelectedCells[0].RowIndex;
-            Lasku l = new Lasku();
-            l.varaus.Varaus_id = int.Parse(dgvLaskut.Rows[row].Cells[0].Value.ToString());
-            DateTime date = DateTime.Today;
-            TaskDB.MuokkaaVahvistus(l,date);
-            DateTime alku = DateTime.Parse(dtpAlku.Text);
-            DateTime loppu = DateTime.Parse(dtpLoppu.Text);
-            dgvLaskut.DataSource = TaskDB.HaeLaskut(alku,loppu);
+            try
+            {   //Hakee aikavälin ja toiminta-alueen laskut
+                int row = dgvLaskut.SelectedCells[0].RowIndex;
+                Lasku l = new Lasku();
+                l.varaus.Varaus_id = int.Parse(dgvLaskut.Rows[row].Cells[0].Value.ToString());
+                DateTime date = DateTime.Today;
+                TaskDB.MuokkaaVahvistus(l, date);
+                DateTime alku = DateTime.Parse(dtpAlku.Text);
+                DateTime loppu = DateTime.Parse(dtpLoppu.Text);
+                dgvLaskut.DataSource = TaskDB.HaeLaskut(alku, loppu);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Virheellinen syöte" + ex.Message);
+            }
         }
 
         private void btnAvaa_Click(object sender, EventArgs e)
         {
-            int row = dgvLaskut.SelectedCells[0].RowIndex;
-            int varausid = int.Parse(dgvLaskut.Rows[row].Cells[0].Value.ToString());
-            avaaLasku uusi = new avaaLasku(varausid);
-            uusi.Show();
-            this.Close();
+            try
+            {
+                int row = dgvLaskut.SelectedCells[0].RowIndex;
+                int varausid = int.Parse(dgvLaskut.Rows[row].Cells[0].Value.ToString());
+                int lasku_id = int.Parse(dgvLaskut.Rows[row].Cells[1].Value.ToString());
+                avaaLasku uusi = new avaaLasku(varausid,lasku_id);
+                uusi.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Virheellinen syöte" + ex.Message);
+            }
+            
         }
 
         private void btnSulje_Click(object sender, EventArgs e)

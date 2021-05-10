@@ -15,14 +15,15 @@ namespace village
 {
     public partial class avaaLasku : Form
     {
-        public avaaLasku(int varausid)
+        public avaaLasku(int varausid, int lasku_id)
         {
             InitializeComponent();
             dgvVaraus.DataSource = TaskDB.HaeVaraus(varausid);
             dgvMokki.DataSource = TaskDB.HaeMokki(varausid);
             dgvAsiakas.DataSource = TaskDB.HaeAs(varausid);
             dgvPalv.DataSource = TaskDB.HaeVarauksenPalvelut(varausid);
-
+            DataTable t = TaskDB.HaeSumma(lasku_id);
+            lbSumma.Text = t.Rows[0].ItemArray[0].ToString();
         }
 
         private void btnTulosta_Click(object sender, EventArgs e)
@@ -31,30 +32,37 @@ namespace village
             sfd.Filter = "PDF (*.pdf)|*.pdf";
             sfd.FileName = "Lasku.pdf";
             bool fileError = false;
-
+            iTextSharp.text.Font f = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN);
             Document pdfD = new Document(PageSize.A4);
             pdfD.SetMargins(70, 70, 110, 110);
-            Paragraph prg = new Paragraph("Lasku, Newbie Village");
+            Paragraph prg = new Paragraph("Lasku, Newbie Village" + Chunk.NEWLINE + Chunk.NEWLINE, f);
+
+            for (int i = 0; i < dgvAsiakas.Columns.Count; i++)
+            {
+                string str = dgvAsiakas.Rows[0].Cells[i].Value.ToString();
+                prg.Add(str + Chunk.NEWLINE);
+            }
+
             prg.Add(Chunk.NEWLINE);
             prg.Add(Chunk.NEWLINE);
-            prg.Add("Asiakas");
+            prg.Add("Mökki");
             prg.Add(Chunk.NEWLINE);
             prg.Add(Chunk.NEWLINE);
 
-            Paragraph prg2 = new Paragraph();
-            prg2.Add(Chunk.NEWLINE);
-            prg2.Add(Chunk.NEWLINE);
-            prg2.Add("Mökki");
-            prg2.Add(Chunk.NEWLINE);
-            prg2.Add(Chunk.NEWLINE);
+            
+            Paragraph prg2 = new Paragraph("Varauksen tiedot" + Chunk.NEWLINE + Chunk.NEWLINE, f);
 
             Paragraph prg3 = new Paragraph();
             prg3.Add(Chunk.NEWLINE);
             prg3.Add(Chunk.NEWLINE);
-            prg3.Add("Varauksen tiedot");
+            prg3.Add("Ostetut palvelut: ");
             prg3.Add(Chunk.NEWLINE);
-            prg3.Add(Chunk.NEWLINE);
-            if (dgvAsiakas.Rows.Count >0)
+
+            Paragraph prg4 = new Paragraph(Chunk.NEWLINE + "Laskun summa (sis. alv 10%) " + double.Parse(lbSumma.Text) + " €", f);
+            
+
+
+            if (dgvMokki.Rows.Count >0)
             {
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {   //Tarkistaa, onko saman niminen tiedosto
@@ -75,21 +83,22 @@ namespace village
                         
                         try
                         {
-                            BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN,BaseFont.CP1250,BaseFont.EMBEDDED);
-                            PdfPTable pdf = new PdfPTable(dgvAsiakas.Columns.Count);
+                            //Lukee Mökki-dgv:n
+                            PdfPTable pdf = new PdfPTable(dgvMokki.Columns.Count);
                             pdf.DefaultCell.Padding = 3;
                             pdf.WidthPercentage = 100;
                             pdf.HorizontalAlignment = Element.ALIGN_LEFT;
-                           
-                            //Lukee Asiakas-dgv:n
-                            iTextSharp.text.Font text = new iTextSharp.text.Font(bf,10,iTextSharp.text.Font.NORMAL);
-                            foreach (DataGridViewColumn column in dgvAsiakas.Columns)
+
+                            BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.EMBEDDED);
+
+                            iTextSharp.text.Font text = new iTextSharp.text.Font(bf, 10, iTextSharp.text.Font.NORMAL);
+                            foreach (DataGridViewColumn column in dgvMokki.Columns)
                             {
                                 PdfPCell cell = new PdfPCell(new iTextSharp.text.Phrase(column.HeaderText, text));
                                 pdf.AddCell(cell);
                             }
                             string pdfcell;
-                            foreach (DataGridViewRow row in dgvAsiakas.Rows)
+                            foreach (DataGridViewRow row in dgvMokki.Rows)
                             {
                                 foreach (DataGridViewCell cell in row.Cells)
                                 {
@@ -104,22 +113,20 @@ namespace village
                                     }
                                 }
                             }
-                            //Lukee Mökki-dgv:n
-                            PdfPTable pdf2 = new PdfPTable(dgvMokki.Columns.Count);
+                            //Lukee varauksen
+                            BaseFont bf2 = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.EMBEDDED);
+                            PdfPTable pdf2 = new PdfPTable(dgvVaraus.Columns.Count);
                             pdf2.DefaultCell.Padding = 3;
                             pdf2.WidthPercentage = 100;
                             pdf2.HorizontalAlignment = Element.ALIGN_LEFT;
-
-                            BaseFont bf2 = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.EMBEDDED);
-
                             iTextSharp.text.Font text2 = new iTextSharp.text.Font(bf2, 10, iTextSharp.text.Font.NORMAL);
-                            foreach (DataGridViewColumn column in dgvMokki.Columns)
+                            foreach (DataGridViewColumn column in dgvVaraus.Columns)
                             {
                                 PdfPCell cell = new PdfPCell(new iTextSharp.text.Phrase(column.HeaderText, text2));
                                 pdf2.AddCell(cell);
                             }
                             string pdfcell2;
-                            foreach (DataGridViewRow row in dgvMokki.Rows)
+                            foreach (DataGridViewRow row in dgvVaraus.Rows)
                             {
                                 foreach (DataGridViewCell cell in row.Cells)
                                 {
@@ -135,37 +142,39 @@ namespace village
                                 }
                             }
 
-
-                            //Lukee varaustiedot
                             BaseFont bf3 = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.EMBEDDED);
-                            PdfPTable pdf3 = new PdfPTable(dgvVaraus.Columns.Count);
+                            PdfPTable pdf3 = new PdfPTable(dgvPalv.Columns.Count);
                             pdf3.DefaultCell.Padding = 3;
                             pdf3.WidthPercentage = 100;
                             pdf3.HorizontalAlignment = Element.ALIGN_LEFT;
 
-
-                            iTextSharp.text.Font text3 = new iTextSharp.text.Font(bf3, 10, iTextSharp.text.Font.NORMAL);
-                            foreach (DataGridViewColumn column in dgvVaraus.Columns)
+                            if (dgvPalv.Rows.Count >0)
                             {
-                                PdfPCell cell = new PdfPCell(new iTextSharp.text.Phrase(column.HeaderText, text3));
-                                pdf3.AddCell(cell);
-                            }
-                            string pdfcell3;
-                            foreach (DataGridViewRow row in dgvVaraus.Rows)
-                            {
-                                foreach (DataGridViewCell cell in row.Cells)
+                                //Lukee palvelutiedot
+                                iTextSharp.text.Font text3 = new iTextSharp.text.Font(bf3, 10, iTextSharp.text.Font.NORMAL);
+                                foreach (DataGridViewColumn column in dgvPalv.Columns)
                                 {
-                                    if (cell.Value == null)
+                                    PdfPCell cell = new PdfPCell(new iTextSharp.text.Phrase(column.HeaderText, text3));
+                                    pdf3.AddCell(cell);
+                                }
+                                string pdfcell3;
+                                foreach (DataGridViewRow row in dgvPalv.Rows)
+                                {
+                                    foreach (DataGridViewCell cell in row.Cells)
                                     {
-                                        pdfcell3 = null;
-                                    }
-                                    else
-                                    {
-                                        pdfcell3 = cell.Value.ToString();
-                                        pdf3.AddCell(new Phrase(pdfcell3, text3));
+                                        if (cell.Value == null)
+                                        {
+                                            pdfcell3 = null;
+                                        }
+                                        else
+                                        {
+                                            pdfcell3 = cell.Value.ToString();
+                                            pdf3.AddCell(new Phrase(pdfcell3, text3));
+                                        }
                                     }
                                 }
                             }
+                               
 
                             using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
                             {
@@ -178,6 +187,7 @@ namespace village
                                 pdfD.Add(pdf2);
                                 pdfD.Add(prg3);
                                 pdfD.Add(pdf3);
+                                pdfD.Add(prg4);
                                 pdfD.Close();
                                 stream.Close();
                             }
@@ -193,6 +203,11 @@ namespace village
             }
 
             this.Close();
+        }
+
+        private void dgvPalv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
