@@ -59,6 +59,7 @@
             this.btnMuokkaa = new System.Windows.Forms.Button();
             this.dgvToimintaalueet = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnSuljePalv = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.tbPalvTyyppi = new System.Windows.Forms.TextBox();
             this.cbPalvToimintaAlue = new System.Windows.Forms.ComboBox();
@@ -77,6 +78,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dgvPalvelut = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnSuljeAs = new System.Windows.Forms.Button();
             this.btnMuokkaus = new System.Windows.Forms.Button();
             this.btnAsPoista = new System.Windows.Forms.Button();
             this.btnLisaa = new System.Windows.Forms.Button();
@@ -94,8 +96,6 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnSuljePalv = new System.Windows.Forms.Button();
-            this.btnSuljeAs = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMokkilista)).BeginInit();
@@ -257,6 +257,7 @@
             // 
             // dgvMokkilista
             // 
+            this.dgvMokkilista.BackgroundColor = System.Drawing.Color.White;
             this.dgvMokkilista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMokkilista.Location = new System.Drawing.Point(525, 211);
             this.dgvMokkilista.Name = "dgvMokkilista";
@@ -414,6 +415,7 @@
             // 
             // dgvToimintaalueet
             // 
+            this.dgvToimintaalueet.BackgroundColor = System.Drawing.Color.White;
             this.dgvToimintaalueet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvToimintaalueet.Location = new System.Drawing.Point(525, 23);
             this.dgvToimintaalueet.Name = "dgvToimintaalueet";
@@ -449,6 +451,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Palveluiden hallinta";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnSuljePalv
+            // 
+            this.btnSuljePalv.Location = new System.Drawing.Point(871, 361);
+            this.btnSuljePalv.Name = "btnSuljePalv";
+            this.btnSuljePalv.Size = new System.Drawing.Size(109, 37);
+            this.btnSuljePalv.TabIndex = 20;
+            this.btnSuljePalv.Text = "Sulje";
+            this.btnSuljePalv.UseVisualStyleBackColor = true;
+            this.btnSuljePalv.Click += new System.EventHandler(this.btnSuljePalv_Click);
             // 
             // label18
             // 
@@ -600,6 +612,7 @@
             // 
             // dgvPalvelut
             // 
+            this.dgvPalvelut.BackgroundColor = System.Drawing.Color.White;
             this.dgvPalvelut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPalvelut.Location = new System.Drawing.Point(401, 23);
             this.dgvPalvelut.Name = "dgvPalvelut";
@@ -636,6 +649,16 @@
             this.tabPage4.Text = "Asiakkaiden hallinta";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // btnSuljeAs
+            // 
+            this.btnSuljeAs.Location = new System.Drawing.Point(844, 378);
+            this.btnSuljeAs.Name = "btnSuljeAs";
+            this.btnSuljeAs.Size = new System.Drawing.Size(97, 35);
+            this.btnSuljeAs.TabIndex = 35;
+            this.btnSuljeAs.Text = "Sulje";
+            this.btnSuljeAs.UseVisualStyleBackColor = true;
+            this.btnSuljeAs.Click += new System.EventHandler(this.btnSuljeAs_Click);
+            // 
             // btnMuokkaus
             // 
             this.btnMuokkaus.Location = new System.Drawing.Point(401, 378);
@@ -668,6 +691,7 @@
             // 
             // dgvAsiakkaanTiedot
             // 
+            this.dgvAsiakkaanTiedot.BackgroundColor = System.Drawing.Color.White;
             this.dgvAsiakkaanTiedot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAsiakkaanTiedot.Location = new System.Drawing.Point(286, 48);
             this.dgvAsiakkaanTiedot.Name = "dgvAsiakkaanTiedot";
@@ -793,26 +817,6 @@
             this.label2.Size = new System.Drawing.Size(136, 18);
             this.label2.TabIndex = 15;
             this.label2.Text = "Asiakkaiden hallinta";
-            // 
-            // btnSuljePalv
-            // 
-            this.btnSuljePalv.Location = new System.Drawing.Point(871, 361);
-            this.btnSuljePalv.Name = "btnSuljePalv";
-            this.btnSuljePalv.Size = new System.Drawing.Size(109, 37);
-            this.btnSuljePalv.TabIndex = 20;
-            this.btnSuljePalv.Text = "Sulje";
-            this.btnSuljePalv.UseVisualStyleBackColor = true;
-            this.btnSuljePalv.Click += new System.EventHandler(this.btnSuljePalv_Click);
-            // 
-            // btnSuljeAs
-            // 
-            this.btnSuljeAs.Location = new System.Drawing.Point(844, 378);
-            this.btnSuljeAs.Name = "btnSuljeAs";
-            this.btnSuljeAs.Size = new System.Drawing.Size(97, 35);
-            this.btnSuljeAs.TabIndex = 35;
-            this.btnSuljeAs.Text = "Sulje";
-            this.btnSuljeAs.UseVisualStyleBackColor = true;
-            this.btnSuljeAs.Click += new System.EventHandler(this.btnSuljeAs_Click);
             // 
             // yllapito
             // 

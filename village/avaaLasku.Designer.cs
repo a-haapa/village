@@ -81,6 +81,7 @@ namespace village
             // 
             // dgvAsiakas
             // 
+            this.dgvAsiakas.BackgroundColor = System.Drawing.Color.White;
             this.dgvAsiakas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAsiakas.Location = new System.Drawing.Point(27, 106);
             this.dgvAsiakas.Name = "dgvAsiakas";
@@ -91,6 +92,7 @@ namespace village
             // 
             // dgvMokki
             // 
+            this.dgvMokki.BackgroundColor = System.Drawing.Color.White;
             this.dgvMokki.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMokki.Location = new System.Drawing.Point(26, 243);
             this.dgvMokki.Name = "dgvMokki";
@@ -101,6 +103,7 @@ namespace village
             // 
             // dgvVaraus
             // 
+            this.dgvVaraus.BackgroundColor = System.Drawing.Color.White;
             this.dgvVaraus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVaraus.Location = new System.Drawing.Point(27, 387);
             this.dgvVaraus.Name = "dgvVaraus";

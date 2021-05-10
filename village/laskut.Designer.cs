@@ -121,6 +121,7 @@ namespace village
             // 
             // dgvLaskut
             // 
+            this.dgvLaskut.BackgroundColor = System.Drawing.Color.White;
             this.dgvLaskut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLaskut.Location = new System.Drawing.Point(30, 134);
             this.dgvLaskut.Name = "dgvLaskut";
