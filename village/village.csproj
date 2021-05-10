@@ -177,11 +177,11 @@
       <DependentUpon>paaikkuna.cs</DependentUpon>
     </Compile>
     <Compile Include="TaskDB.cs" />
-    <Compile Include="VarausMuokkaus.cs">
+    <Compile Include="PalvRapsa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VarausMuokkaus.Designer.cs">
-      <DependentUpon>VarausMuokkaus.cs</DependentUpon>
+    <Compile Include="PalvRapsa.Designer.cs">
+      <DependentUpon>PalvRapsa.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -200,8 +200,8 @@
     <EmbeddedResource Include="raportointi.resx">
       <DependentUpon>raportointi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VarausMuokkaus.resx">
-      <DependentUpon>VarausMuokkaus.cs</DependentUpon>
+    <EmbeddedResource Include="PalvRapsa.resx">
+      <DependentUpon>PalvRapsa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Muokkaa_palvelua.resx">
       <DependentUpon>Muokkaa_palvelua.cs</DependentUpon>

@@ -16,10 +16,7 @@ namespace village
         public DateTime Varattu_loppupvm { get; set; }
         public int Mokki_mokki_id { get; set; }
 
-        public int Asiakas_id { get; set; }
         public Asiakas asiakas = new Asiakas();
 
-        public string Palvelu_nimi { get; set; }
-        public int Palvelu_id { get; set; }
     }
 }

@@ -41,7 +41,9 @@ namespace village
             this.dgvRaportti = new System.Windows.Forms.DataGridView();
             this.lbPaivat = new System.Windows.Forms.Label();
             this.lbTaytto = new System.Windows.Forms.Label();
+            this.dgvPalvRapsa = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRaportti)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPalvRapsa)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpAlku
@@ -129,12 +131,14 @@ namespace village
             // 
             // dgvRaportti
             // 
+            this.dgvRaportti.BackgroundColor = System.Drawing.Color.White;
             this.dgvRaportti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRaportti.GridColor = System.Drawing.SystemColors.Control;
             this.dgvRaportti.Location = new System.Drawing.Point(28, 131);
             this.dgvRaportti.Name = "dgvRaportti";
             this.dgvRaportti.RowHeadersWidth = 51;
             this.dgvRaportti.RowTemplate.Height = 24;
-            this.dgvRaportti.Size = new System.Drawing.Size(1025, 432);
+            this.dgvRaportti.Size = new System.Drawing.Size(694, 432);
             this.dgvRaportti.TabIndex = 9;
             // 
             // lbPaivat
@@ -159,11 +163,24 @@ namespace village
             this.lbTaytto.Text = "label5";
             this.lbTaytto.Visible = false;
             // 
+            // dgvPalvRapsa
+            // 
+            this.dgvPalvRapsa.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPalvRapsa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPalvRapsa.GridColor = System.Drawing.SystemColors.Control;
+            this.dgvPalvRapsa.Location = new System.Drawing.Point(737, 131);
+            this.dgvPalvRapsa.Name = "dgvPalvRapsa";
+            this.dgvPalvRapsa.RowHeadersWidth = 51;
+            this.dgvPalvRapsa.RowTemplate.Height = 24;
+            this.dgvPalvRapsa.Size = new System.Drawing.Size(324, 431);
+            this.dgvPalvRapsa.TabIndex = 12;
+            // 
             // raportointi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 652);
+            this.Controls.Add(this.dgvPalvRapsa);
             this.Controls.Add(this.lbTaytto);
             this.Controls.Add(this.lbPaivat);
             this.Controls.Add(this.dgvRaportti);
@@ -179,6 +196,7 @@ namespace village
             this.Name = "raportointi";
             this.Text = "raportointi";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRaportti)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPalvRapsa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,5 +216,6 @@ namespace village
         private System.Windows.Forms.DataGridView dgvRaportti;
         private System.Windows.Forms.Label lbPaivat;
         private System.Windows.Forms.Label lbTaytto;
+        private System.Windows.Forms.DataGridView dgvPalvRapsa;
     }
 }

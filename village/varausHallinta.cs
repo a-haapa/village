@@ -48,5 +48,9 @@ namespace village
             laskut.Show();
             this.Close();
         }
+
+        private void btnAvaa_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

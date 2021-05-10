@@ -21,6 +21,7 @@ namespace village
             dgvVaraus.DataSource = TaskDB.HaeVaraus(varausid);
             dgvMokki.DataSource = TaskDB.HaeMokki(varausid);
             dgvAsiakas.DataSource = TaskDB.HaeAs(varausid);
+            dgvPalv.DataSource = TaskDB.HaeVarauksenPalvelut(varausid);
 
         }
 

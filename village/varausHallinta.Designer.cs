@@ -113,7 +113,7 @@ namespace village
             // 
             // btnLaskutus
             // 
-            this.btnLaskutus.Location = new System.Drawing.Point(647, 520);
+            this.btnLaskutus.Location = new System.Drawing.Point(187, 520);
             this.btnLaskutus.Name = "btnLaskutus";
             this.btnLaskutus.Size = new System.Drawing.Size(149, 40);
             this.btnLaskutus.TabIndex = 6;
