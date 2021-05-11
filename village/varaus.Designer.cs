@@ -64,8 +64,8 @@ namespace village
             this.label12 = new System.Windows.Forms.Label();
             this.tbID = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.clbPalv = new System.Windows.Forms.CheckedListBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.lbPalv = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -393,14 +393,6 @@ namespace village
             this.label10.TabIndex = 39;
             this.label10.Text = "ID";
             // 
-            // clbPalv
-            // 
-            this.clbPalv.FormattingEnabled = true;
-            this.clbPalv.Location = new System.Drawing.Point(144, 466);
-            this.clbPalv.Name = "clbPalv";
-            this.clbPalv.Size = new System.Drawing.Size(230, 106);
-            this.clbPalv.TabIndex = 40;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -410,13 +402,23 @@ namespace village
             this.label11.TabIndex = 41;
             this.label11.Text = "Hinta (sis. alv)";
             // 
+            // lbPalv
+            // 
+            this.lbPalv.FormattingEnabled = true;
+            this.lbPalv.ItemHeight = 16;
+            this.lbPalv.Location = new System.Drawing.Point(181, 472);
+            this.lbPalv.Name = "lbPalv";
+            this.lbPalv.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lbPalv.Size = new System.Drawing.Size(216, 116);
+            this.lbPalv.TabIndex = 42;
+            // 
             // varaus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1109, 667);
+            this.Controls.Add(this.lbPalv);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.clbPalv);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tbID);
             this.Controls.Add(this.label12);
@@ -498,7 +500,7 @@ namespace village
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox tbID;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.CheckedListBox clbPalv;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ListBox lbPalv;
     }
 }

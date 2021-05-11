@@ -34,8 +34,9 @@ namespace village
             lblVarustelu.Text = t.Rows[0].Field<string>(7);
             //Hakee listboxeihin kyseisen toiminta-alueen palvelut
 
-            clbPalv.DataSource = TaskDB.HaePalvelunNimi(ta);
-            clbPalv.DisplayMember = "nimi";
+            lbPalv.DataSource = TaskDB.HaePalvelunNimi(ta);
+            lbPalv.ValueMember = "palvelu_id";
+            lbPalv.DisplayMember = "nimi";
 
         }
 
@@ -83,7 +84,7 @@ namespace village
                 v.Varaus_id = int.Parse(dt.Rows[0].ItemArray[0].ToString());
                 double summa = 0;
                 Palvelu p = new Palvelu();
-                p.Nimi = clbPalv.Text;
+                p.Palvelu_id = int.Parse(lbPalv.SelectedValue.ToString());
                 TaskDB.LisaaVarauksenPalvelu(v, p);
                 DataTable g = TaskDB.HaeHinta(p);
                 p.Hinta = double.Parse(dt.Rows[0].ItemArray[0].ToString());

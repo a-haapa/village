@@ -19,6 +19,7 @@ namespace village
             lbPalvelut.ValueMember = "palvelu_id";
             lbPalvelut.DisplayMember = "nimi";
             lbPalvelut.SelectedItem = null;
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -28,7 +29,15 @@ namespace village
 
         private void btnLisaa_Click(object sender, EventArgs e)
         {
-
+            Palvelu p = new Palvelu();
+            varausL v = new varausL();
+            foreach (var item in lbPalvelut.SelectedItems)
+            {
+                p.Palvelu_id = int.Parse(lbPalvelut.SelectedValue.ToString());
+                TaskDB.LisaaVarauksenPalvelu(v, p);
+            }
+            
+            this.Close();
         }
     }
 }
