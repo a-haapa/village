@@ -146,7 +146,8 @@ namespace village
 
         private void btnSuljeMH_Click(object sender, EventArgs e)
         {
-            this.Close();
+            tabControl1.SelectedTab = tabPage1;
+            
         }
     }
 }
