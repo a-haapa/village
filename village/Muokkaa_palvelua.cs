@@ -26,6 +26,8 @@ namespace village
 
         private void btnPoistu_Click(object sender, EventArgs e)
         {
+            yllapito formi = new yllapito();
+            formi.Show();
             this.Close();
         }
 

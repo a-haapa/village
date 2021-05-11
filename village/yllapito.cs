@@ -275,7 +275,7 @@ namespace village
                  int id = int.Parse(dgvAsiakkaanTiedot.Rows[row].Cells[0].Value.ToString());
                  TaskDB.PoistaAsiakas(id);
 
-                 dgvToimintaalueet.DataSource = TaskDB.HaeAsiakkaanTiedot();
+                 dgvAsiakkaanTiedot.DataSource = TaskDB.HaeAsiakkaanTiedot();
                }
             
         }
@@ -285,10 +285,10 @@ namespace village
             Asiakas asiakas = new Asiakas();
             int row = dgvAsiakkaanTiedot.SelectedCells[0].RowIndex;
             asiakas.Asiakas_id = int.Parse(dgvAsiakkaanTiedot.Rows[row].Cells[0].Value.ToString());
-            asiakas.Etunimi = (string)dgvAsiakkaanTiedot.Rows[row].Cells[1].Value;
-            asiakas.Sukunimi = (string)dgvAsiakkaanTiedot.Rows[row].Cells[2].Value;
-            asiakas.Lahiosoite = (string)dgvAsiakkaanTiedot.Rows[row].Cells[3].Value;
-            asiakas.Postinro = (string)dgvAsiakkaanTiedot.Rows[row].Cells[4].Value;
+            asiakas.Etunimi = (string)dgvAsiakkaanTiedot.Rows[row].Cells[2].Value;
+            asiakas.Sukunimi = (string)dgvAsiakkaanTiedot.Rows[row].Cells[3].Value;
+            asiakas.Lahiosoite = (string)dgvAsiakkaanTiedot.Rows[row].Cells[4].Value;
+            asiakas.Postinro = (string)dgvAsiakkaanTiedot.Rows[row].Cells[1].Value;
             asiakas.Email = (string)dgvAsiakkaanTiedot.Rows[row].Cells[5].Value;
             asiakas.Puhelinnro = (string)dgvAsiakkaanTiedot.Rows[row].Cells[6].Value;
 
