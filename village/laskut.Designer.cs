@@ -35,7 +35,6 @@ namespace village
             this.dtpLoppu = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.btnSulje = new System.Windows.Forms.Button();
             this.dgvLaskut = new System.Windows.Forms.DataGridView();
             this.btnPoista = new System.Windows.Forms.Button();
@@ -46,21 +45,21 @@ namespace village
             // Laskutus
             // 
             this.Laskutus.AutoSize = true;
-            this.Laskutus.Font = new System.Drawing.Font("Lucida Sans Unicode", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Laskutus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Laskutus.ForeColor = System.Drawing.Color.DarkRed;
             this.Laskutus.Location = new System.Drawing.Point(27, 23);
             this.Laskutus.Name = "Laskutus";
-            this.Laskutus.Size = new System.Drawing.Size(71, 23);
+            this.Laskutus.Size = new System.Drawing.Size(63, 24);
             this.Laskutus.TabIndex = 0;
             this.Laskutus.Text = "Laskut";
             // 
             // Aikaväli
             // 
             this.Aikaväli.AutoSize = true;
-            this.Aikaväli.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Aikaväli.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Aikaväli.Location = new System.Drawing.Point(28, 74);
             this.Aikaväli.Name = "Aikaväli";
-            this.Aikaväli.Size = new System.Drawing.Size(61, 17);
+            this.Aikaväli.Size = new System.Drawing.Size(56, 17);
             this.Aikaväli.TabIndex = 1;
             this.Aikaväli.Text = "Aikaväli";
             // 
@@ -93,9 +92,9 @@ namespace village
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.DarkRed;
-            this.button1.Location = new System.Drawing.Point(519, 89);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(585, 88);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(145, 40);
             this.button1.TabIndex = 5;
@@ -103,23 +102,11 @@ namespace village
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.DarkRed;
-            this.button2.Location = new System.Drawing.Point(670, 89);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 40);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Maksettu";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // btnSulje
             // 
-            this.btnSulje.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSulje.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnSulje.Location = new System.Drawing.Point(821, 559);
+            this.btnSulje.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSulje.ForeColor = System.Drawing.Color.Black;
+            this.btnSulje.Location = new System.Drawing.Point(789, 546);
             this.btnSulje.Name = "btnSulje";
             this.btnSulje.Size = new System.Drawing.Size(145, 40);
             this.btnSulje.TabIndex = 7;
@@ -129,21 +116,21 @@ namespace village
             // 
             // dgvLaskut
             // 
-            this.dgvLaskut.BackgroundColor = System.Drawing.Color.White;
+            this.dgvLaskut.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvLaskut.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvLaskut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLaskut.Location = new System.Drawing.Point(30, 134);
             this.dgvLaskut.Name = "dgvLaskut";
             this.dgvLaskut.RowHeadersWidth = 51;
             this.dgvLaskut.RowTemplate.Height = 24;
-            this.dgvLaskut.Size = new System.Drawing.Size(937, 326);
+            this.dgvLaskut.Size = new System.Drawing.Size(904, 326);
             this.dgvLaskut.TabIndex = 8;
             // 
             // btnPoista
             // 
-            this.btnPoista.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPoista.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnPoista.Location = new System.Drawing.Point(821, 89);
+            this.btnPoista.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPoista.ForeColor = System.Drawing.Color.Black;
+            this.btnPoista.Location = new System.Drawing.Point(747, 88);
             this.btnPoista.Name = "btnPoista";
             this.btnPoista.Size = new System.Drawing.Size(145, 40);
             this.btnPoista.TabIndex = 9;
@@ -153,8 +140,8 @@ namespace village
             // 
             // btnAvaa
             // 
-            this.btnAvaa.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAvaa.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnAvaa.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAvaa.ForeColor = System.Drawing.Color.Black;
             this.btnAvaa.Location = new System.Drawing.Point(30, 465);
             this.btnAvaa.Name = "btnAvaa";
             this.btnAvaa.Size = new System.Drawing.Size(145, 40);
@@ -167,12 +154,12 @@ namespace village
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1002, 632);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(1132, 632);
             this.Controls.Add(this.btnAvaa);
             this.Controls.Add(this.btnPoista);
             this.Controls.Add(this.dgvLaskut);
             this.Controls.Add(this.btnSulje);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtpLoppu);
@@ -195,7 +182,6 @@ namespace village
         private System.Windows.Forms.DateTimePicker dtpLoppu;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnSulje;
         private System.Windows.Forms.DataGridView dgvLaskut;
         private System.Windows.Forms.Button btnPoista;

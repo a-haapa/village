@@ -45,7 +45,7 @@ namespace village
             DateTime loppu = DateTime.Parse(dtpLoppu.Text);
             string toimialue = cbToimialueet.Text;
             DataTable tt = TaskDB.HaeRaportti(toimialue, alku, loppu);
-
+            dgvRaportti.DataSource = tt;
             dgvPalvRapsa.DataSource = TaskDB.HaeVaratutPalv(toimialue,alku,loppu);
             int i = dgvPalvRapsa.Rows.Count - 1;
             lbMaara.Text = "Yhteensä: " + i + " kpl";
@@ -95,8 +95,6 @@ namespace village
                 double tayttoaste = (paivat / mokkipäivatYht) * 100;
                 lbTaytto.Text = "Täyttöaste: " + tayttoaste.ToString("00") + " %";
                 lbTaytto.Visible = true;
-                cbToimialueet.SelectedItem = null;
-                dgvRaportti.DataSource = tt;
                 
             }
             catch (Exception ex)

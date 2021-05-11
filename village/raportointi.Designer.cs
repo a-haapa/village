@@ -78,38 +78,38 @@ namespace village
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Lucida Sans Unicode", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkRed;
             this.label2.Location = new System.Drawing.Point(24, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 23);
+            this.label2.Size = new System.Drawing.Size(73, 24);
             this.label2.TabIndex = 3;
             this.label2.Text = "Raportit";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(25, 54);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 17);
+            this.label3.Size = new System.Drawing.Size(56, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Aikaväli";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(447, 54);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 17);
+            this.label4.Size = new System.Drawing.Size(69, 17);
             this.label4.TabIndex = 5;
             this.label4.Text = "Toimialue";
             // 
             // btnHaeRaportti
             // 
-            this.btnHaeRaportti.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHaeRaportti.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnHaeRaportti.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHaeRaportti.ForeColor = System.Drawing.Color.Black;
             this.btnHaeRaportti.Location = new System.Drawing.Point(615, 72);
             this.btnHaeRaportti.Name = "btnHaeRaportti";
             this.btnHaeRaportti.Size = new System.Drawing.Size(145, 40);
@@ -129,8 +129,8 @@ namespace village
             // 
             // btnSulje
             // 
-            this.btnSulje.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSulje.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnSulje.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSulje.ForeColor = System.Drawing.Color.Black;
             this.btnSulje.Location = new System.Drawing.Point(1155, 616);
             this.btnSulje.Name = "btnSulje";
             this.btnSulje.Size = new System.Drawing.Size(145, 40);
@@ -155,10 +155,10 @@ namespace village
             // lbPaivat
             // 
             this.lbPaivat.AutoSize = true;
-            this.lbPaivat.Font = new System.Drawing.Font("Lucida Sans Unicode", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPaivat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPaivat.Location = new System.Drawing.Point(37, 566);
             this.lbPaivat.Name = "lbPaivat";
-            this.lbPaivat.Size = new System.Drawing.Size(68, 23);
+            this.lbPaivat.Size = new System.Drawing.Size(60, 24);
             this.lbPaivat.TabIndex = 10;
             this.lbPaivat.Text = "label5";
             this.lbPaivat.Visible = false;
@@ -166,10 +166,10 @@ namespace village
             // lbTaytto
             // 
             this.lbTaytto.AutoSize = true;
-            this.lbTaytto.Font = new System.Drawing.Font("Lucida Sans Unicode", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTaytto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTaytto.Location = new System.Drawing.Point(38, 602);
             this.lbTaytto.Name = "lbTaytto";
-            this.lbTaytto.Size = new System.Drawing.Size(68, 23);
+            this.lbTaytto.Size = new System.Drawing.Size(60, 24);
             this.lbTaytto.TabIndex = 11;
             this.lbTaytto.Text = "label5";
             this.lbTaytto.Visible = false;
@@ -190,10 +190,10 @@ namespace village
             // lbMaara
             // 
             this.lbMaara.AutoSize = true;
-            this.lbMaara.Font = new System.Drawing.Font("Lucida Sans Unicode", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMaara.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMaara.Location = new System.Drawing.Point(692, 566);
             this.lbMaara.Name = "lbMaara";
-            this.lbMaara.Size = new System.Drawing.Size(68, 23);
+            this.lbMaara.Size = new System.Drawing.Size(60, 24);
             this.lbMaara.TabIndex = 13;
             this.lbMaara.Text = "label5";
             this.lbMaara.Visible = false;
@@ -203,6 +203,7 @@ namespace village
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1369, 683);
             this.Controls.Add(this.lbMaara);
             this.Controls.Add(this.dgvPalvRapsa);

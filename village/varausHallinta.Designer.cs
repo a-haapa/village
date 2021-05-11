@@ -43,21 +43,21 @@ namespace village
             // 
             // dgvNaytavaraukset
             // 
+            this.dgvNaytavaraukset.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvNaytavaraukset.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNaytavaraukset.Location = new System.Drawing.Point(22, 78);
-            this.dgvNaytavaraukset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvNaytavaraukset.GridColor = System.Drawing.Color.White;
+            this.dgvNaytavaraukset.Location = new System.Drawing.Point(16, 52);
             this.dgvNaytavaraukset.Name = "dgvNaytavaraukset";
             this.dgvNaytavaraukset.RowHeadersWidth = 51;
             this.dgvNaytavaraukset.RowTemplate.Height = 24;
-            this.dgvNaytavaraukset.Size = new System.Drawing.Size(1434, 694);
+            this.dgvNaytavaraukset.Size = new System.Drawing.Size(958, 463);
             this.dgvNaytavaraukset.TabIndex = 0;
             // 
             // btnSulje
             // 
-            this.btnSulje.Location = new System.Drawing.Point(1241, 893);
-            this.btnSulje.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSulje.Location = new System.Drawing.Point(903, 595);
             this.btnSulje.Name = "btnSulje";
-            this.btnSulje.Size = new System.Drawing.Size(200, 60);
+            this.btnSulje.Size = new System.Drawing.Size(145, 40);
             this.btnSulje.TabIndex = 1;
             this.btnSulje.Text = "Sulje";
             this.btnSulje.UseVisualStyleBackColor = true;
@@ -67,19 +67,17 @@ namespace village
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 28);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(12, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 29);
+            this.label1.Size = new System.Drawing.Size(84, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Varaukset";
             // 
             // btnPoista
             // 
-            this.btnPoista.Location = new System.Drawing.Point(22, 780);
-            this.btnPoista.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPoista.Location = new System.Drawing.Point(16, 520);
             this.btnPoista.Name = "btnPoista";
-            this.btnPoista.Size = new System.Drawing.Size(200, 60);
+            this.btnPoista.Size = new System.Drawing.Size(145, 40);
             this.btnPoista.TabIndex = 4;
             this.btnPoista.Text = "Poista";
             this.btnPoista.UseVisualStyleBackColor = true;
@@ -89,41 +87,37 @@ namespace village
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(47, 12);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Location = new System.Drawing.Point(34, 8);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(11, 12);
+            this.tabControl1.Size = new System.Drawing.Size(8, 8);
             this.tabControl1.TabIndex = 5;
             // 
             // tabPage1
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 33);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Size = new System.Drawing.Size(3, 0);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(0, 0);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 33);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage2.Size = new System.Drawing.Size(3, 0);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Size = new System.Drawing.Size(0, 0);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnLaskutus
             // 
-            this.btnLaskutus.Location = new System.Drawing.Point(230, 780);
-            this.btnLaskutus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLaskutus.Location = new System.Drawing.Point(167, 520);
             this.btnLaskutus.Name = "btnLaskutus";
-            this.btnLaskutus.Size = new System.Drawing.Size(200, 60);
+            this.btnLaskutus.Size = new System.Drawing.Size(145, 40);
             this.btnLaskutus.TabIndex = 6;
             this.btnLaskutus.Text = "Laskutus";
             this.btnLaskutus.UseVisualStyleBackColor = true;
@@ -131,16 +125,16 @@ namespace village
             // 
             // varausHallinta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1478, 993);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(1075, 662);
             this.Controls.Add(this.btnLaskutus);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnPoista);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSulje);
             this.Controls.Add(this.dgvNaytavaraukset);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "varausHallinta";
             this.Text = "varauksenpalvelut";
             ((System.ComponentModel.ISupportInitialize)(this.dgvNaytavaraukset)).EndInit();

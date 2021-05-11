@@ -12,12 +12,21 @@ namespace village
 {
     public partial class VarausMuokkaus : Form
     {
-        public VarausMuokkaus(DataTable dt)
+        public VarausMuokkaus(varausL v)
         {
             InitializeComponent();
+            lbPalvelut.DataSource = TaskDB.HaePalv(v);
+            lbPalvelut.ValueMember = "palvelu_id";
+            lbPalvelut.DisplayMember = "nimi";
+            lbPalvelut.SelectedItem = null;
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLisaa_Click(object sender, EventArgs e)
         {
 
         }

@@ -73,6 +73,7 @@ namespace village
                 v.Varattu_alkupvm = DateTime.Parse(lblAlku.Text);
                 v.Varattu_loppupvm = DateTime.Parse(lblLoppu.Text);
                 v.Varattu = DateTime.Today;
+                v.Vahvistus_pvm = DateTime.Parse(lblAlku.Text).AddDays(-6);
                 v.Lukumaara = 1;
                 
                 
