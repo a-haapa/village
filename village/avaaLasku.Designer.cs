@@ -43,6 +43,7 @@ namespace village
             this.lbSumma = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.btnPoista = new System.Windows.Forms.Button();
+            this.btnSulje = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsiakas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMokki)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVaraus)).BeginInit();
@@ -185,7 +186,7 @@ namespace village
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(1000, 561);
+            this.button2.Location = new System.Drawing.Point(814, 561);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(145, 40);
             this.button2.TabIndex = 12;
@@ -197,12 +198,24 @@ namespace village
             // 
             this.btnPoista.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPoista.ForeColor = System.Drawing.Color.Black;
-            this.btnPoista.Location = new System.Drawing.Point(829, 561);
+            this.btnPoista.Location = new System.Drawing.Point(663, 561);
             this.btnPoista.Name = "btnPoista";
             this.btnPoista.Size = new System.Drawing.Size(145, 40);
             this.btnPoista.TabIndex = 13;
             this.btnPoista.Text = "Poista palvelu";
             this.btnPoista.UseVisualStyleBackColor = true;
+            // 
+            // btnSulje
+            // 
+            this.btnSulje.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSulje.ForeColor = System.Drawing.Color.Black;
+            this.btnSulje.Location = new System.Drawing.Point(1022, 561);
+            this.btnSulje.Name = "btnSulje";
+            this.btnSulje.Size = new System.Drawing.Size(145, 40);
+            this.btnSulje.TabIndex = 14;
+            this.btnSulje.Text = "Sulje";
+            this.btnSulje.UseVisualStyleBackColor = true;
+            this.btnSulje.Click += new System.EventHandler(this.btnSulje_Click);
             // 
             // avaaLasku
             // 
@@ -210,6 +223,7 @@ namespace village
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1203, 645);
+            this.Controls.Add(this.btnSulje);
             this.Controls.Add(this.btnPoista);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.lbSumma);
@@ -251,5 +265,6 @@ namespace village
         private System.Windows.Forms.Label lbSumma;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnPoista;
+        private System.Windows.Forms.Button btnSulje;
     }
 }

@@ -220,7 +220,13 @@ namespace village
 
             VarausMuokkaus l = new VarausMuokkaus(v);
             l.Show();
+            this.Refresh();
             //TaskDB.LisaaVarauksenPalvelu(v, p);
+        }
+
+        private void btnSulje_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -654,7 +654,7 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu.nimi FROM {tablename6},{tablename7} WHERE palvelu.toimintaalue_id=toimintaalue.toimintaalue_id and toimintaalue.nimi='{ta}'", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu.* FROM {tablename6},{tablename7} WHERE palvelu.toimintaalue_id=toimintaalue.toimintaalue_id and toimintaalue.nimi='{ta}'", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -703,7 +703,7 @@ namespace village
                 {
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename};Version=3");
                     connection.Open();
-                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename8} (varaus_id,palvelu_id,lkm) VALUES ((SELECT max(varaus_id) FROM {tablename3}),(SELECT palvelu_id FROM {tablename7} WHERE palvelu.nimi='{p.Nimi}'),'{v.Lukumaara}')", connection);
+                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tablename8} (varaus_id,palvelu_id,lkm) VALUES ((SELECT max(varaus_id) FROM {tablename3}),'{p.Palvelu_id}','{v.Lukumaara}')", connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
                     return true;
