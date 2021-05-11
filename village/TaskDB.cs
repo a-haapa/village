@@ -33,28 +33,7 @@ namespace village
             tablename8 = village.Properties.Settings.Default.table8;  //varauksen palvelu
 
         }
-        public static DataTable ReadFromAsiakas()
-        {
-            //Tietojen haku "asiakas" taulusta
-            if (File.Exists(filename))
-            {
-                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
-                connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT * FROM {tablename}", connection);
-
-                //tiedon lukeminen
-                SQLiteDataReader rdr = cmd.ExecuteReader();
-                DataTable tt = new DataTable();
-                tt.Load(rdr);
-                rdr.Close();
-                connection.Close();
-                return tt;
-            }
-            else
-            {
-                throw new FileNotFoundException("Tiedostoa ei löytynyt");
-            }
-        }
+        
         public static DataTable HaeToimintaalue()
         {
             //Tietojen haku "Toiminta-alueet" taulusta
@@ -787,6 +766,30 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
+        public static DataTable HaePalv(varausL v)
+        {
+            //THakee varausten palvelut raporttiin
+            if (File.Exists(filename))
+            {
+                SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu.* FROM {tablename3},{tablename5},{tablename6},{tablename7} " +
+                    $"WHERE mokki.mokki_id=varaus.mokki_mokki_id and toimintaalue.toimintaalue_id=mokki.toimintaalue_id " +
+                    $"and palvelu.toimintaalue_id=toimintaalue.toimintaalue_id and varaus.varaus_id='{v.Varaus_id}'", connection);
+
+                //tiedon lukeminen
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                DataTable tt = new DataTable();
+                tt.Load(rdr);
+                rdr.Close();
+                connection.Close();
+                return tt;
+            }
+            else
+            {
+                throw new FileNotFoundException("Tiedostoa ei löytynyt");
+            }
+        }
         public static DataTable HaeHinta(Palvelu p)
         {
             //THakee varausten palvelut
@@ -1086,8 +1089,9 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT summa FROM {tablename2} " +
-                    $"WHERE lasku_id='{lasku_id}'", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT lasku.summa + palvelu.hinta FROM {tablename2},{tablename3},{tablename8},{tablename7} " +
+                    $"WHERE varaus.varaus_id=lasku.varaus_id and varauksen_palvelut.varaus_id=varaus.varaus_id and palvelu.palvelu_id=varauksen_palvelut.palvelu_id " +
+                    $"and lasku_id='{lasku_id}'", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -1109,7 +1113,7 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT varaus.varaus_id,lasku_id,summa,asiakas_id,varattu_alkupvm,varattu_loppupvm,vahvistus_pvm FROM {tablename2},{tablename3} WHERE varaus.varaus_id=lasku.varaus_id", connection);
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT varaus.varaus_id,lasku_id,summa,asiakas_id,varattu_alkupvm,varattu_loppupvm FROM {tablename2},{tablename3} WHERE varaus.varaus_id=lasku.varaus_id and varaus.vahvistus_pvm<'{DateTime.Today.ToString("yyyy-MM-dd")}'", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();

@@ -24,6 +24,7 @@ namespace village
             dgvPalv.DataSource = TaskDB.HaeVarauksenPalvelut(varausid);
             DataTable t = TaskDB.HaeSumma(lasku_id);
             lbSumma.Text = t.Rows[0].ItemArray[0].ToString();
+            
         }
 
         private void btnTulosta_Click(object sender, EventArgs e)
@@ -50,13 +51,12 @@ namespace village
             prg.Add(Chunk.NEWLINE);
 
             
-            Paragraph prg2 = new Paragraph("Varauksen tiedot" + Chunk.NEWLINE + Chunk.NEWLINE, f);
+            Paragraph prg2 = new Paragraph(Chunk.NEWLINE + "Varauksen tiedot" + Chunk.NEWLINE + Chunk.NEWLINE, f);
 
-            Paragraph prg3 = new Paragraph();
+            Paragraph prg3 = new Paragraph(Chunk.NEWLINE + "Ostetut palvelut: " + Chunk.NEWLINE, f);
             prg3.Add(Chunk.NEWLINE);
-            prg3.Add(Chunk.NEWLINE);
-            prg3.Add("Ostetut palvelut: ");
-            prg3.Add(Chunk.NEWLINE);
+            
+            
 
             Paragraph prg4 = new Paragraph(Chunk.NEWLINE + "Laskun summa (sis. alv 10%) " + double.Parse(lbSumma.Text) + " €", f);
             
@@ -208,6 +208,19 @@ namespace village
         private void dgvPalv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int row = dgvVaraus.SelectedCells[0].RowIndex;
+            int varausid = int.Parse(dgvVaraus.Rows[row].Cells[0].Value.ToString());
+            varausL v = new varausL();
+            v.Varaus_id = varausid;
+            double summa = 0;
+
+            VarausMuokkaus l = new VarausMuokkaus(v);
+            l.Show();
+            //TaskDB.LisaaVarauksenPalvelu(v, p);
         }
     }
 }
