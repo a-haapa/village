@@ -881,13 +881,6 @@
         private System.Windows.Forms.Button btnLisaamokki;
         private System.Windows.Forms.DataGridView dgvMokkilista;
         private System.Windows.Forms.Button btnSulje;
-        private System.Windows.Forms.TextBox tbPalveluAlv;
-        private System.Windows.Forms.TextBox tbPalveluHinta;
-        private System.Windows.Forms.TextBox tbPalveluKuvaus;
-        private System.Windows.Forms.TextBox tbPalveluTyyppi;
-        private System.Windows.Forms.ComboBox cbPalveluId;
-        private System.Windows.Forms.TextBox tbPalveluNimi;
-        private System.Windows.Forms.ComboBox cbPalvelunToimintaAlue;
         private System.Windows.Forms.DataGridView dgvPalvelut;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TextBox tbPalvHinta;

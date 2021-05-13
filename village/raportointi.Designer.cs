@@ -43,6 +43,8 @@ namespace village
             this.lbTaytto = new System.Windows.Forms.Label();
             this.dgvPalvRapsa = new System.Windows.Forms.DataGridView();
             this.lbMaara = new System.Windows.Forms.Label();
+            this.btnPdf1 = new System.Windows.Forms.Button();
+            this.btnpdf2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRaportti)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPalvRapsa)).BeginInit();
             this.SuspendLayout();
@@ -199,12 +201,34 @@ namespace village
             this.lbMaara.Visible = false;
             this.lbMaara.Click += new System.EventHandler(this.label5_Click);
             // 
+            // btnPdf1
+            // 
+            this.btnPdf1.Location = new System.Drawing.Point(289, 569);
+            this.btnPdf1.Name = "btnPdf1";
+            this.btnPdf1.Size = new System.Drawing.Size(118, 33);
+            this.btnPdf1.TabIndex = 14;
+            this.btnPdf1.Text = "PDF";
+            this.btnPdf1.UseVisualStyleBackColor = true;
+            this.btnPdf1.Click += new System.EventHandler(this.btnPdf1_Click);
+            // 
+            // btnpdf2
+            // 
+            this.btnpdf2.Location = new System.Drawing.Point(985, 569);
+            this.btnpdf2.Name = "btnpdf2";
+            this.btnpdf2.Size = new System.Drawing.Size(118, 33);
+            this.btnpdf2.TabIndex = 15;
+            this.btnpdf2.Text = "PDF";
+            this.btnpdf2.UseVisualStyleBackColor = true;
+            this.btnpdf2.Click += new System.EventHandler(this.btnpdf2_Click);
+            // 
             // raportointi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1369, 683);
+            this.Controls.Add(this.btnpdf2);
+            this.Controls.Add(this.btnPdf1);
             this.Controls.Add(this.lbMaara);
             this.Controls.Add(this.dgvPalvRapsa);
             this.Controls.Add(this.lbTaytto);
@@ -244,5 +268,7 @@ namespace village
         private System.Windows.Forms.Label lbTaytto;
         private System.Windows.Forms.DataGridView dgvPalvRapsa;
         private System.Windows.Forms.Label lbMaara;
+        private System.Windows.Forms.Button btnPdf1;
+        private System.Windows.Forms.Button btnpdf2;
     }
 }

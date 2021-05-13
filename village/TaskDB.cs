@@ -725,7 +725,7 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu.nimi,varauksen_palvelut.lkm,palvelu.hinta FROM {tablename7},{tablename8} " +
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT palvelu.palvelu_id,palvelu.nimi,varauksen_palvelut.lkm,palvelu.hinta FROM {tablename7},{tablename8} " +
                     $"WHERE palvelu.palvelu_id=varauksen_palvelut.palvelu_id and varauksen_palvelut.varaus_id='{varausid}' ", connection);
 
                 //tiedon lukeminen
@@ -798,7 +798,7 @@ namespace village
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand($"SELECT hinta FROM {tablename7} " +
-                    $"WHERE nimi='{p.Nimi}' ", connection);
+                    $"WHERE nimi='{p.Palvelu_id}' ", connection);
 
                 //tiedon lukeminen
                 SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -813,6 +813,7 @@ namespace village
                 throw new FileNotFoundException("Tiedostoa ei löytynyt");
             }
         }
+
         public static DataTable PoistaPalvelu(int id)
         {   //Tietojen poistaminen tietokannassa "Palvelu" -kohdasta
             try
@@ -822,6 +823,35 @@ namespace village
                     SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                     connection.Open();
                     SQLiteCommand cmd = new SQLiteCommand($"DELETE FROM {tablename7} WHERE palvelu_id = '{id}'", connection);
+
+
+                    SQLiteDataReader rdr = cmd.ExecuteReader();
+                    DataTable tt = new DataTable();
+                    tt.Load(rdr);
+                    rdr.Close();
+                    connection.Close();
+                    HaePalvelut();
+                    return tt;
+                }
+                else
+                {
+                    throw new FileNotFoundException("Tiedostoa ei löytynyt");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public static DataTable PoistaVarauksenPalvelu(int id, int varausid)
+        {   //Tietojen poistaminen tietokannassa "Palvelu" -kohdasta
+            try
+            {
+                if (File.Exists(filename))
+                {
+                    SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
+                    connection.Open();
+                    SQLiteCommand cmd = new SQLiteCommand($"DELETE FROM {tablename8} WHERE palvelu_id = '{id}' and varaus_id= '{varausid}'", connection);
 
 
                     SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -1089,7 +1119,7 @@ namespace village
             {
                 SQLiteConnection connection = new SQLiteConnection($"Data source={filename}; Version=3");
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT lasku.summa + palvelu.hinta FROM {tablename2},{tablename3},{tablename8},{tablename7} " +
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT lasku.summa FROM {tablename2},{tablename3},{tablename8},{tablename7} " +
                     $"WHERE varaus.varaus_id=lasku.varaus_id and varauksen_palvelut.varaus_id=varaus.varaus_id and palvelu.palvelu_id=varauksen_palvelut.palvelu_id " +
                     $"and lasku_id='{lasku_id}'", connection);
 

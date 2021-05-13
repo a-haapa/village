@@ -1,8 +1,11 @@
-﻿using System;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -108,5 +111,178 @@ namespace village
         {
 
         }
+
+        private void btnPdf1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd4 = new SaveFileDialog();
+            sfd4.Filter = "PDF (*.pdf)|*.pdf";
+            sfd4.FileName = "Varausten_Raportti.pdf";
+            bool fileError = false;
+            iTextSharp.text.Font f = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN);
+            iTextSharp.text.Document pdfD = new iTextSharp.text.Document(PageSize.A4);
+            pdfD.SetMargins(70, 70, 110, 110);
+            Paragraph prg = new Paragraph("Raportti/Varaukset, Newbie Village" + Chunk.NEWLINE + Chunk.NEWLINE, f);
+            if (dgvRaportti.Rows.Count > 0)
+            {
+                if (sfd4.ShowDialog() == DialogResult.OK)
+                {   //Tarkistaa, onko saman niminen tiedosto
+                    if (File.Exists(sfd4.FileName))
+                    {
+                        try
+                        {   //Jos on, yrittää poistaa vanhan
+                            File.Delete(sfd4.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("Raportin kirjoittaminen ei onnistunut!" + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+
+                        try
+                        {
+                            //Lukee raportti-dgv:n
+                            PdfPTable pdf = new PdfPTable(dgvRaportti.Columns.Count);
+                            pdf.DefaultCell.Padding = 3;
+                            pdf.WidthPercentage = 100;
+                            pdf.HorizontalAlignment = Element.ALIGN_LEFT;
+
+                            BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.EMBEDDED);
+
+                            iTextSharp.text.Font text = new iTextSharp.text.Font(bf, 10, iTextSharp.text.Font.NORMAL);
+                            foreach (DataGridViewColumn column in dgvRaportti.Columns)
+                            {
+                                PdfPCell cell = new PdfPCell(new iTextSharp.text.Phrase(column.HeaderText, text));
+                                pdf.AddCell(cell);
+                            }
+                            string pdfcell;
+                            foreach (DataGridViewRow row in dgvRaportti.Rows)
+                            {
+                                foreach (DataGridViewCell cell in row.Cells)
+                                {
+                                    if (cell.Value == null)
+                                    {
+                                        pdfcell = null;
+                                    }
+                                    else
+                                    {
+                                        pdfcell = cell.Value.ToString();
+                                        pdf.AddCell(new Phrase(pdfcell, text));
+                                    }
+                                }
+                            }
+                            using (FileStream stream = new FileStream(sfd4.FileName, FileMode.Create))
+                            {
+                                //Tekee pdf:n
+                                PdfWriter.GetInstance(pdfD, stream);
+                                pdfD.Open();
+                                pdfD.Add(prg);
+                                pdfD.Add(pdf);
+
+                                pdfD.Close();
+                                stream.Close();
+                            }
+                            MessageBox.Show("Raportin tekeminen onnistui!", "Info");
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error! Raportin kirjoittaminen ei onnistunut" + ex.Message);
+                        }
+                       
+                    }
+                }
+            }
+
+        }
+
+        private void btnpdf2_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd5 = new SaveFileDialog();
+            sfd5.Filter = "PDF (*.pdf)|*.pdf";
+            sfd5.FileName = "Palveluiden_Raportti.pdf";
+            bool fileError = false;
+            iTextSharp.text.Font f = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN);
+            iTextSharp.text.Document pdfD = new iTextSharp.text.Document(PageSize.A4);
+            pdfD.SetMargins(70, 70, 110, 110);
+            Paragraph prg = new Paragraph("Raportti/Palvelut, Newbie Village" + Chunk.NEWLINE + Chunk.NEWLINE, f);
+            if (dgvPalvRapsa.Rows.Count > 0)
+            {
+                if (sfd5.ShowDialog() == DialogResult.OK)
+                {   //Tarkistaa, onko saman niminen tiedosto
+                    if (File.Exists(sfd5.FileName))
+                    {
+                        try
+                        {   //Jos on, yrittää poistaa vanhan
+                            File.Delete(sfd5.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("Raportin kirjoittaminen ei onnistunut!" + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+
+                        try
+                        {
+                            //Lukee raportti-dgv:n
+                            PdfPTable pdf = new PdfPTable(dgvPalvRapsa.Columns.Count);
+                            pdf.DefaultCell.Padding = 3;
+                            pdf.WidthPercentage = 100;
+                            pdf.HorizontalAlignment = Element.ALIGN_LEFT;
+
+                            BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.EMBEDDED);
+
+                            iTextSharp.text.Font text = new iTextSharp.text.Font(bf, 10, iTextSharp.text.Font.NORMAL);
+                            foreach (DataGridViewColumn column in dgvPalvRapsa.Columns)
+                            {
+                                PdfPCell cell = new PdfPCell(new iTextSharp.text.Phrase(column.HeaderText, text));
+                                pdf.AddCell(cell);
+                            }
+                            string pdfcell;
+                            foreach (DataGridViewRow row in dgvPalvRapsa.Rows)
+                            {
+                                foreach (DataGridViewCell cell in row.Cells)
+                                {
+                                    if (cell.Value == null)
+                                    {
+                                        pdfcell = null;
+                                    }
+                                    else
+                                    {
+                                        pdfcell = cell.Value.ToString();
+                                        pdf.AddCell(new Phrase(pdfcell, text));
+                                    }
+                                }
+                            }
+                            using (FileStream stream = new FileStream(sfd5.FileName, FileMode.Create))
+                            {
+                                //Tekee pdf:n
+                                PdfWriter.GetInstance(pdfD, stream);
+                                pdfD.Open();
+                                pdfD.Add(prg);
+                                pdfD.Add(pdf);
+
+                                pdfD.Close();
+                                stream.Close();
+                            }
+                            MessageBox.Show("Raportin tekeminen onnistui!", "Info");
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error! Raportin kirjoittaminen ei onnistunut" + ex.Message);
+                        }
+
+                    }
+                }
+            }
+        }
     }
+    
 }
+

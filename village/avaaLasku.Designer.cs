@@ -44,6 +44,10 @@ namespace village
             this.button2 = new System.Windows.Forms.Button();
             this.btnPoista = new System.Windows.Forms.Button();
             this.btnSulje = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lbPHinta = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lbYht = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsiakas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMokki)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVaraus)).BeginInit();
@@ -166,17 +170,17 @@ namespace village
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(124, 23);
+            this.label6.Location = new System.Drawing.Point(39, 584);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(96, 17);
+            this.label6.Size = new System.Drawing.Size(88, 17);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Maksettavaa: ";
+            this.label6.Text = "Mökin hinta: ";
             // 
             // lbSumma
             // 
             this.lbSumma.AutoSize = true;
             this.lbSumma.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSumma.Location = new System.Drawing.Point(222, 23);
+            this.lbSumma.Location = new System.Drawing.Point(133, 584);
             this.lbSumma.Name = "lbSumma";
             this.lbSumma.Size = new System.Drawing.Size(46, 17);
             this.lbSumma.TabIndex = 11;
@@ -204,6 +208,7 @@ namespace village
             this.btnPoista.TabIndex = 13;
             this.btnPoista.Text = "Poista palvelu";
             this.btnPoista.UseVisualStyleBackColor = true;
+            this.btnPoista.Click += new System.EventHandler(this.btnPoista_Click);
             // 
             // btnSulje
             // 
@@ -217,12 +222,52 @@ namespace village
             this.btnSulje.UseVisualStyleBackColor = true;
             this.btnSulje.Click += new System.EventHandler(this.btnSulje_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(288, 584);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 17);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Palvelut: ";
+            // 
+            // lbPHinta
+            // 
+            this.lbPHinta.AutoSize = true;
+            this.lbPHinta.Location = new System.Drawing.Point(350, 584);
+            this.lbPHinta.Name = "lbPHinta";
+            this.lbPHinta.Size = new System.Drawing.Size(46, 17);
+            this.lbPHinta.TabIndex = 16;
+            this.lbPHinta.Text = "label8";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(102, 23);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(115, 17);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Maksettavaa yht:";
+            // 
+            // lbYht
+            // 
+            this.lbYht.AutoSize = true;
+            this.lbYht.Location = new System.Drawing.Point(217, 23);
+            this.lbYht.Name = "lbYht";
+            this.lbYht.Size = new System.Drawing.Size(46, 17);
+            this.lbYht.TabIndex = 18;
+            this.lbYht.Text = "label9";
+            // 
             // avaaLasku
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1203, 645);
+            this.Controls.Add(this.lbYht);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lbPHinta);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnSulje);
             this.Controls.Add(this.btnPoista);
             this.Controls.Add(this.button2);
@@ -240,6 +285,7 @@ namespace village
             this.Controls.Add(this.label1);
             this.Name = "avaaLasku";
             this.Text = "avaaLasku";
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.avaaLasku_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsiakas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMokki)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVaraus)).EndInit();
@@ -266,5 +312,9 @@ namespace village
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnPoista;
         private System.Windows.Forms.Button btnSulje;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbPHinta;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbYht;
     }
 }

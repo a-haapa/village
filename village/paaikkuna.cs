@@ -101,6 +101,11 @@ namespace village
 
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Virheellinen syöte! ");
+                }
+                
             }
             catch (Exception ex)
             {
