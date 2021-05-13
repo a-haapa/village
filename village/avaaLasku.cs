@@ -24,7 +24,22 @@ namespace village
             dgvPalv.DataSource = TaskDB.HaeVarauksenPalvelut(varausid);
             DataTable t = TaskDB.HaeSumma(lasku_id);
             lbSumma.Text = t.Rows[0].ItemArray[0].ToString();
+            double summa = 0;
+            double kerroin = 0.1;
+            Palvelu p = new Palvelu();
             
+            foreach (DataGridViewRow rivi in dgvPalv.Rows)
+            {
+                if (rivi.Index < dgvPalv.RowCount -1)
+                {
+                    string str = dgvPalv.Rows[rivi.Index].Cells[3].Value.ToString();
+                    summa += Convert.ToDouble(str);
+                }
+
+            }
+            lbPHinta.Text = (summa + (summa * kerroin)).ToString();
+            double kokonaissumma = double.Parse(lbSumma.Text) + double.Parse(lbPHinta.Text);
+            lbYht.Text = kokonaissumma.ToString();
         }
 
         private void btnTulosta_Click(object sender, EventArgs e)
@@ -58,7 +73,7 @@ namespace village
             
             
 
-            Paragraph prg4 = new Paragraph(Chunk.NEWLINE + "Laskun summa (sis. alv 10%) " + double.Parse(lbSumma.Text) + " €", f);
+            Paragraph prg4 = new Paragraph(Chunk.NEWLINE + "Laskun summa (sis. alv 10%) " + (double.Parse(lbSumma.Text) + double.Parse(lbPHinta.Text)) + " €", f);
             
 
 
@@ -216,17 +231,72 @@ namespace village
             int varausid = int.Parse(dgvVaraus.Rows[row].Cells[0].Value.ToString());
             varausL v = new varausL();
             v.Varaus_id = varausid;
-            double summa = 0;
-
+            
             VarausMuokkaus l = new VarausMuokkaus(v);
             l.Show();
-            this.Refresh();
-            //TaskDB.LisaaVarauksenPalvelu(v, p);
+            
+            dgvPalv.DataSource = TaskDB.HaeVarauksenPalvelut(varausid);
+            
         }
+
+      
 
         private void btnSulje_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void btnPoista_Click(object sender, EventArgs e)
+        {
+            int row = dgvPalv.SelectedCells[0].RowIndex;
+            int id = int.Parse(dgvPalv.Rows[row].Cells[0].Value.ToString());
+            int rivi = dgvVaraus.SelectedCells[0].RowIndex;
+            int varausid = int.Parse(dgvVaraus.Rows[rivi].Cells[0].Value.ToString());
+            TaskDB.PoistaVarauksenPalvelu(id,varausid);
+            
+            dgvPalv.DataSource = TaskDB.HaeVarauksenPalvelut(varausid);
+            double summa = 0;
+            double kerroin = 0.1;
+            Palvelu p = new Palvelu();
+
+            foreach (DataGridViewRow rivi2 in dgvPalv.Rows)
+            {
+                if (rivi2.Index < dgvPalv.RowCount - 1)
+                {
+                    string str = dgvPalv.Rows[rivi2.Index].Cells[3].Value.ToString();
+                    summa += Convert.ToDouble(str);
+                }
+
+            }
+            lbPHinta.Text = (summa + (summa * kerroin)).ToString();
+            double kokonaissumma = double.Parse(lbSumma.Text) + double.Parse(lbPHinta.Text);
+            lbYht.Text = kokonaissumma.ToString();
+        }
+
+        private void avaaLasku_MouseClick(object sender, MouseEventArgs e)
+        {
+            int rivi = dgvVaraus.SelectedCells[0].RowIndex;
+            int varausid = int.Parse(dgvVaraus.Rows[rivi].Cells[0].Value.ToString());
+
+            dgvPalv.DataSource = TaskDB.HaeVarauksenPalvelut(varausid);
+            double summa = 0;
+            double kerroin = 0.1;
+            Palvelu p = new Palvelu();
+
+            foreach (DataGridViewRow rivi3 in dgvPalv.Rows)
+            {
+                if (rivi3.Index < dgvPalv.RowCount - 1)
+                {
+                    string str = dgvPalv.Rows[rivi3.Index].Cells[3].Value.ToString();
+                    summa += Convert.ToDouble(str);
+                }
+
+            }
+            lbPHinta.Text = (summa + (summa * kerroin)).ToString();
+            double kokonaissumma = double.Parse(lbSumma.Text) + double.Parse(lbPHinta.Text);
+            lbYht.Text = kokonaissumma.ToString();
+        }
+
+        
     }
 }

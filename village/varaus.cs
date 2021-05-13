@@ -82,17 +82,15 @@ namespace village
                 TaskDB.LisaaVaraus(v);
                 DataTable dt = TaskDB.HaeVaID();
                 v.Varaus_id = int.Parse(dt.Rows[0].ItemArray[0].ToString());
-                double summa = 0;
                 Palvelu p = new Palvelu();
                 p.Palvelu_id = int.Parse(lbPalv.SelectedValue.ToString());
+                v.Lukumaara = 1;
                 TaskDB.LisaaVarauksenPalvelu(v, p);
-                DataTable g = TaskDB.HaeHinta(p);
-                p.Hinta = double.Parse(dt.Rows[0].ItemArray[0].ToString());
 
                 //Laskutietojen tallennus
                 Lasku l = new Lasku();
                 l.varaus = v;
-                l.summa = summa + double.Parse(lblHinta.Text);
+                l.summa = double.Parse(lblHinta.Text);
                 l.alv = 10;
                 TaskDB.LisaaLasku(l);
 

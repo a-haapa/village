@@ -24,7 +24,7 @@ namespace village
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            this.Refresh();
         }
 
         private void btnLisaa_Click(object sender, EventArgs e)
@@ -34,9 +34,9 @@ namespace village
             foreach (var item in lbPalvelut.SelectedItems)
             {
                 p.Palvelu_id = int.Parse(lbPalvelut.SelectedValue.ToString());
+                v.Lukumaara = 1;
                 TaskDB.LisaaVarauksenPalvelu(v, p);
             }
-            
             this.Close();
         }
     }

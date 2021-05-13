@@ -76,7 +76,8 @@ namespace village
 
         private void btnSulje_Click(object sender, EventArgs e)
         {
-            this.Close();
+            varausHallinta uusi = new varausHallinta();
+            uusi.Show();
         }
 
         private void btnPoista_Click(object sender, EventArgs e)
