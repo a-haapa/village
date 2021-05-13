@@ -85,6 +85,7 @@ namespace village
             int row = dgvLaskut.SelectedCells[0].RowIndex;
             int id = int.Parse(dgvLaskut.Rows[row].Cells[0].Value.ToString());
             TaskDB.PoistaLasku(id);
+            dgvLaskut.DataSource = TaskDB.HaeKaikkiLaskut();
         }
     }
 }
